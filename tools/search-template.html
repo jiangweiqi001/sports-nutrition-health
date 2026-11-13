@@ -17,10 +17,11 @@ header { margin-bottom: 1.5rem; }
 h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.3; margin: 0.35rem 0 0.75rem; }
 a { color: var(--accent); text-underline-offset: 0.16em; }
 p { margin: 0.5rem 0; }
-.controls { display: grid; grid-template-columns: minmax(0, 3fr) minmax(9rem, 1fr); gap: 0.8rem; align-items: end; }
+.controls { display: grid; grid-template-columns: minmax(0, 3fr) repeat(2, minmax(9rem, 1fr)); gap: 0.8rem; align-items: end; }
 label { display: block; font-weight: 650; }
 input, select, button { font: inherit; min-height: 2.75rem; border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.48rem 0.7rem; color: var(--text); background: var(--surface); }
 input, select { width: 100%; margin-top: 0.25rem; }
+.filter-note { color: var(--quiet); font-size: 0.9rem; }
 button { cursor: pointer; color: var(--accent); }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
@@ -38,8 +39,12 @@ dd { margin: 0.2rem 0 0; }
 [hidden] { display: none !important; }
 @media (max-width: 34rem) {
   main { padding-top: 1.5rem; }
-  .controls { grid-template-columns: minmax(0, 1fr); }
+  .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .search-label { grid-column: 1 / -1; }
   summary { padding-inline: 0.75rem; }
+}
+@media (max-width: 23rem) {
+  .controls { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
 </head>
@@ -59,19 +64,31 @@ dd { margin: 0.2rem 0 0; }
   </header>
   <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
   <div class="controls">
-    <label>关键词或题号
-      <input type="search" id="query" placeholder="例如 膝盖疼、晚练、Q448" autocomplete="off">
+    <label class="search-label">关键词或题号
+      <input type="search" id="query" placeholder="例如 膝盖疼、蛋白质、能量胶" autocomplete="off">
     </label>
     <label>章节
       <select id="chapter"><option value="">全部章节</option></select>
     </label>
+    <label>证据等级
+      <select id="evidence" aria-describedby="evidence-note">
+        <option value="">全部等级</option>
+        <option value="A">含 A</option>
+        <option value="B">含 B</option>
+        <option value="C">含 C</option>
+        <option value="unmarked">无字母标注</option>
+      </select>
+    </label>
   </div>
+  <p id="evidence-note" class="filter-note">字母对应具体结论，一题可有多个标注。<a href="{{REPOSITORY}}/blob/main/docs/evidence.md#priority-review">查看分级说明</a></p>
   <div class="shortcuts" aria-label="常用搜索">
+    <button type="button" data-query="膝盖疼">膝盖疼</button>
+    <button type="button" data-query="蛋白质">蛋白质</button>
+    <button type="button" data-query="能量胶">能量胶</button>
     <button type="button" data-query="零基础">零基础</button>
     <button type="button" data-query="时间少">时间少</button>
     <button type="button" data-query="晚练">晚练怎么吃</button>
     <button type="button" data-query="首半马">首半马</button>
-    <button type="button" data-query="跑步膝盖疼">跑步膝盖疼</button>
   </div>
   <p id="status" aria-live="polite"></p>
   <section id="results" aria-label="搜索结果"></section>
@@ -84,6 +101,7 @@ const repository = '{{REPOSITORY}}';
 const entries = JSON.parse(document.getElementById('guide-data').textContent);
 const query = document.getElementById('query');
 const chapter = document.getElementById('chapter');
+const evidence = document.getElementById('evidence');
 const status = document.getElementById('status');
 const results = document.getElementById('results');
 const more = document.getElementById('more');
@@ -98,20 +116,28 @@ function normalize(value) {
 
 const searchable = entries.map(entry => ({
   entry,
-  heading: normalize([entry.qid, entry.question, entry.title, entry.aliases].join(' ')),
+  question: normalize(entry.question),
+  heading: normalize([entry.qid, entry.title, entry.aliases].join(' ')),
   body: normalize(entry.fields.slice(0, -1).map(field => field[1]).join(' ')),
 }));
 
-function findEntries(value, selectedChapter) {
+function findEntries(value, selectedChapter, selectedEvidence) {
   const raw = value.normalize('NFKC').trim();
   const idMatch = /^q?0*(\d+)$/i.exec(raw);
   const terms = raw.split(/\s+/).map(normalize).filter(Boolean);
   return searchable
     .filter(({ entry }) => !selectedChapter || entry.chapter === selectedChapter)
-    .map(({ entry, heading, body }) => {
+    .filter(({ entry }) => {
+      if (!selectedEvidence) return true;
+      if (selectedEvidence === 'unmarked') return entry.grades.length === 0;
+      return entry.grades.includes(selectedEvidence);
+    })
+    .map(({ entry, question, heading, body }) => {
       if (idMatch) return [entry, entry.id === Number(idMatch[1]) ? 1 : -1];
-      if (!terms.every(term => heading.includes(term) || body.includes(term))) return [entry, -1];
-      return [entry, terms.filter(term => heading.includes(term)).length];
+      if (!terms.every(term => question.includes(term) || heading.includes(term) || body.includes(term))) return [entry, -1];
+      const questionHits = terms.filter(term => question.includes(term)).length;
+      const headingHits = terms.filter(term => heading.includes(term)).length;
+      return [entry, questionHits * (terms.length + 1) + headingHits];
     })
     .filter(([, score]) => score >= 0)
     .sort((a, b) => b[1] - a[1] || a[0].id - b[0].id)
@@ -175,7 +201,8 @@ function appendAnswerText(container, markdown, entry) {
 function answerCard(entry) {
   const card = element('details');
   const summary = element('summary');
-  summary.append(element('span', entry.qid + ' · ' + entry.chapter, 'meta'));
+  const grades = entry.grades.length ? entry.grades.join('/') : '无字母标注';
+  summary.append(element('span', [entry.qid, entry.chapter, grades].join(' · '), 'meta'));
   summary.append(element('span', entry.question, 'question'));
   card.append(summary);
   card.addEventListener('toggle', () => {
@@ -211,11 +238,11 @@ function showMore() {
   more.hidden = shown >= matched.length;
   status.textContent = matched.length
     ? '找到 ' + matched.length + ' 题，显示 ' + shown + ' 题。'
-    : '没有匹配题目。可以试试更短的词，或切换到全部章节。';
+    : '没有匹配题目。可以试试更短的词，或放宽章节和证据等级筛选。';
 }
 
 function refresh() {
-  matched = findEntries(query.value, chapter.value);
+  matched = findEntries(query.value, chapter.value, evidence.value);
   shown = 0;
   results.replaceChildren();
   showMore();
@@ -224,6 +251,7 @@ function refresh() {
 
 query.addEventListener('input', refresh);
 chapter.addEventListener('change', refresh);
+evidence.addEventListener('change', refresh);
 more.addEventListener('click', () => {
   const next = shown;
   showMore();
@@ -233,6 +261,7 @@ for (const button of document.querySelectorAll('[data-query]')) {
   button.addEventListener('click', () => {
     query.value = button.dataset.query;
     chapter.value = '';
+    evidence.value = '';
     refresh();
     query.focus();
   });
@@ -241,6 +270,9 @@ for (const button of document.querySelectorAll('[data-query]')) {
 const parameters = new URLSearchParams(location.search);
 query.value = parameters.get('q') || '';
 chapter.value = chapters.includes(parameters.get('chapter')) ? parameters.get('chapter') : '';
+const requestedEvidence = parameters.get('evidence');
+evidence.value = Array.from(evidence.options).some(option => option.value === requestedEvidence)
+  ? requestedEvidence : '';
 refresh();
 </script>
 </body>

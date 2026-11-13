@@ -2,7 +2,7 @@
 
 给准备开始运动、已规律运动或准备参赛的普通成年人。按手头的问题查。每条先写怎么做、花什么，再写预期收益、适用范围和原始出处。
 
-[打开在线搜索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html) · [提一个真实问题](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=1-question.yml) · [报告某题错误或失效来源](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=2-correction.yml)
+**[打开在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)** · [提一个真实问题](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=1-question.yml) · [报告某题错误或失效来源](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=2-correction.yml)
 
 ## 按眼前的场景查
 
@@ -21,7 +21,7 @@
 
 ## 搜关键词或题号
 
-[在线搜索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文关键词、题号和章节。点击问题展开全文。
+[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持关键词和题号，可以叠加章节和证据等级筛选。点击问题展开全文。试试 [膝盖疼](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=膝盖疼)、[蛋白质](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=蛋白质) 或 [能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=能量胶)。
 
 要在无网时查阅，可在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。参考文献链接需要联网。
 

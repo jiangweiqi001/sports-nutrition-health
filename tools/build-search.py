@@ -13,6 +13,8 @@ REPOSITORY = "https://github.com/jiangweiqi001/sports-nutrition-health"
 ENTRY = re.compile(r'^<a name="(q\d+)"></a>\s+^### (.+)$', re.M)
 QUESTION = re.compile(r'^- \[(Q\d+)\]\(([^)]+)\) (.+)$', re.M)
 FIELD = re.compile(r'^- \*\*([^*]+)\*\*\s+(.+)$', re.M)
+# The guide labels individual conclusions; cited grades such as 1A are separate.
+EVIDENCE_MARKER = re.compile(r'(?:^|[。；])\s*([ABC])(?=[（。])')
 SECTIONS = {
     "抗阻训练": "运动",
     "拉伸与活动度": "运动",
@@ -92,10 +94,12 @@ def build_index():
             cached_answers[path] = read_answers(path)
         title, fields = cached_answers[path][location.fragment]
         number = int(qid[1:])
+        evidence = dict(fields)["证据等级"]
         entries.append({
             "id": number, "qid": qid, "section": SECTIONS[chapter], "chapter": chapter,
             "question": question, "title": title, "fields": fields,
             "path": path.relative_to(ROOT).as_posix(), "aliases": ALIASES.get(number, ""),
+            "grades": sorted(set(EVIDENCE_MARKER.findall(evidence))),
         })
     catalog_answers = {(ROOT / item["path"], item["qid"].lower()) for item in entries}
     for chapter_path in (ROOT / "book").rglob("*.md"):
