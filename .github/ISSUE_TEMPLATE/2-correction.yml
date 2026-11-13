@@ -1,0 +1,24 @@
+name: 报告某题错误或失效来源
+description: 指出某条建议、数字、适用范围或来源链接的问题。
+title: "纠错｜"
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: 涉及哪一题？
+      description: 填题号或贴正文链接。暂时找不到题号时，可以填标题。
+      placeholder: Q354
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 具体哪里有问题？
+      description: 可贴相关句子或打不开的链接，并说明你发现的情况。
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: 建议改法或核对依据
+      description: 如果知道怎样修改，可写出建议。附上原始研究、机构指南或可用的新链接也有帮助。

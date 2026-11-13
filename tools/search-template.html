@@ -46,9 +46,16 @@ dd { margin: 0.2rem 0 0; }
 <body>
 <main>
   <header>
-    <a href="{{REPOSITORY}}">GitHub 仓库</a>
+    <nav aria-label="仓库与反馈">
+      <a href="{{REPOSITORY}}">GitHub 仓库</a> ·
+      <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">提一个真实问题</a> ·
+      <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">报告错误</a>
+    </nav>
     <h1>运动营养健康指南</h1>
     <p>搜索 {{QUESTION_COUNT}} 题。展开问题即可阅读做法、适用范围和参考文献。</p>
+    <p><a href="{{REPOSITORY}}/blob/main/docs/start-with-two-sessions.md">每周两次怎么练</a> ·
+      <a href="{{REPOSITORY}}/blob/main/docs/first-half-marathon.md">首半马行动清单</a> ·
+      <a href="{{REPOSITORY}}/blob/main/docs/glossary.md">常用术语</a></p>
   </header>
   <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
   <div class="controls">
@@ -185,6 +192,11 @@ function answerCard(entry) {
     const original = element('a', '在 GitHub 查看原文');
     original.href = articleUrl(entry.path, '#' + entry.qid.toLowerCase());
     answer.append(original);
+    if (location.protocol === 'https:' || location.protocol === 'http:') {
+      const permalink = element('a', '本题链接');
+      permalink.href = linkedUrl('#' + entry.qid.toLowerCase(), entry);
+      answer.append(' · ', permalink);
+    }
     card.append(answer);
   });
   return card;

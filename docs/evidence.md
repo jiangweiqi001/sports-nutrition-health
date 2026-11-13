@@ -8,7 +8,7 @@
 
 ## 选题记录
 
-Q401–Q463 的 63 条从公开提问和机构答疑中选取。Q1–Q400 的回答依据见各条正文。记录中保留原问链接、中文整理问法、相近问题和正文入口。相近提问用于判断问题是否重复出现，常见性判断限于本轮已记录的公开样本。
+Q401–Q465 的 65 条从公开提问和机构答疑中选取。Q1–Q400 的回答依据见各条正文。记录中保留原问链接、中文整理问法、相近问题和正文入口。相近提问用于判断问题是否重复出现，常见性判断限于本轮已记录的公开样本。
 
 - [零基础跑步与走跑交替](question-sources-aerobic-beginners.md)
 - [日常有氧与运动方式选择](question-sources-everyday-cardio.md)
@@ -19,6 +19,7 @@ Q401–Q463 的 63 条从公开提问和机构答疑中选取。Q1–Q400 的回
 - [训练中的常见症状](question-sources-health-followup.md)
 - [公共场所卫生与献血](question-sources-health-daily-followup.md)
 - [经期、鼻出血与高度近视](question-sources-health-conditions-followup.md)
+- [步数与久坐](question-sources-steps-sitting.md)
 
 回答所依据的指南、共识和研究列在各条正文的「来源」，其中的具体数字要结合研究对象与适用情境阅读。
 

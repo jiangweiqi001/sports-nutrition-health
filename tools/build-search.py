@@ -25,8 +25,9 @@ SECTIONS = {
 }
 ALIASES = {
     6: "晚上健身 晚上练 晚练 下班训练 先吃还是先练",
-    13: "晚上健身 晚上练 晚练 练完还吃吗 练完回家吃饭",
+    13: "晚上健身 晚上练 晚练 练完还吃吗 练完回家吃饭 下班练完还要吃吗 下班练完还要吃晚饭吗",
     20: "晚上健身 晚上练 晚练 喝咖啡睡不着 氮泵",
+    23: "首半马怎么准备 第一次半马 选课表 备赛起点",
     48: "时间少 没空练 每周只有两次空档 半小时",
     78: "加一档太重 哑铃档位太大 哑铃加重 5公斤到7.5公斤",
     234: "减肥饿肚子 肚子咕咕叫 减脂很饿",
@@ -45,6 +46,8 @@ ALIASES = {
     448: "岔气 跑步肚子疼 肋骨下面疼 右上腹痛",
     461: "家里单杠 免打孔 门框 引体向上",
     463: "睡前拉伸 冷拉伸 没热身 拉伸前热身",
+    464: "每天走多少步 一万步 万步 10000步 1万步 计步",
+    465: "打断久坐 上班久坐 办公室坐太久 多久起来 坐多久起来一次",
 }
 
 def read(path):
@@ -70,6 +73,8 @@ def read_answers(path):
         expected = ["怎么做", "成本", "说人话", "收益", "证据等级", "适用与备注", "来源"]
         if [label for label, _ in fields] != expected:
             raise ValueError(f"{path.name} {heading[1]}: incomplete answer")
+        if heading[1] in answers:
+            raise ValueError(f"{path.name}: repeated anchor {heading[1]}")
         answers[heading[1]] = (heading[2], fields)
     return answers
 
@@ -92,6 +97,14 @@ def build_index():
             "question": question, "title": title, "fields": fields,
             "path": path.relative_to(ROOT).as_posix(), "aliases": ALIASES.get(number, ""),
         })
+    catalog_answers = {(ROOT / item["path"], item["qid"].lower()) for item in entries}
+    for chapter_path in (ROOT / "book").rglob("*.md"):
+        answers = cached_answers.get(chapter_path)
+        if answers is None:
+            answers = read_answers(chapter_path)
+        for anchor in answers:
+            if (chapter_path, anchor) not in catalog_answers:
+                raise ValueError(f"{chapter_path.relative_to(ROOT)}: {anchor} missing from the catalog")
     entries.sort(key=lambda item: item["id"])
     if not entries or [item["id"] for item in entries] != list(range(1, len(entries) + 1)):
         raise ValueError("The catalog must list each question ID once.")

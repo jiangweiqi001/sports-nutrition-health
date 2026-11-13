@@ -2,34 +2,40 @@
 
 给准备开始运动、已规律运动或准备参赛的普通成年人。按手头的问题查。每条先写怎么做、花什么，再写预期收益、适用范围和原始出处。
 
+[打开在线搜索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html) · [提一个真实问题](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=1-question.yml) · [报告某题错误或失效来源](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=2-correction.yml)
+
 ## 按眼前的场景查
 
 | 我想解决的问题 | 可以先看 |
 | --- | --- |
 | 刚开始运动 | [从走路开始](book/aerobic-training/01-getting-started.md#q401) · [走跑交替](book/aerobic-training/01-getting-started.md#q403) · [第一次去健身房](book/resistance-training/01-getting-started.md#q41) · [在家练全身](book/resistance-training/01-getting-started.md#q42) |
-| 一周时间很少 | [两次半小时力量训练](book/resistance-training/02-weekly-plan.md#q48) · [把快走分成几段](book/aerobic-training/02-everyday-cardio.md#q422) |
+| 一周时间很少 | [每周只有两次时间，怎么开始练](docs/start-with-two-sessions.md) · [两次半小时力量训练](book/resistance-training/02-weekly-plan.md#q48) · [把快走分成几段](book/aerobic-training/02-everyday-cardio.md#q422) |
 | 下班后练力量 | [练前来不及吃](book/04-training-nutrition.md#q06) · [练完回家怎么吃](book/04-training-nutrition.md#q13) · [晚练喝咖啡](book/04-training-nutrition.md#q20) |
-| 准备首半马或首全马 | [首半马课表的起点](book/02-distance-running.md#q23) · [首全马课表的起点](book/02-distance-running.md#q33) · [半马途中补给](book/05-distance-running-nutrition.md#q21) · [全马补给演练](book/05-distance-running-nutrition.md#q24) |
+| 准备首半马或首全马 | [首半马行动清单](docs/first-half-marathon.md) · [首半马课表的起点](book/02-distance-running.md#q23) · [首全马课表的起点](book/02-distance-running.md#q33) · [半马途中补给](book/05-distance-running-nutrition.md#q21) · [全马补给演练](book/05-distance-running-nutrition.md#q24) |
 | 换一种有氧 | [骑车坐垫磨痛](book/aerobic-training/04-common-questions.md#q427) · [成年人怕水](book/aerobic-training/04-common-questions.md#q430) · [划船机怎么划](book/aerobic-training/04-common-questions.md#q433) · [第一场越野选多远](book/aerobic-training/03-trail-running.md#q417) |
 | 运动中或运动后不舒服 | [跑步时岔气](book/training-health/09-reader-questions.md#q448) · [跑步或下楼膝盖疼](book/training-health/04-running-injuries.md#q329) · [训练恢复和返训](docs/topics-400.md#health-recovery) · [现场急症](docs/topics-400.md#health-emergencies) |
 
 现场急症可直接查看[运动中胸痛或快晕倒](book/training-health/06-emergencies-and-weather.md#q353)、[成人倒地且呼吸异常](book/training-health/06-emergencies-and-weather.md#q354)、[高温运动后意识混乱](book/training-health/06-emergencies-and-weather.md#q355)。
 
+[补剂和装备，哪些可以先省下](docs/supplement-buying-checklist.md) · [训练、营养与健康常用词](docs/glossary.md)
+
 ## 搜关键词或题号
 
-在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。下载后可离线搜中文关键词、题号和章节，也可展开阅读全文。参考文献链接需要联网。
+[在线搜索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文关键词、题号和章节。点击问题展开全文。
+
+要在无网时查阅，可在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。参考文献链接需要联网。
 
 直接在 GitHub 阅读时，可打开下方总目录，用浏览器的页面查找搜索题号或问题中的词。
 
-## 463 题目录
+## 465 题目录
 
-[463 题总目录](docs/topics-400.md)收录首版 40 条和后续新增 423 条。按篇章浏览，点题号直达正文。
+[465 题总目录](docs/topics-400.md)收录首版 40 条和后续新增 425 条。按篇章浏览，点题号直达正文。
 
-- **运动（188 条）**　[抗阻训练](docs/topics-400.md#plan-resistance) · [拉伸与活动度](docs/topics-400.md#plan-mobility) · [有氧训练](docs/topics-400.md#plan-running)
+- **运动（190 条）**　[抗阻训练](docs/topics-400.md#plan-resistance) · [拉伸与活动度](docs/topics-400.md#plan-mobility) · [有氧训练](docs/topics-400.md#plan-running)
 - **营养（142 条）**　[日常饮食](docs/topics-400.md#plan-everyday-nutrition) · [训练饮食与补剂](docs/topics-400.md#plan-training-nutrition) · [长跑营养](docs/topics-400.md#plan-running-nutrition)
 - **健康（133 条）**　[训练相关健康](docs/topics-400.md#plan-training-health) · [常见慢病与运动](docs/topics-400.md#plan-chronic-health)
 
-新增 37 题，涉及抗阻器材、拉伸、日常有氧、饮食补剂和运动健康。Q401–Q463 的提问出处见[选题记录](docs/evidence.md#question-sources)。
+这版新增[步数与久坐两题](docs/topics-400.md#steps-and-sitting)。Q401–Q465 的公开提问出处见[选题记录](docs/evidence.md#question-sources)。
 
 ## 怎么读
 

@@ -1,0 +1,27 @@
+name: 提一个真实问题
+description: 分享你在运动、营养或训练健康方面实际遇到的问题。
+title: "新问题｜"
+body:
+  - type: markdown
+    attributes:
+      value: 这是一条公开反馈，请省略姓名、联系方式和可识别的健康记录。
+  - type: textarea
+    id: question
+    attributes:
+      label: 你当时会怎么问？
+      description: 请用自己的原话，写出你想弄清或决定的事。
+      placeholder: 例如「下班练完已经九点多了，我还要不要吃晚饭？」
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 什么情况下遇到的？
+      description: 写一句相关的运动、饮食或训练场景即可。如果在指南里搜过，也可以写下你用过的关键词。
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 公开原问链接
+      description: 如果来自公开帖子或答疑，可附上链接。自己的经历可以留空。
