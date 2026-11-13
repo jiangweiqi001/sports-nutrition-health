@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>运动营养健康指南 · 条目搜索</title>
+<style>
+:root { color-scheme: light; --page: #f5f6ef; --surface: #fff; --text: #182b24; --quiet: #495d51; --accent: #155e44; --line: #b9c8bd; }
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: dark; --page: #121d18; --surface: #1a2921; --text: #e7f1e9; --quiet: #bfcec2; --accent: #8ee1b7; --line: #51695a; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text); font: 1rem/1.6 "Inter", system-ui, "Microsoft YaHei", sans-serif; }
+main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+header { margin-bottom: 1.5rem; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.3; margin: 0.35rem 0 0.75rem; }
+a { color: var(--accent); text-underline-offset: 0.16em; }
+p { margin: 0.5rem 0; }
+.controls { display: grid; grid-template-columns: minmax(0, 3fr) minmax(9rem, 1fr); gap: 0.8rem; align-items: end; }
+label { display: block; font-weight: 650; }
+input, select, button { font: inherit; min-height: 2.75rem; border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.48rem 0.7rem; color: var(--text); background: var(--surface); }
+input, select { width: 100%; margin-top: 0.25rem; }
+button { cursor: pointer; color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.shortcuts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
+.shortcuts button { font-size: 0.9rem; }
+#status { margin: 1.25rem 0 0.55rem; color: var(--quiet); }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 0.65rem; margin-bottom: 0.65rem; }
+summary { padding: 0.75rem 1rem; cursor: pointer; }
+.question { font-weight: 650; }
+.meta { color: var(--quiet); font-size: 0.9rem; padding-right: 0.5rem; }
+.answer { padding: 0 1rem 1rem; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+h2 { font-size: 1.14rem; line-height: 1.45; margin: 1rem 0; }
+dl { margin: 0; }
+dt { font-weight: 700; margin-top: 0.8rem; }
+dd { margin: 0.2rem 0 0; }
+[hidden] { display: none !important; }
+@media (max-width: 34rem) {
+  main { padding-top: 1.5rem; }
+  .controls { grid-template-columns: minmax(0, 1fr); }
+  summary { padding-inline: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a href="{{REPOSITORY}}">GitHub 仓库</a>
+    <h1>运动营养健康指南</h1>
+    <p>搜索 {{QUESTION_COUNT}} 题。展开问题即可阅读做法、适用范围和参考文献。</p>
+  </header>
+  <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
+  <div class="controls">
+    <label>关键词或题号
+      <input type="search" id="query" placeholder="例如 膝盖疼、晚练、Q448" autocomplete="off">
+    </label>
+    <label>章节
+      <select id="chapter"><option value="">全部章节</option></select>
+    </label>
+  </div>
+  <div class="shortcuts" aria-label="常用搜索">
+    <button type="button" data-query="零基础">零基础</button>
+    <button type="button" data-query="时间少">时间少</button>
+    <button type="button" data-query="晚练">晚练怎么吃</button>
+    <button type="button" data-query="首半马">首半马</button>
+    <button type="button" data-query="跑步膝盖疼">跑步膝盖疼</button>
+  </div>
+  <p id="status" aria-live="polite"></p>
+  <section id="results" aria-label="搜索结果"></section>
+  <button type="button" id="more" hidden>显示更多</button>
+</main>
+<script id="guide-data" type="application/json">{{GUIDE_DATA}}</script>
+<script>
+'use strict';
+const repository = '{{REPOSITORY}}';
+const entries = JSON.parse(document.getElementById('guide-data').textContent);
+const query = document.getElementById('query');
+const chapter = document.getElementById('chapter');
+const status = document.getElementById('status');
+const results = document.getElementById('results');
+const more = document.getElementById('more');
+const pageSize = 30;
+const chapters = ['抗阻训练', '拉伸与活动度', '有氧训练', '日常饮食', '训练饮食与补剂', '长跑营养', '训练相关健康', '常见慢病与运动'];
+let matched = [];
+let shown = 0;
+
+function normalize(value) {
+  return value.normalize('NFKC').toLowerCase().replace(/[\p{P}\p{Z}]/gu, '');
+}
+
+const searchable = entries.map(entry => ({
+  entry,
+  heading: normalize([entry.qid, entry.question, entry.title, entry.aliases].join(' ')),
+  body: normalize(entry.fields.slice(0, -1).map(field => field[1]).join(' ')),
+}));
+
+function findEntries(value, selectedChapter) {
+  const raw = value.normalize('NFKC').trim();
+  const idMatch = /^q?0*(\d+)$/i.exec(raw);
+  const terms = raw.split(/\s+/).map(normalize).filter(Boolean);
+  return searchable
+    .filter(({ entry }) => !selectedChapter || entry.chapter === selectedChapter)
+    .map(({ entry, heading, body }) => {
+      if (idMatch) return [entry, entry.id === Number(idMatch[1]) ? 1 : -1];
+      if (!terms.every(term => heading.includes(term) || body.includes(term))) return [entry, -1];
+      return [entry, terms.filter(term => heading.includes(term)).length];
+    })
+    .filter(([, score]) => score >= 0)
+    .sort((a, b) => b[1] - a[1] || a[0].id - b[0].id)
+    .map(([entry]) => entry);
+}
+
+for (const name of chapters) {
+  const option = document.createElement('option');
+  option.value = name;
+  option.textContent = name;
+  chapter.append(option);
+}
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+
+function articleUrl(path, fragment = '') {
+  return repository + '/blob/main/' + path + fragment;
+}
+
+function linkedUrl(target, entry) {
+  if (/^https?:\/\//i.test(target)) return target;
+  const local = new URL(target, 'https://guide.local/' + entry.path);
+  if (local.origin !== 'https://guide.local') return '';
+  if (/^#q\d+$/.test(local.hash)) {
+    const result = new URL(location.href);
+    result.search = '';
+    result.searchParams.set('q', local.hash.slice(1).toUpperCase());
+    result.hash = '';
+    return result.href;
+  }
+  return articleUrl(local.pathname.slice(1), local.hash);
+}
+
+function appendAnswerText(container, markdown, entry) {
+  const tokens = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
+  let offset = 0;
+  for (const match of markdown.matchAll(tokens)) {
+    container.append(markdown.slice(offset, match.index));
+    if (match[3]) {
+      container.append(element('strong', match[3]));
+    } else {
+      const href = linkedUrl(match[2], entry);
+      if (href) {
+        const link = element('a', match[1]);
+        link.href = href;
+        container.append(link);
+      } else {
+        container.append(match[1]);
+      }
+    }
+    offset = match.index + match[0].length;
+  }
+  container.append(markdown.slice(offset));
+}
+
+function answerCard(entry) {
+  const card = element('details');
+  const summary = element('summary');
+  summary.append(element('span', entry.qid + ' · ' + entry.chapter, 'meta'));
+  summary.append(element('span', entry.question, 'question'));
+  card.append(summary);
+  card.addEventListener('toggle', () => {
+    if (!card.open || card.children.length > 1) return;
+    const answer = element('div', '', 'answer');
+    answer.append(element('h2', entry.title));
+    const list = element('dl');
+    for (const [label, text] of entry.fields) {
+      const paragraph = element('dd');
+      appendAnswerText(paragraph, text, entry);
+      list.append(element('dt', label), paragraph);
+    }
+    answer.append(list);
+    const original = element('a', '在 GitHub 查看原文');
+    original.href = articleUrl(entry.path, '#' + entry.qid.toLowerCase());
+    answer.append(original);
+    card.append(answer);
+  });
+  return card;
+}
+
+function showMore() {
+  const page = matched.slice(shown, shown + pageSize);
+  const fragment = document.createDocumentFragment();
+  for (const entry of page) fragment.append(answerCard(entry));
+  results.append(fragment);
+  shown += page.length;
+  more.hidden = shown >= matched.length;
+  status.textContent = matched.length
+    ? '找到 ' + matched.length + ' 题，显示 ' + shown + ' 题。'
+    : '没有匹配题目。可以试试更短的词，或切换到全部章节。';
+}
+
+function refresh() {
+  matched = findEntries(query.value, chapter.value);
+  shown = 0;
+  results.replaceChildren();
+  showMore();
+  if (matched.length === 1) results.firstElementChild.open = true;
+}
+
+query.addEventListener('input', refresh);
+chapter.addEventListener('change', refresh);
+more.addEventListener('click', () => {
+  const next = shown;
+  showMore();
+  results.children[next]?.querySelector('summary').focus();
+});
+for (const button of document.querySelectorAll('[data-query]')) {
+  button.addEventListener('click', () => {
+    query.value = button.dataset.query;
+    chapter.value = '';
+    refresh();
+    query.focus();
+  });
+}
+
+const parameters = new URLSearchParams(location.search);
+query.value = parameters.get('q') || '';
+chapter.value = chapters.includes(parameters.get('chapter')) ? parameters.get('chapter') : '';
+refresh();
+</script>
+</body>
+</html>

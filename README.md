@@ -2,15 +2,34 @@
 
 给准备开始运动、已规律运动或准备参赛的普通成年人。按手头的问题查。每条先写怎么做、花什么，再写预期收益、适用范围和原始出处。
 
-## 426 题目录
+## 按眼前的场景查
 
-[426 题总目录](docs/topics-400.md)收录首版 40 条和后续新增 386 条。按篇章浏览，点题号直达正文。
+| 我想解决的问题 | 可以先看 |
+| --- | --- |
+| 刚开始运动 | [从走路开始](book/aerobic-training/01-getting-started.md#q401) · [走跑交替](book/aerobic-training/01-getting-started.md#q403) · [第一次去健身房](book/resistance-training/01-getting-started.md#q41) · [在家练全身](book/resistance-training/01-getting-started.md#q42) |
+| 一周时间很少 | [两次半小时力量训练](book/resistance-training/02-weekly-plan.md#q48) · [把快走分成几段](book/aerobic-training/02-everyday-cardio.md#q422) |
+| 下班后练力量 | [练前来不及吃](book/04-training-nutrition.md#q06) · [练完回家怎么吃](book/04-training-nutrition.md#q13) · [晚练喝咖啡](book/04-training-nutrition.md#q20) |
+| 准备首半马或首全马 | [首半马课表的起点](book/02-distance-running.md#q23) · [首全马课表的起点](book/02-distance-running.md#q33) · [半马途中补给](book/05-distance-running-nutrition.md#q21) · [全马补给演练](book/05-distance-running-nutrition.md#q24) |
+| 换一种有氧 | [骑车坐垫磨痛](book/aerobic-training/04-common-questions.md#q427) · [成年人怕水](book/aerobic-training/04-common-questions.md#q430) · [划船机怎么划](book/aerobic-training/04-common-questions.md#q433) · [第一场越野选多远](book/aerobic-training/03-trail-running.md#q417) |
+| 运动中或运动后不舒服 | [跑步时岔气](book/training-health/09-reader-questions.md#q448) · [跑步或下楼膝盖疼](book/training-health/04-running-injuries.md#q329) · [训练恢复和返训](docs/topics-400.md#health-recovery) · [现场急症](docs/topics-400.md#health-emergencies) |
 
-- **运动（176 条）**　[抗阻训练](docs/topics-400.md#plan-resistance) · [拉伸与活动度](docs/topics-400.md#plan-mobility) · [有氧训练](docs/topics-400.md#plan-running)
-- **营养（130 条）**　[日常饮食](docs/topics-400.md#plan-everyday-nutrition) · [训练饮食与补剂](docs/topics-400.md#plan-training-nutrition) · [长跑营养](docs/topics-400.md#plan-running-nutrition)
-- **健康（120 条）**　[训练相关健康](docs/topics-400.md#plan-training-health) · [常见慢病与运动](docs/topics-400.md#plan-chronic-health)
+现场急症可直接查看[运动中胸痛或快晕倒](book/training-health/06-emergencies-and-weather.md#q353)、[成人倒地且呼吸异常](book/training-health/06-emergencies-and-weather.md#q354)、[高温运动后意识混乱](book/training-health/06-emergencies-and-weather.md#q355)。
 
-这次新增 26 条，覆盖[日常有氧与室内运动](docs/topics-400.md#plan-everyday-cardio)、[零基础跑步与走跑交替](docs/topics-400.md#plan-beginner-running)和[越野跑入门](docs/topics-400.md#plan-trail)。这 26 条的真实提问出处汇入[选题记录](docs/evidence.md#question-sources)。
+## 搜关键词或题号
+
+在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。下载后可离线搜中文关键词、题号和章节，也可展开阅读全文。参考文献链接需要联网。
+
+直接在 GitHub 阅读时，可打开下方总目录，用浏览器的页面查找搜索题号或问题中的词。
+
+## 463 题目录
+
+[463 题总目录](docs/topics-400.md)收录首版 40 条和后续新增 423 条。按篇章浏览，点题号直达正文。
+
+- **运动（188 条）**　[抗阻训练](docs/topics-400.md#plan-resistance) · [拉伸与活动度](docs/topics-400.md#plan-mobility) · [有氧训练](docs/topics-400.md#plan-running)
+- **营养（142 条）**　[日常饮食](docs/topics-400.md#plan-everyday-nutrition) · [训练饮食与补剂](docs/topics-400.md#plan-training-nutrition) · [长跑营养](docs/topics-400.md#plan-running-nutrition)
+- **健康（133 条）**　[训练相关健康](docs/topics-400.md#plan-training-health) · [常见慢病与运动](docs/topics-400.md#plan-chronic-health)
+
+新增 37 题，涉及抗阻器材、拉伸、日常有氧、饮食补剂和运动健康。Q401–Q463 的提问出处见[选题记录](docs/evidence.md#question-sources)。
 
 ## 怎么读
 
@@ -20,22 +39,12 @@
 - **B**　用于较小的试验、观察研究或需要外推的结论。
 - **C**　用于主要依据专业共识、临床指南或官方计划的执行建议。
 
-字母是本项目的编辑分级，标在它所支持的具体结论上。官方标准、食物成分和示例算式，直接查出处或重算。
+字母是本项目的编辑分级，标在它所支持的具体结论上。指南的推荐强度和证据等级使用指南自己的标法，原始研究的结果按研究条件读。官方标准、食物成分和示例算式，可按出处核对。 [分级与重点核查](docs/evidence.md#priority-review)
 
-## 第一版
+## 版本与核查记录
 
-第一版共 40 条，运动 4 条、营养 32 条、健康 4 条。
-
-| 部分 | 章节 | 想解决的问题 |
-| --- | --- | --- |
-| 运动 | [1. 抗阻训练](book/01-resistance-training.md) | 刚开始练力量，每周怎么排，居家能不能练？ |
-| 运动 | [2. 长跑训练](book/02-distance-running.md) | 从五公里到首半马、从半马到首全马，怎么选训练计划？ |
-| 营养 | [3. 日常饮食](book/03-everyday-nutrition.md) | 平时怎么吃，一顿饭的蛋白质怎么估？ |
-| 营养 | [4. 训练饮食与补剂](book/04-training-nutrition.md) | 力量训练吃多少蛋白质，蛋白粉怎么算账？ |
-| 营养 | [5. 长跑营养](book/05-distance-running-nutrition.md) | 比赛早上吃什么，半马、全马途中怎么补给？ |
-| 健康 | [6. 训练相关健康](book/06-training-health.md) | 跑量增加后怎么留意长期吃得太少，赛中哪些情况要找医疗人员？ |
-
-- [40 题索引](docs/topics.md)可按原问题和题号查正文。
-- [证据选用与核查记录](docs/evidence.md)说明全书的选证原则，并列出首版各条的核查要点。
+- [首版 40 题索引](docs/topics.md)保留原题号和正文入口。
+- [证据选用与核查记录](docs/evidence.md)列出选证原则、公开提问出处和重点条目复核。
+- 更新正文或目录后，可运行 `python tools/build-search.py` 重建离线搜索页。
 
 参考了《高性价比人生指南》的章节导航、行动式条目和来源写法。 [参考项目](https://github.com/eternity4719/HowToLiveBetter)

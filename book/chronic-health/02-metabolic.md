@@ -34,7 +34,7 @@
 - **收益**　胰岛素和某些促泌剂会增加运动中及运动后低血糖风险。事先约定症状和读数的处理顺序，可帮助及时停练和处理。
 - **证据等级**　C（预案、低血糖识别和急救依据国内运动指南、ADA 临床标准及官方急救资料）。
 - **适用与备注**　怀疑低血糖时先停止活动，有条件尽快测量，按已约定的方案处理。若意识明显异常、抽搐、昏迷或不能安全吞咽，立即呼叫急救，不喂饮食。受过培训的人可按预案使用已为患者开具的胰高血糖素。何时恢复长时间训练由医疗团队确认。
-- **来源**　国家卫生健康委高血糖症营养和运动指导原则、ADA 2026 年低血糖标准、英国 NHS 低血糖处理说明。 [国内运动指导](https://www.gov.cn/zhengce/zhengceku/202407/P020240701700334584645.pdf) · [ADA 低血糖标准](https://doi.org/10.2337/dc26-S006) · [NHS 急救说明](https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/)
+- **来源**　国家卫生健康委高血糖症营养和运动指导原则、ADA 2026 年低血糖标准的葡萄糖处理、胰高血糖素章节和表 6.7，以及英国 NHS 低血糖处理说明。 [国内运动指导](https://www.gov.cn/zhengce/zhengceku/202407/P020240701700334584645.pdf) · [ADA 低血糖标准全文 PDF](https://diabetesjournals.org/care/article-pdf/49/Supplement_1/S132/848848/dc26s006.pdf) · [NHS 急救说明](https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/)
 
 
 <a name="q389"></a>

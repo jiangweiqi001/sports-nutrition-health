@@ -6,15 +6,38 @@
 
 <a name="question-sources"></a>
 
-## 有氧入门与越野跑的选题记录
+## 选题记录
 
-Q401–Q426 的 26 条从公开提问和机构答疑中选取。Q1–Q400 的回答依据见各条正文。记录中保留原问链接、中文整理问法、相近问题和正文入口。相近提问用于判断问题是否重复出现，常见性判断限于本轮已记录的公开样本。
+Q401–Q463 的 63 条从公开提问和机构答疑中选取。Q1–Q400 的回答依据见各条正文。记录中保留原问链接、中文整理问法、相近问题和正文入口。相近提问用于判断问题是否重复出现，常见性判断限于本轮已记录的公开样本。
 
 - [零基础跑步与走跑交替](question-sources-aerobic-beginners.md)
 - [日常有氧与运动方式选择](question-sources-everyday-cardio.md)
 - [越野跑入门](question-sources-trail.md)
+- [骑行、游泳及其他有氧](question-sources-aerobic-followup.md)
+- [抗阻器材与拉伸](question-sources-strength-mobility-followup.md)
+- [日常饮食、补剂与长跑营养](question-sources-nutrition-followup.md)
+- [训练中的常见症状](question-sources-health-followup.md)
+- [公共场所卫生与献血](question-sources-health-daily-followup.md)
+- [经期、鼻出血与高度近视](question-sources-health-conditions-followup.md)
 
 回答所依据的指南、共识和研究列在各条正文的「来源」，其中的具体数字要结合研究对象与适用情境阅读。
+
+<a name="priority-review"></a>
+
+## 重点条目复核
+
+本项目的 A、B、C 描述条目里每项结论的依据。指南或共识回答应该怎样做，研究回答测到了什么结果，官方课表和算例给出一种执行办法。专业指南另有推荐强度或证据等级时，按指南原来的标法记录。例如，Q39 依据临床指南给出执行建议，项目标为 C，指南对避免过量饮水的推荐等级仍是 1A。
+
+2026 年 11 月 14 日复核以下 10 题的关键数字、来源版本和适用条件。
+
+| 条目 | 核查结果与修订 |
+| --- | --- |
+| [Q354 成人心肺复苏](../book/training-health/06-emergencies-and-weather.md#q354) | 查 AHA 2025 成人基础生命支持的公众启动复苏、按压频率与深度、按压与通气比例。补上旁观者持续按压和受过训练时可按 30∶2 施救的条件。 |
+| [Q355 疑似热射病](../book/training-health/06-emergencies-and-weather.md#q355) · [Q357 热适应](../book/training-health/06-emergencies-and-weather.md#q357) | 按 2024 年 AHA 与美国红十字会急救指南的热射病章节说明有条件时立即浸泡降温，无法浸泡时立即用手边的方法降温。热适应条目更新到 ACSM 2023 修订版，并把逐步适应一至两周的出处直接定位到热环境训练共识。 |
+| [Q388 易致低血糖药物与长课](../book/chronic-health/02-metabolic.md#q388) | 定位 ADA 2026 标准的葡萄糖处理、胰高血糖素及表 6.7。保留由医疗团队约定出发条件、监测和求助的做法。 |
+| [Q17 肌酸](../book/04-training-nutrition.md#q17) · [Q20 晚间咖啡因](../book/04-training-nutrition.md#q20) · [Q34 咖啡因核算](../book/05-distance-running-nutrition.md#q34) | 核对 AIS 的 3–5 克/日维持量和直接开始的选项。注明 400 毫克是睡眠试验的单次剂量，补上 EFSA 对运动前单次摄入的时间和环境条件。 |
+| [Q31 热天跑步饮水](../book/05-distance-running-nutrition.md#q31) · [Q39 饮水过量与求助](../book/06-training-health.md#q39) | 核对 NATA 汗率公式、荒野医学会预防章节的 1A 和 1C 推荐。写清汗量算例的用途，以及按口渴或个人需求调整、避免过量饮水的做法。 |
+| [Q427 骑车坐垫不适](../book/aerobic-training/04-common-questions.md#q427) | 参考 NIOSH 职业骑行资料第 3 页，补上会阴麻木时先下车、持续或反复麻木时就医。 |
 
 ## 第一版 40 条核查记录
 

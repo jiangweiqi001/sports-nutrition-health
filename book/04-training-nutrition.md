@@ -108,7 +108,7 @@
 - **收益**　与安慰剂相比，肌酸配合抗阻训练在卧推或推胸等项目中平均有小幅力量收益。补充初期的体重上升可能包含额外水分，快速补充时尤其明显。
 - **证据等级**　A（抗阻训练力量结果有试验荟萃分析支持）。C（每天 3–5 克、可直接从维持量开始，依据澳大利亚体育学院说明。水分变化参照 IOC 共识）。
 - **适用与备注**　适用于健康成人。已有肾病者先与医生确认。抽血测肾功能时可告知医生正在用肌酸，便于解释肌酐结果。
-- **来源**　澳大利亚体育学院肌酸使用方法，IOC 补剂共识表 3 的肌酸项目，2025 年肌酸荟萃分析「Bench and Chest Press」结果，以及肌酐研究的汇总。 [澳大利亚体育学院](https://www.ausport.gov.au/ais/nutrition/supplements/group_a/performance-supplements2/creatine/how-and-when-do-i-use-it) · [IOC 补剂共识](https://stillmed.olympics.com/media/Documents/Athletes/Medical-Scientific/Consensus-Statements/2018_dietary-supplements-high-performance-athlete.pdf) · [力量和功率荟萃分析](https://www.mdpi.com/2072-6643/17/17/2748) · [肌酸与肾功能综述](https://pmc.ncbi.nlm.nih.gov/articles/PMC12590749/)
+- **来源**　澳大利亚体育学院肌酸使用说明中维持量和直接从维持量开始的部分，IOC 补剂共识表 3 的肌酸项目，2025 年肌酸荟萃分析「Bench and Chest Press」结果，以及肌酐研究的汇总。 [澳大利亚体育学院](https://www.ausport.gov.au/ais/nutrition/supplements/group_a/performance-supplements2/creatine/how-and-when-do-i-use-it) · [IOC 补剂共识](https://stillmed.olympics.com/media/Documents/Athletes/Medical-Scientific/Consensus-Statements/2018_dietary-supplements-high-performance-athlete.pdf) · [力量和功率荟萃分析](https://www.mdpi.com/2072-6643/17/17/2748) · [肌酸与肾功能综述](https://pmc.ncbi.nlm.nih.gov/articles/PMC12590749/)
 
 <a name="q18"></a>
 
@@ -143,5 +143,5 @@
 - **说人话**　晚练也要顾及睡眠。咖啡和氮泵里如果都含咖啡因，两份都算。
 - **收益**　减少晚间咖啡因可以少一项睡眠干扰。一项 23 名男性的交叉试验中，睡前 4 小时一次摄入 400 毫克，与安慰剂相比客观总睡眠时间估计少约 51 分钟。
 - **证据等级**　A（系统综述支持咖啡因可缩短睡眠时间）。B（具体剂量和时间的影响随人而异，400 毫克来自小样本试验。试验的 100 毫克组未测到明显差异，个体仍可有反应）。
-- **适用与备注**　适用于普通成年人的晚间训练。咖啡的咖啡因含量随冲泡和杯量变化，含量不明的混合补剂难以准确合计。
+- **适用与备注**　适用于普通成年人的晚间训练。咖啡的咖啡因含量随冲泡和杯量变化，含量不明的混合补剂难以准确合计。400 毫克是该试验一次摄入的剂量。关于单次和全天摄入，可查看[咖啡因安全参考](05-distance-running-nutrition.md#q34)。
 - **来源**　Gardiner 等 2023 年睡眠系统综述结果，Gardiner 等 2025 年交叉试验「Objective sleep」和图 3，美国 FDA 咖啡因含量与标签说明。 [咖啡因与睡眠系统综述](https://eprints.leedsbeckett.ac.uk/id/eprint/9625/1/TheEffectOfCaffeineOnSubsequentSleepASystematicReviewAndMetaanalysisPV-WEAKLEY.pdf) · [剂量和时间交叉试验](https://pmc.ncbi.nlm.nih.gov/articles/PMC11985402/) · [FDA 咖啡因说明](https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much)
