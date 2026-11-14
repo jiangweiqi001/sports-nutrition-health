@@ -17,3 +17,5 @@ jobs:
           persist-credentials: false
       - name: 核对正文、目录和搜索页
         run: python3 tools/build-search.py --check
+      - name: 复测常见问法与急症、伤痛搜索排序
+        run: node tools/check-search.mjs

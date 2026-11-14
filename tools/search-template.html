@@ -241,6 +241,40 @@ function findRelatedEntries(value, candidates) {
     .slice(0, 12).map(item => item.entry);
 }
 
+function hasSymptom(value, pattern) {
+  const denial = /(?:没(?:有)?|未|不|无|否认)(?:出现|发生|感觉到)?$/;
+  return Array.from(value.matchAll(pattern)).some(({index}) => !denial.test(value.slice(0, index)));
+}
+
+function priorityQuestion(value) {
+  const fainted = hasSymptom(value, /晕倒|晕过去|昏倒|昏过去|晕厥/g);
+  const collapsed = fainted || hasSymptom(value, /倒地|倒下/g);
+  const unresponsive = hasSymptom(value, /叫不醒|叫不应|失去意识|没(?:有)?反应(?!过来)|昏迷/g);
+  const abnormalBreathing = hasSymptom(value, /没(?:有)?正常呼吸|没(?:有)?呼吸(?!困难|异常|问题|不畅|不正常)|呼吸不正常|不呼吸|呼吸停止|只偶尔喘/g);
+  if ((collapsed || unresponsive) && abnormalBreathing) return 354;
+
+  const heat = /高温|大热天|热天|炎热|酷暑|暴晒|闷热/.test(value);
+  const confusion = hasSymptom(value, /意识(?:混乱|模糊|不清|异常)|神志(?:不清|模糊)|说话(?:含糊|不清)|胡言乱语|行为异常/g);
+  if (heat && confusion) return 355;
+  const normalBreathing = hasSymptom(value, /呼吸正常|正常呼吸/g);
+  if (collapsed && unresponsive && !normalBreathing) return 354;
+
+  const exercise = /运动|锻炼|跑步|跑着跑着|跑到|跑完|跑后|长跑|慢跑|夜跑|晨跑|马拉松|半马|全马|健身|训练|举重|骑车|游泳|爬楼/.test(value);
+  const chestSymptoms = hasSymptom(value, /胸(?:口|部|前)?(?:疼|痛|发闷|闷|压迫|发紧)/g);
+  const nearFainting = hasSymptom(value, /快(?:要)?晕|差点晕|眼前发黑|险些晕倒/g);
+  const recentIllness = /退烧|退热|发烧后|发热后|感染后|感染恢复|感冒后|感冒刚好|阳康|新冠恢复/.test(value);
+  if (exercise && (nearFainting || fainted)) return 353;
+  if (chestSymptoms && recentIllness) return 319;
+  if (exercise && chestSymptoms) return 353;
+
+  const outerKneePain = hasSymptom(value, /膝(?:盖|关节)?(?:有点|很)?(?:疼痛|疼|痛)(?:是在|的是|在|的|靠)?外(?:侧|边|面)|(?:膝(?:盖|关节)?的?外(?:侧|边|面)|外侧膝(?:盖|关节)?)(?:有点|很|开始|突然)?(?:疼|痛)/g);
+  if (outerKneePain) {
+    const twistedKnee = hasSymptom(value, /膝(?:盖|关节)?(?:被|又)?(?:扭|撞)|(?:扭(?:到|了|伤)|撞(?:到|了|伤))了?(?:左|右)?膝/g);
+    return twistedKnee ? 331 : 330;
+  }
+  return null;
+}
+
 function findEntries(value, selectedChapter, selectedEvidence) {
   const raw = value.normalize('NFKC').trim();
   const idMatch = /^q?0*(\d+)$/i.exec(raw);
@@ -263,8 +297,15 @@ function findEntries(value, selectedChapter, selectedEvidence) {
     .filter(([, score]) => score >= 0)
     .sort((a, b) => b[1] - a[1] || a[0].id - b[0].id)
     .map(([entry]) => entry);
-  if (exact.length || !terms.length) return {entries: exact};
-  return {entries: findRelatedEntries(raw.toLowerCase(), candidates), related: true};
+  if (!terms.length) return {entries: exact};
+  const priorityId = priorityQuestion(normalize(raw));
+  const priority = candidates.find(({entry}) => entry.id === priorityId)?.entry;
+  const matches = exact.length ? exact : findRelatedEntries(raw.toLowerCase(), candidates);
+  if (!priority) return {entries: matches, related: !exact.length};
+  return {
+    entries: [priority, ...matches.filter(entry => entry.id !== priorityId)],
+    related: !exact.includes(priority),
+  };
 }
 
 for (const name of chapters) {
@@ -286,6 +327,14 @@ function feedbackLink(search, selectedChapter = '', selectedEvidence = '') {
   if (search) url.searchParams.set('q', search);
   if (selectedChapter) url.searchParams.set('chapter', selectedChapter);
   if (selectedEvidence) url.searchParams.set('evidence', selectedEvidence);
+  return url.href;
+}
+
+function questionLink(qid, base = location.href) {
+  const url = new URL(base);
+  url.search = '';
+  url.searchParams.set('q', qid);
+  url.hash = 'results';
   return url.href;
 }
 
@@ -328,11 +377,7 @@ function linkedUrl(target, entry) {
   const local = new URL(target, 'https://guide.local/' + entry.path);
   if (local.origin !== 'https://guide.local') return '';
   if (/^#q\d+$/.test(local.hash)) {
-    const result = new URL(location.href);
-    result.search = '';
-    result.searchParams.set('q', local.hash.slice(1).toUpperCase());
-    result.hash = '';
-    return result.href;
+    return questionLink(local.hash.slice(1).toUpperCase());
   }
   return articleUrl(local.pathname.slice(1), local.hash);
 }
@@ -383,11 +428,11 @@ function answerCard(entry) {
     links.append(original);
     if (location.protocol === 'https:' || location.protocol === 'http:') {
       const permalink = element('a', '本题链接');
-      permalink.href = linkedUrl('#' + entry.qid.toLowerCase(), entry);
+      permalink.href = questionLink(entry.qid);
       links.append(' · ', permalink);
     }
     answer.append(links, copyFeedback('复制题目和链接',
-      '《运动营养健康指南》' + entry.qid + ' ' + entry.question + '\n' + feedbackLink(entry.qid)));
+      '《运动营养健康指南》' + entry.qid + ' ' + entry.question + '\n' + questionLink(entry.qid, publicReader)));
     card.append(answer);
   });
   return card;
@@ -459,6 +504,9 @@ const requestedEvidence = parameters.get('evidence');
 evidence.value = Array.from(evidence.options).some(option => option.value === requestedEvidence)
   ? requestedEvidence : '';
 refresh();
+if (/^q\d+$/i.test(query.value.normalize('NFKC').trim()) && results.firstElementChild?.open) {
+  requestAnimationFrame(() => results.scrollIntoView({block: 'start'}));
+}
 </script>
 </body>
 </html>
