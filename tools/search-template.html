@@ -38,6 +38,12 @@ summary { padding: 0.75rem 1rem; cursor: pointer; }
 .question { font-weight: 650; }
 .meta { color: var(--quiet); font-size: 0.9rem; padding-right: 0.5rem; }
 .answer { padding: 0 1rem 1rem; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.answer-links { margin: 0.8rem 0; }
+.feedback { margin-bottom: 0.8rem; }
+.answer .feedback { margin-bottom: 0; }
+.feedback-status { color: var(--quiet); font-size: 0.9rem; }
+.feedback-status:empty { margin: 0; }
+.feedback textarea { display: block; width: 100%; margin-top: 0.5rem; padding: 0.5rem; border: 1px solid var(--line); border-radius: 0.5rem; background: var(--surface); color: var(--text); font: inherit; resize: vertical; }
 h2 { font-size: 1.14rem; line-height: 1.45; margin: 1rem 0; }
 dl { margin: 0; }
 dt { font-weight: 700; margin-top: 0.8rem; }
@@ -60,8 +66,8 @@ dd { margin: 0.2rem 0 0; }
   <header>
     <nav aria-label="仓库与反馈">
       <a href="{{REPOSITORY}}">GitHub 仓库</a> ·
-      <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">提一个真实问题</a> ·
-      <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">报告错误</a>
+      <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">在 GitHub 提问</a> ·
+      <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">在 GitHub 勘误</a>
     </nav>
     <h1><a href="?">运动营养健康指南</a></h1>
     <p>搜索 {{QUESTION_COUNT}} 题。展开问题即可阅读做法、适用范围和参考文献。</p>
@@ -125,6 +131,7 @@ dd { margin: 0.2rem 0 0; }
     <button type="button" data-query="首半马">首半马</button>
   </div>
   <p id="status" aria-live="polite"></p>
+  <div id="search-feedback" hidden></div>
   <section id="results" aria-label="搜索结果"></section>
   <button type="button" id="more" hidden>显示更多</button>
 </main>
@@ -132,11 +139,13 @@ dd { margin: 0.2rem 0 0; }
 <script>
 'use strict';
 const repository = '{{REPOSITORY}}';
+const publicReader = 'https://jiangweiqi001.github.io/sports-nutrition-health/search.html';
 const entries = JSON.parse(document.getElementById('guide-data').textContent);
 const query = document.getElementById('query');
 const chapter = document.getElementById('chapter');
 const evidence = document.getElementById('evidence');
 const status = document.getElementById('status');
+const searchFeedback = document.getElementById('search-feedback');
 const results = document.getElementById('results');
 const more = document.getElementById('more');
 const startingPoints = document.getElementById('starting-points');
@@ -272,6 +281,44 @@ function element(tag, text, className) {
   return node;
 }
 
+function feedbackLink(search, selectedChapter = '', selectedEvidence = '') {
+  const url = new URL(publicReader);
+  if (search) url.searchParams.set('q', search);
+  if (selectedChapter) url.searchParams.set('chapter', selectedChapter);
+  if (selectedEvidence) url.searchParams.set('evidence', selectedEvidence);
+  return url.href;
+}
+
+function copyFeedback(label, text) {
+  const panel = element('div', '', 'feedback');
+  const button = element('button', label);
+  button.type = 'button';
+  const message = element('p', '', 'feedback-status');
+  message.setAttribute('role', 'status');
+  const manual = element('textarea');
+  manual.readOnly = true;
+  manual.rows = 4;
+  manual.hidden = true;
+  manual.setAttribute('aria-label', '可手动复制的反馈内容');
+  panel.append(button, message, manual);
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (!panel.isConnected) return;
+      manual.hidden = true;
+      message.textContent = '已复制，可以粘贴到聊天里。';
+    } catch {
+      if (!panel.isConnected) return;
+      manual.value = text;
+      manual.hidden = false;
+      message.textContent = '自动复制未成功，请手动复制下方文字。';
+      manual.focus();
+      manual.select();
+    }
+  });
+  return panel;
+}
+
 function articleUrl(path, fragment = '') {
   return repository + '/blob/main/' + path + fragment;
 }
@@ -330,14 +377,17 @@ function answerCard(entry) {
       list.append(element('dt', label), paragraph);
     }
     answer.append(list);
+    const links = element('p', '', 'answer-links');
     const original = element('a', '在 GitHub 查看原文');
     original.href = articleUrl(entry.path, '#' + entry.qid.toLowerCase());
-    answer.append(original);
+    links.append(original);
     if (location.protocol === 'https:' || location.protocol === 'http:') {
       const permalink = element('a', '本题链接');
       permalink.href = linkedUrl('#' + entry.qid.toLowerCase(), entry);
-      answer.append(' · ', permalink);
+      links.append(' · ', permalink);
     }
+    answer.append(links, copyFeedback('复制题目和链接',
+      '《运动营养健康指南》' + entry.qid + ' ' + entry.question + '\n' + feedbackLink(entry.qid)));
     card.append(answer);
   });
   return card;
@@ -365,6 +415,19 @@ function refresh() {
   shown = 0;
   results.replaceChildren();
   showMore();
+  searchFeedback.replaceChildren();
+  searchFeedback.hidden = matched.length > 0;
+  if (!searchFeedback.hidden) {
+    const search = query.value.trim();
+    const summary = search ? '我在《运动营养健康指南》里搜「' + search + '」，没有找到结果。'
+      : '我在《运动营养健康指南》里按以下条件筛选，没有找到结果。';
+    const filters = [chapter.value, evidence.value ? evidence.selectedOptions[0].textContent : '']
+      .filter(Boolean);
+    const context = filters.length ? '\n筛选条件为' + filters.join('、') : '';
+    searchFeedback.append(copyFeedback(search ? '复制搜索词和链接' : '复制筛选和链接',
+      summary + context + '\n' + feedbackLink(search, chapter.value, evidence.value)));
+    if (search) searchFeedback.append(element('p', '链接也包含搜索词，分享前请确认内容。', 'filter-note'));
+  }
   if (matched.length === 1 && !related) results.firstElementChild.open = true;
 }
 
