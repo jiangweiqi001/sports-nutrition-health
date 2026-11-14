@@ -504,8 +504,12 @@ const requestedEvidence = parameters.get('evidence');
 evidence.value = Array.from(evidence.options).some(option => option.value === requestedEvidence)
   ? requestedEvidence : '';
 refresh();
-if (/^q\d+$/i.test(query.value.normalize('NFKC').trim()) && results.firstElementChild?.open) {
-  requestAnimationFrame(() => results.scrollIntoView({block: 'start'}));
+const sharedAnswer = results.firstElementChild;
+if (/^q\d+$/i.test(query.value.normalize('NFKC').trim()) && sharedAnswer?.open) {
+  // The card builds its answer on the toggle event. Scroll once the text is in the page.
+  sharedAnswer.addEventListener('toggle', () => {
+    if (sharedAnswer.open && sharedAnswer.isConnected) sharedAnswer.scrollIntoView({block: 'start'});
+  }, {once: true});
 }
 </script>
 </body>
