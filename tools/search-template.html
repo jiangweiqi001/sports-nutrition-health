@@ -15,6 +15,7 @@ body { margin: 0; background: var(--page); color: var(--text); font: 1rem/1.6 "I
 main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
 header { margin-bottom: 1.5rem; }
 h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.3; margin: 0.35rem 0 0.75rem; }
+h1 a { color: inherit; }
 a { color: var(--accent); text-underline-offset: 0.16em; }
 p { margin: 0.5rem 0; }
 .controls { display: grid; grid-template-columns: minmax(0, 3fr) repeat(2, minmax(9rem, 1fr)); gap: 0.8rem; align-items: end; }
@@ -26,6 +27,11 @@ button { cursor: pointer; color: var(--accent); }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
 .shortcuts button { font-size: 0.9rem; }
+.starting-point-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+.starting-point { padding: 0.6rem 0.8rem 0.15rem; background: var(--surface); border: 1px solid var(--line); border-radius: 0.65rem; }
+.starting-point h3 { margin: 0; font-size: 1rem; }
+.starting-point ul { display: flex; flex-wrap: wrap; column-gap: 0.85rem; margin: 0; padding: 0; list-style: none; }
+.starting-point a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: 0.9rem; }
 #status { margin: 1.25rem 0 0.55rem; color: var(--quiet); }
 details { background: var(--surface); border: 1px solid var(--line); border-radius: 0.65rem; margin-bottom: 0.65rem; }
 summary { padding: 0.75rem 1rem; cursor: pointer; }
@@ -41,6 +47,7 @@ dd { margin: 0.2rem 0 0; }
   main { padding-top: 1.5rem; }
   .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .search-label { grid-column: 1 / -1; }
+  .starting-point-list { grid-template-columns: minmax(0, 1fr); }
   summary { padding-inline: 0.75rem; }
 }
 @media (max-width: 23rem) {
@@ -56,7 +63,7 @@ dd { margin: 0.2rem 0 0; }
       <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">提一个真实问题</a> ·
       <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">报告错误</a>
     </nav>
-    <h1>运动营养健康指南</h1>
+    <h1><a href="?">运动营养健康指南</a></h1>
     <p>搜索 {{QUESTION_COUNT}} 题。展开问题即可阅读做法、适用范围和参考文献。</p>
     <p><a href="{{REPOSITORY}}/blob/main/docs/start-with-two-sessions.md">每周两次怎么练</a> ·
       <a href="{{REPOSITORY}}/blob/main/docs/first-half-marathon.md">首半马行动清单</a> ·
@@ -64,8 +71,8 @@ dd { margin: 0.2rem 0 0; }
   </header>
   <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
   <div class="controls">
-    <label class="search-label">关键词或题号
-      <input type="search" id="query" placeholder="例如 膝盖疼、蛋白质、能量胶" autocomplete="off">
+    <label class="search-label">搜索问题、关键词或题号
+      <input type="search" id="query" placeholder="例如 跑步时膝盖疼怎么办" autocomplete="off">
     </label>
     <label>章节
       <select id="chapter"><option value="">全部章节</option></select>
@@ -81,6 +88,33 @@ dd { margin: 0.2rem 0 0; }
     </label>
   </div>
   <p id="evidence-note" class="filter-note">字母对应具体结论，一题可有多个标注。<a href="{{REPOSITORY}}#%E6%80%8E%E4%B9%88%E8%AF%BB">查看分级说明</a></p>
+  <section id="starting-points" aria-labelledby="starting-points-title">
+    <h2 id="starting-points-title">按场景开始</h2>
+    <div class="starting-point-list">
+      <div class="starting-point">
+        <h3>刚开始运动</h3>
+        <ul>
+          <li><a href="?q=Q401#results">从走路开始</a></li>
+          <li><a href="?q=Q09#results">第一次练力量</a></li>
+        </ul>
+      </div>
+      <div class="starting-point">
+        <h3>训练怎么吃</h3>
+        <ul>
+          <li><a href="?q=Q06#results">训练前怎么吃</a></li>
+          <li><a href="?q=Q13#results">训练后怎么吃</a></li>
+        </ul>
+      </div>
+      <div class="starting-point">
+        <h3>跑步不舒服</h3>
+        <ul>
+          <li><a href="?q=Q329#results">跑步膝盖疼</a></li>
+          <li><a href="?q=Q448#results">跑步时岔气</a></li>
+          <li><a href="?q=Q353#results">运动中胸痛或快晕倒</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <div class="shortcuts" aria-label="常用搜索">
     <button type="button" data-query="膝盖疼">膝盖疼</button>
     <button type="button" data-query="蛋白质">蛋白质</button>
@@ -105,35 +139,113 @@ const evidence = document.getElementById('evidence');
 const status = document.getElementById('status');
 const results = document.getElementById('results');
 const more = document.getElementById('more');
+const startingPoints = document.getElementById('starting-points');
 const pageSize = 30;
 const chapters = ['抗阻训练', '拉伸与活动度', '有氧训练', '日常饮食', '训练饮食与补剂', '长跑营养', '训练相关健康', '常见慢病与运动'];
 let matched = [];
 let shown = 0;
+let related = false;
 
 function normalize(value) {
   return value.normalize('NFKC').toLowerCase().replace(/[\p{P}\p{Z}]/gu, '');
 }
 
-const searchable = entries.map(entry => ({
-  entry,
-  question: normalize(entry.question),
-  heading: normalize([entry.qid, entry.title, entry.aliases].join(' ')),
-  body: normalize(entry.fields.slice(0, -1).map(field => field[1]).join(' ')),
-}));
+// Use these equivalents only when the original keyword search has no results.
+const topicGroups = [
+  ['膝盖疼', '膝盖痛', '膝疼', '膝痛', '膝盖疼痛'],
+  ['膝外侧', '膝盖外侧', '外侧膝'],
+  ['膝盖扭伤', '膝盖扭了', '膝盖扭到', '扭到膝盖'],
+  ['反复崴脚', '老是崴脚', '总是崴脚'],
+  ['脚踝扭伤', '脚踝扭了', '崴脚', '扭到脚踝'],
+  ['膝盖响', '膝盖有响声', '膝盖弹响', '膝盖咔咔响'],
+  ['在家练全身', '居家练全身', '在家没有器械怎么练全身', '在家做力量训练', '在家里做力量训练'],
+  ['蛋白粉'],
+  ['蛋白质'],
+  ['肌酸'],
+  ['伤肾', '对肾不好', '肾脏受损'],
+  ['半马', '半程马拉松'],
+  ['全马', '全程马拉松'],
+  ['能量胶', '运动胶', '补给胶', '吃胶', '带胶'],
+  ['吃胶吃腻', '能量胶吃腻', '补给喝腻', '甜味喝腻'],
+  ['睡前拉伸', '睡前还能拉伸', '睡前做拉伸'],
+  ['一跑就喘', '跑步很喘', '跑步时很喘', '跑步一会儿就喘', '就喘得不行'],
+  ['跑前热身', '跑步前热身', '跑步前用什么方法热身', '跑步前怎么热身'],
+  ['跑步小腿疼', '跑步小腿痛', '跑步小腿内侧疼', '跑步时小腿内侧疼'],
+  ['每周两次', '一周练两次', '一周只能练两次', '每周只练两次', '一周两次', '每周练两次',
+    '一周两练', '一周练2次', '每周练2次'],
+  ['经期运动', '月经来了能运动', '经期能运动', '来月经能运动', '生理期能运动', '生理期跑步'],
+  ['经期', '来月经', '月经', '生理期', '大姨妈'],
+  ['围绝经期', '更年期'],
+  ['经痛', '痛经'],
+  ['岔气', '跑步肚子疼', '跑步肚子痛'],
+  ['胸痛', '胸口疼', '胸口痛', '胸口闷', '胸闷', '胸口压迫感'],
+  ['晕倒', '快晕了'],
+  ['叫不醒', '叫不应', '失去意识', '晕倒叫不醒', '晕倒了叫不醒'],
+  ['倒地'],
+  ['意识混乱', '意识模糊', '神志不清'],
+  ['久坐', '一直坐着', '坐太久'],
+  ['一万步', '10000步', '1万步'],
+  ['走跑交替', '跑跑走走', '跑走结合', '走跑结合'],
+  ['跑不动', '跑不起来'],
+  ['练后吃饭', '练完还吃吗', '练完回家吃饭', '练完很晚回家还能吃晚饭', '训练后吃饭',
+    '夜跑回来还要吃饭', '训练后还能吃正餐', '练完吃正餐'],
+];
+const topicNames = new Map(topicGroups.flatMap(([name, ...variants]) =>
+  [name, ...variants].map(variant => [variant, name])));
+const topicPattern = new RegExp([...topicNames.keys()].sort((a, b) => b.length - a.length).join('|'), 'g');
+const segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('zh', {granularity: 'word'}) : null;
+const commonWords = new Set(['怎么', '怎样', '如何', '可以', '能否', '需要', '要不要', '一下',
+  '一定', '还是', '开始', '时候', '自己', '平时', '每天', '有没有', '是不是', '怎么办', '运动', '训练',
+  '不够', '完全', '行不行', '什么', '几个', '才算', '会不会', '要带', '要喝', '不要']);
+
+function findTopics(value) {
+  return new Set(Array.from(value.matchAll(topicPattern), ([variant]) => topicNames.get(variant)));
+}
+
+const searchable = entries.map(entry => {
+  const question = normalize(entry.question);
+  const heading = normalize([entry.qid, entry.title, entry.aliases].join(' '));
+  const body = normalize(entry.fields.slice(0, -1).map(field => field[1]).join(' '));
+  const title = question + '\0' + heading;
+  return {entry, question, heading, body, title, titleTopics: findTopics(title), bodyTopics: findTopics(body)};
+});
+
+function findRelatedEntries(value, candidates) {
+  const topics = [...findTopics(value)];
+  const remaining = value.replace(topicPattern, ' ');
+  const words = segmenter ? Array.from(segmenter.segment(remaining), part => normalize(part.segment)) : [];
+  const clues = [...new Set(words.filter(word => word.length >= 2 && !commonWords.has(word)))];
+  const scores = [];
+  for (const item of candidates) {
+    const {entry, title, titleTopics, bodyTopics} = item;
+    if (!topics.every(topic => titleTopics.has(topic) || bodyTopics.has(topic))) continue;
+    const topicHits = topics.filter(topic => titleTopics.has(topic)).length;
+    const titleClues = clues.filter(word => title.includes(word));
+    if (!topics.length && (titleClues.length < 2 || !titleClues.some(word => word.length >= 3))) continue;
+    const score = topicHits * (clues.length + 1) + titleClues.length;
+    scores.push({entry, score, topicHits});
+  }
+  // A topic in a title is stronger evidence of relevance than a mention in the answer.
+  const bestTitleMatch = Math.max(0, ...scores.map(item => item.topicHits));
+  return scores.filter(item => item.topicHits === bestTitleMatch)
+    .sort((a, b) => b.score - a.score || a.entry.id - b.entry.id)
+    .slice(0, 12).map(item => item.entry);
+}
 
 function findEntries(value, selectedChapter, selectedEvidence) {
   const raw = value.normalize('NFKC').trim();
   const idMatch = /^q?0*(\d+)$/i.exec(raw);
   const terms = raw.split(/\s+/).map(normalize).filter(Boolean);
-  return searchable
+  const candidates = searchable
     .filter(({ entry }) => !selectedChapter || entry.chapter === selectedChapter)
     .filter(({ entry }) => {
       if (!selectedEvidence) return true;
       if (selectedEvidence === 'unmarked') return entry.grades.length === 0;
       return entry.grades.includes(selectedEvidence);
-    })
+    });
+  if (idMatch) return {entries: candidates.filter(({entry}) => entry.id === Number(idMatch[1])).map(({entry}) => entry)};
+  const exact = candidates
     .map(({ entry, question, heading, body }) => {
-      if (idMatch) return [entry, entry.id === Number(idMatch[1]) ? 1 : -1];
       if (!terms.every(term => question.includes(term) || heading.includes(term) || body.includes(term))) return [entry, -1];
       const questionHits = terms.filter(term => question.includes(term)).length;
       const headingHits = terms.filter(term => heading.includes(term)).length;
@@ -142,6 +254,8 @@ function findEntries(value, selectedChapter, selectedEvidence) {
     .filter(([, score]) => score >= 0)
     .sort((a, b) => b[1] - a[1] || a[0].id - b[0].id)
     .map(([entry]) => entry);
+  if (exact.length || !terms.length) return {entries: exact};
+  return {entries: findRelatedEntries(raw.toLowerCase(), candidates), related: true};
 }
 
 for (const name of chapters) {
@@ -237,19 +351,27 @@ function showMore() {
   shown += page.length;
   more.hidden = shown >= matched.length;
   status.textContent = matched.length
-    ? '找到 ' + matched.length + ' 题，显示 ' + shown + ' 题。'
+    ? related
+      ? '按关键词找到 ' + matched.length + ' 个相关问题。'
+      : '找到 ' + matched.length + ' 题，显示 ' + shown + ' 题。'
     : '没有匹配题目。可以试试更短的词，或放宽章节和证据等级筛选。';
 }
 
 function refresh() {
-  matched = findEntries(query.value, chapter.value, evidence.value);
+  const result = findEntries(query.value, chapter.value, evidence.value);
+  matched = result.entries;
+  related = Boolean(result.related);
+  startingPoints.hidden = Boolean(query.value.trim() || chapter.value || evidence.value);
   shown = 0;
   results.replaceChildren();
   showMore();
-  if (matched.length === 1) results.firstElementChild.open = true;
+  if (matched.length === 1 && !related) results.firstElementChild.open = true;
 }
 
-query.addEventListener('input', refresh);
+query.addEventListener('input', event => {
+  if (!event.isComposing) refresh();
+});
+query.addEventListener('compositionend', refresh);
 chapter.addEventListener('change', refresh);
 evidence.addEventListener('change', refresh);
 more.addEventListener('click', () => {

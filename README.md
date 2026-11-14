@@ -19,9 +19,9 @@
 
 [补剂和装备，哪些可以先省下](docs/supplement-buying-checklist.md) · [训练、营养与健康常用词](docs/glossary.md)
 
-## 搜关键词或题号
+## 搜问题、关键词或题号
 
-[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持关键词和题号，可以叠加章节和证据等级筛选。点击问题展开全文。试试 [膝盖疼](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=膝盖疼)、[蛋白质](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=蛋白质) 或 [能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=能量胶)。
+[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文问句、常见近义词、关键词和题号，可以叠加章节和证据等级筛选。试试[跑步时膝盖疼怎么办](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑步时膝盖疼怎么办)或[跑半马要带几个能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑半马要带几个能量胶)。首页也可以按场景直接打开常见问题。
 
 要在无网时查阅，可在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。参考文献链接需要联网。
 
