@@ -98,7 +98,7 @@
 - **收益**　周内仍有轻松跑和持续时间较长的一跑，也能看出是否有余力再加专项训练。
 - **证据等级**　C（三天课表和适应性调整来自训练指导。示例用于排程，缺少比较所有三天跑法的直接证据）。
 - **适用与备注**　全马训练的时间投入可能明显高于半马，先对照[首全马计划](../02-distance-running.md#q33)的起点和长跑安排。三天排法的可行性看近期基础及恢复。
-- **来源**　Baddeley 与 Hobdell 三天跑的半马课表示例，纽约路跑协会教练常见问答的跑步频次部分，波士顿田径协会半马课表的调整说明。 [三天半马课表](https://therunningchannel.com/wp-content/uploads/2024/06/Training-plan-Half-Marathon-4-days.pdf) · [纽约路跑协会教练问答](https://prod.nyrr.org/news/2026/06/10/coaches-answers-to-frequently-asked-questions) · [半马官方课表](https://www.baa.org/races/boston-half/info-for-athletes/boston-half-training/)
+- **来源**　Jeff Galloway 为 runDisney 编写的半马入门走跑计划第 4–6 页，课表按周二、周四和周六安排。纽约路跑协会教练常见问答的跑步频次部分和波士顿田径协会半马课表的调整说明，供调整频次和训练安排时参考。 [runDisney 三日走跑半马课表](https://cdn3.parksmedia.wdprapps.disney.com/media/rd/redesign/running-training-programs/HalfMarathon_Training_Program.pdf#page=4) · [纽约路跑协会教练问答](https://prod.nyrr.org/news/2026/06/10/coaches-answers-to-frequently-asked-questions) · [半马官方课表](https://www.baa.org/races/boston-half/info-for-athletes/boston-half-training/)
 
 <a name="q132"></a>
 

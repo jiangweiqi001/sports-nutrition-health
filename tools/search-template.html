@@ -71,8 +71,8 @@ dd { margin: 0.2rem 0 0; }
     </nav>
     <h1><a href="?">运动营养健康指南</a></h1>
     <p>搜索 {{QUESTION_COUNT}} 题。展开问题即可阅读做法、适用范围和参考文献。</p>
-    <p><a href="{{REPOSITORY}}/blob/main/docs/start-with-two-sessions.md">每周两次怎么练</a> ·
-      <a href="{{REPOSITORY}}/blob/main/docs/first-half-marathon.md">首半马行动清单</a> ·
+    <p><a href="{{PUBLIC_SITE}}/start-with-two-sessions.html">每周两次怎么练</a> ·
+      <a href="{{PUBLIC_SITE}}/first-half-marathon.html">首半马行动清单</a> ·
       <a href="{{REPOSITORY}}/blob/main/docs/glossary.md">常用术语</a></p>
   </header>
   <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
@@ -138,7 +138,7 @@ dd { margin: 0.2rem 0 0; }
 <script>
 'use strict';
 const repository = '{{REPOSITORY}}';
-const publicReader = 'https://jiangweiqi001.github.io/sports-nutrition-health/search.html';
+const publicReader = '{{PUBLIC_SITE}}/search.html';
 const entries = JSON.parse(document.getElementById('guide-data').textContent);
 const query = document.getElementById('query');
 const chapter = document.getElementById('chapter');
@@ -155,7 +155,12 @@ let shown = 0;
 let related = false;
 
 function normalize(value) {
-  return value.normalize('NFKC').toLowerCase().replace(/[\p{P}\p{Z}]/gu, '');
+  return normalizeDistance(value.normalize('NFKC')).toLowerCase().replace(/[\p{P}\p{Z}]/gu, '');
+}
+
+function normalizeDistance(value) {
+  return value.replace(/5\s*公里/g, (match, offset) =>
+    offset > 0 && /[\d.]/.test(value[offset - 1]) ? match : '五公里');
 }
 
 // Use these equivalents only when the original keyword search has no results.
@@ -175,6 +180,12 @@ const topicGroups = [
   ['伤肾', '对肾不好', '肾脏受损'],
   ['半马', '半程马拉松'],
   ['全马', '全程马拉松'],
+  ['每周三跑', '一周三跑', '每周跑三次', '一周跑三次', '每周只能跑三次', '一周只能跑三次',
+    '每周只能跑三天', '每周只跑三次', '每周跑3次', '一周跑3次'],
+  ['起跑配速', '起跑节奏', '起跑跑多快', '前五公里配速', '前五公里跑多快', '前五公里应该跑多快',
+    '前几公里配速', '前几公里跑多快'],
+  ['越野选距离', '越野选多远', '越野跑选多远', '越野怎么选距离', '越野跑怎么选距离',
+    '越野选多少公里', '越野跑选多少公里', '越野选什么组别', '越野跑选什么组别'],
   ['高血压'],
   ['糖尿病'],
   ['糖尿病前期', '糖前期'],
@@ -189,7 +200,8 @@ const topicGroups = [
   ['跑前热身', '跑步前热身', '跑步前用什么方法热身', '跑步前怎么热身'],
   ['跑步小腿疼', '跑步小腿痛', '跑步小腿内侧疼', '跑步时小腿内侧疼'],
   ['每周两次', '一周练两次', '一周只能练两次', '每周只练两次', '一周两次', '每周练两次',
-    '每周只有两次', '一周只有两次', '每周只能练两次', '一周两练', '一周练2次', '每周练2次'],
+    '每周只有两次', '一周只有两次', '每周只能练两次', '一周两练', '一周练2次', '每周练2次',
+    '一周就能练两回', '每周就能练两回', '一周练两回', '每周练两回', '一周就能练两次'],
   ['跑步入门', '零基础跑步', '开始跑步', '跑步怎么开始'],
   ['经期运动', '月经来了能运动', '经期能运动', '来月经能运动', '生理期能运动', '生理期跑步'],
   ['经期', '来月经', '月经', '生理期', '大姨妈'],
@@ -201,12 +213,18 @@ const topicGroups = [
   ['叫不醒', '叫不应', '失去意识', '晕倒叫不醒', '晕倒了叫不醒'],
   ['倒地'],
   ['意识混乱', '意识模糊', '神志不清'],
-  ['久坐', '一直坐着', '坐太久'],
+  ['久坐', '一直坐着', '坐太久', '一坐就坐一下午', '一坐就坐半天', '一坐就是几个小时'],
+  ['久坐起身间隔', '多久起来活动', '多久起来一次', '坐多久起来', '坐多久站起来'],
   ['一万步', '10000步', '1万步'],
   ['走跑交替', '跑跑走走', '跑走结合', '走跑结合'],
   ['跑不动', '跑不起来'],
   ['练后吃饭', '练完还吃吗', '练完回家吃饭', '练完很晚回家还能吃晚饭', '训练后吃饭',
     '夜跑回来还要吃饭', '训练后还能吃正餐', '练完吃正餐'],
+  ['晚练后吃饭', '晚练后吃什么', '跑完步饿了要吃', '晚上跑完步饿了', '夜跑后饿',
+    '练完很晚吃饭', '十点了还要吃晚饭', '十点了,还要吃晚饭'],
+  ['晚练后难入睡', '晚练会睡不着', '晚练睡不着', '晚练后睡不着', '晚上练完睡不着', '晚上训练后睡不着'],
+  ['晚练咖啡因', '晚练喝咖啡', '晚上练力量喝咖啡', '晚上训练前喝咖啡',
+    '训练前喝咖啡晚上睡不着', '训练前喝咖啡会睡不着'],
 ];
 const topicNames = new Map(topicGroups.flatMap(([name, ...variants]) =>
   [name, ...variants].map(variant => [variant, name])));
@@ -234,7 +252,7 @@ function findRelatedEntries(value, candidates) {
   const isRace = topic => topic === '半马' || topic === '全马';
   // A general race article should not answer a question about a named condition.
   const conditionAndRace = condition && topics.some(isRace);
-  const requiredTopics = conditionAndRace ? topics.filter(topic => !isRace(topic)) : topics;
+  const requiredTopics = conditionAndRace ? [condition] : topics;
   const remaining = value.replace(topicPattern, ' ');
   const words = segmenter ? Array.from(segmenter.segment(remaining), part => normalize(part.segment)) : [];
   const clues = [...new Set(words.filter(word => word.length >= 2 && !commonWords.has(word)))];
@@ -295,7 +313,7 @@ function priorityQuestion(value) {
 }
 
 function findEntries(value, selectedChapter, selectedEvidence) {
-  const raw = value.normalize('NFKC').trim();
+  const raw = normalizeDistance(value.normalize('NFKC')).trim();
   const idMatch = /^q?0*(\d+)$/i.exec(raw);
   const terms = raw.split(/\s+/).map(normalize).filter(Boolean);
   const candidates = searchable

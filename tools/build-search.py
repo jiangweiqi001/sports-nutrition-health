@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "docs/topics-400.md"
 OUTPUT = ROOT / "docs/search.html"
 REPOSITORY = "https://github.com/jiangweiqi001/sports-nutrition-health"
+PUBLIC_SITE = "https://jiangweiqi001.github.io/sports-nutrition-health"
 ENTRY = re.compile(r'^<a name="(q\d+)"></a>\s+^### (.+)$', re.M)
 QUESTION = re.compile(r'^- \[(Q\d+)\]\(([^)]+)\) (.+)$', re.M)
 FIELD = re.compile(r'^- \*\*([^*]+)\*\*\s+(.+)$', re.M)
@@ -37,16 +38,19 @@ SECTIONS = {
 ALIASES = {
     6: "晚上健身 晚上练 晚练 下班训练 先吃还是先练",
     13: "晚上健身 晚上练 晚练 夜跑后 练完还吃吗 练完回家吃饭 下班练完还要吃吗 下班练完还要吃晚饭吗",
-    20: "晚上健身 晚上练 晚练 喝咖啡睡不着 氮泵",
+    20: "晚上健身 晚上练 晚练 喝咖啡睡不着 晚练咖啡因 氮泵",
     23: "首半马怎么准备 第一次半马 选课表 备赛起点",
     42: "在家练全身 没有器械",
     48: "时间少 没空练 每周只有两次空档 半小时",
     73: "深蹲幅度 深蹲深度",
     78: "加一档太重 哑铃档位太大 哑铃加重 5公斤到7.5公斤",
     110: "跑前热身 跑步前热身",
+    131: "每周三跑 半马课表 三天半马计划",
+    175: "半马起跑配速 起跑节奏 前五公里配速",
     234: "减肥饿肚子 肚子咕咕叫 减脂很饿",
-    242: "晚上健身 晚上练 晚练 练完还吃吗 晚饭睡觉",
+    242: "晚上健身 晚上练 晚练 练完还吃吗 晚饭睡觉 晚练后吃饭",
     274: "越野固体补给 吃胶吃腻了 能量胶吃腻了 甜味",
+    302: "晚练后难入睡",
     327: "力量训练后酸痛 酸痛继续练 酸痛还能练",
     329: "跑步膝盖疼 膝盖疼 跑步膝疼 下楼疼 膝前痛",
     332: "跑步小腿疼 跑步小腿内侧疼",
@@ -56,8 +60,9 @@ ALIASES = {
     355: "中暑 热射病 高温意识模糊 热天倒地",
     388: "糖尿病用药 长时间运动监测",
     401: "跑步入门 零基础 步行 开始运动 怎么开始 刚开始跑步 跑不动",
-    402: "一跑就喘 跑步很喘",
+    402: "跑步入门 一跑就喘 跑步很喘",
     403: "跑跑走走 跑走结合 走跑交替",
+    417: "越野选距离 首场越野 选多少公里",
     422: "时间少 没空练 碎片时间 快走",
     427: "坐垫磨痛 共享单车 小黄车 骑车磨屁股",
     429: "电助力 电自行车 脚踏助力 骑车",
@@ -142,7 +147,8 @@ def render(entries):
     data = json.dumps(entries, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     return (template.replace("{{GUIDE_DATA}}", data)
             .replace("{{QUESTION_COUNT}}", str(len(entries)))
-            .replace("{{REPOSITORY}}", REPOSITORY))
+            .replace("{{REPOSITORY}}", REPOSITORY)
+            .replace("{{PUBLIC_SITE}}", PUBLIC_SITE))
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

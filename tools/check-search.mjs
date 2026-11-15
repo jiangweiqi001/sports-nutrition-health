@@ -7,7 +7,8 @@ const data = page.match(/<script id="guide-data" type="application\/json">([\s\S
 const search = page.match(/\n(function normalize\(value\) \{[\s\S]+?)\nfor \(const name of chapters\)/)?.[1];
 assert.ok(data && search, 'The reader must contain its search index and ranking logic');
 assert.ok(!/class="urgent-links"|id="urgent-result"/.test(page), 'Use the regular learning results for all topics');
-const findEntries = runInNewContext(search + '\nfindEntries', {entries: JSON.parse(data)});
+const index = JSON.parse(data);
+const findEntries = runInNewContext(search + '\nfindEntries', {entries: index});
 
 const cases = [
   ['退烧后活动胸闷怎么办', 'Q319'],
@@ -44,6 +45,19 @@ const cases = [
   ['运动中胸痛', undefined, '日常饮食'],
   ['Q354', 'Q354'],
   ['Q354', undefined, '日常饮食', 'A'],
+  ['刚开始跑步，一跑就喘怎么办？', 'Q402'],
+  ['一坐就坐一下午多久起来一次', 'Q465'],
+  ['20分钟的电影一坐就是一晚上好看吗？', undefined],
+  ['每周只能跑三次怎么备战半马', 'Q131'],
+  ['每周三跑 半马', 'Q131'],
+  ['我一周就能练两回，每次半小时，怎么安排？', 'Q48'],
+  ['晚上跑完步饿了要吃东西吗', 'Q242'],
+  ['练完都十点了，还要吃晚饭吗', 'Q242'],
+  ['工作日晚练会睡不着吗', 'Q302'],
+  ['训练前喝咖啡晚上睡不着', 'Q20'],
+  ['半马跑两个半小时要吃几包胶', 'Q21'],
+  ['早上七点半马几点起来吃早餐', 'Q26'],
+  ['跑完半马多久能准备全马', 'Q33'],
 ];
 
 for (const [query, expected, chapter, evidence] of cases) {
@@ -53,10 +67,38 @@ for (const [query, expected, chapter, evidence] of cases) {
   assert.ok(entries.every(entry => !evidence || entry.grades.includes(evidence)), 'Apply the evidence filter to every result');
 }
 
-const {entries: diabetesResults} = findEntries('糖尿病可以跑半马吗');
-assert.match(diabetesResults[0]?.qid ?? '', /^Q38[78]$/);
+const topThreeCases = [
+  ['5公里 半马', ['Q23']],
+  ['五公里 半马', ['Q23']],
+  ['第一次半马前5公里应该跑多快', ['Q175', 'Q158']],
+  ['半马起跑配速', ['Q175', 'Q158']],
+  ['第一次越野跑选多少公里', ['Q417']],
+];
+
+for (const [query, expected] of topThreeCases) {
+  const actual = findEntries(query).entries.slice(0, 3).map(entry => entry.qid);
+  assert.ok(expected.some(qid => actual.includes(qid)), `${query}: expected ${expected.join(' or ')} in ${actual.join(', ')}`);
+}
+
+const diabetesCases = ['糖尿病可以跑半马吗', '糖尿病每周只能跑三次能跑半马吗'];
+for (const query of diabetesCases) {
+  const {entries} = findEntries(query);
+  assert.match(entries[0]?.qid ?? '', /^Q38[78]$/, query);
+  assert.ok(entries.every(entry => entry.chapter === '常见慢病与运动'), query);
+}
 assert.equal(findEntries('Q23').entries[0]?.basis, '课表示例');
 assert.equal(findEntries('Q33').entries[0]?.basis, '课表示例');
 assert.equal(findEntries('Q39').entries[0]?.basis, '临床指南');
 assert.equal(findEntries('Q354').entries[0]?.basis, '急救指南');
-console.log(`Verified ${cases.length + 1} search queries and filters, plus source labels.`);
+
+const questionIds = new Set(index.map(entry => entry.qid));
+for (const [file, example] of [['start-with-two-sessions.html', 'Q48'], ['first-half-marathon.html', 'Q131']]) {
+  assert.ok(page.includes(`/${file}"`), `The search home must link to ${file}`);
+  const guide = readFileSync(new URL(`../docs/${file}`, import.meta.url), 'utf8');
+  assert.ok(guide.includes('href="search.html"'), `${file} must link back to search`);
+  const links = Array.from(guide.matchAll(/href="search\.html\?q=(Q\d+)#results"/g), ([, qid]) => qid);
+  assert.ok(links.includes(example), `${file} must link to ${example}`);
+  assert.ok(links.every(qid => questionIds.has(qid)), `${file} links to a missing question`);
+}
+
+console.log(`Verified ${cases.length + topThreeCases.length + diabetesCases.length} search queries and filters, plus source labels and guide links.`);
