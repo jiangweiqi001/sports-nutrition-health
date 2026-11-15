@@ -8,9 +8,9 @@
 - **成本**　回到轻松跑时，可先挑离家近的路线，计划约 10–15 分钟并保留早停的余地。当天和次日各记一次感觉，用来决定是否增加下一趟。
 - **说人话**　先走得顺，再慢慢跑一小段。隔天的感觉也算结果。
 - **收益**　让第一跑好结束，也能用较小的运动量观察身体反应。
-- **证据等级**　B（64 名全马完赛者完成的随机试验中，从赛后 48 小时开始的特定强度跑步未显示会拖慢测得的肌损伤指标恢复。何时试第一跑仍须看个人状态）。
+- **证据等级**　B（64 名全马完赛者完成的随机试验中，从赛后 48 小时开始的特定强度跑步未显示会拖慢测得的肌损伤指标恢复。研究只观察了特定跑者和所测指标，何时试第一跑仍须看个人状态）。
 - **适用与备注**　给赛后没有明显异常、准备恢复训练的半马与全马跑者。持续或加重的疼痛和其他异常见[赛后明显不适的处理](../training-health/03-recovery.md#q313)。
-- **来源**　Martínez-Navarro 等全马赛后一周随机试验的摘要及方法，NYRR 发布的 Hospital for Special Surgery 专家较长距离比赛恢复问答的 Recover 和 Restart 段落。 [全马赛后活动试验](https://onlinelibrary.wiley.com/doi/abs/10.1080/17461391.2020.1857441) · [运动康复专家建议](https://prod.nyrr.org/news/2020/01/23/hss-recovering-from-a-half-or-full)
+- **来源**　Martínez-Navarro 等全马赛后一周随机试验的摘要及第 2 节 Methods，NYRR 赛后恢复说明中 First, Celebrate and Recover 的分周示例。 [全马赛后活动试验全文](https://repositori.uji.es/server/api/core/bitstreams/ffcea541-f8aa-440c-8ca6-c46cca58e013/content) · [NYRR 赛后恢复](https://prod.nyrr.org/news/2025/11/18/recovery-and-next-steps-after-goal-race)
 
 <a name="q183"></a>
 
@@ -58,4 +58,4 @@
 - **收益**　把上场比赛变成下一段训练的具体任务，避免只用完赛时间判断整个准备过程。
 - **证据等级**　B（大众比赛数据能描述分段表现，赛后记录和训练对照属于个人复盘，单场表现难以确定原因）。
 - **适用与备注**　适合有官方分段或个人计时记录的跑者。比较前先确认公里牌和手表的差异，可参照[官方分段核对](06-racing.md#q181)。
-- **来源**　Smyth 的大众全马分段研究中开头结果及讨论，NYRR 教练常见问答的赛后回顾建议。 [大众全马分段研究](https://doi.org/10.3233/JSA-170205) · [NYRR 赛后复盘建议](https://prod.nyrr.org/news/2026/06/10/coaches-answers-to-frequently-asked-questions)
+- **来源**　Smyth 的大众全马分段研究中开头结果及讨论，NYRR 教练常见问答的赛后回顾建议。 [大众全马分段研究](https://journals.sagepub.com/doi/10.3233/JSA-170205) · [NYRR 赛后复盘建议](https://prod.nyrr.org/news/2026/06/10/coaches-answers-to-frequently-asked-questions)

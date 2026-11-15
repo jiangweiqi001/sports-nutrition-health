@@ -12,7 +12,7 @@
 - **收益**　不同可转运碳水混用，在较高摄入速率下可提高外源碳水的利用，部分耐力试验观察到表现收益。早期直接比较有不少来自骑车研究。普通全马跑者的适宜比例取决于总量、食物组合和耐受。
 - **证据等级**　B（高摄入时的耐力试验，部分需要从骑车外推）。C（澳大利亚体育学院运动食品指导）。
 - **适用与备注**　配方比例应和全小时总量一起看。若胶、饮料同时使用，记录两者的碳水。
-- **来源**　澳大利亚体育学院运动食品指南，以及 Currell 与 Jeukendrup 的随机交叉骑车试验。 [澳大利亚体育学院指南](https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/sports-bar2/how-and-when-do-i-use-it) · [骑车试验](https://research.birmingham.ac.uk/en/publications/superior-endurance-performance-with-ingestion-of-multiple-transpo/)
+- **来源**　澳大利亚体育学院能量胶指南的胃肠耐受部分，以及 Currell 与 Jeukendrup 的随机交叉骑车试验。 [澳大利亚体育学院能量胶指南](https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/sports-gels) · [骑车试验](https://research.birmingham.ac.uk/en/publications/superior-endurance-performance-with-ingestion-of-multiple-transpo/)
 
 <a name="q273"></a>
 
