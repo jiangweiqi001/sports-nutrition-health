@@ -21,7 +21,9 @@
 
 ## 搜问题、关键词或题号
 
-[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文问句、常见近义词、关键词和题号，可以叠加章节和证据等级筛选。试试[跑步时膝盖疼怎么办](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑步时膝盖疼怎么办)或[跑半马要带几个能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑半马要带几个能量胶)。首页也可以按场景直接打开常见问题。
+[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文问句、常见近义词、关键词和题号。普通结果可以叠加章节和编辑分级筛选。试试[跑步时膝盖疼怎么办](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑步时膝盖疼怎么办)或[跑半马要带几个能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑半马要带几个能量胶)。首页也可以按场景直接打开常见问题。
+
+现场急症入口始终可见。搜索词匹配到对应急症时，页面会单独显示指引，章节和编辑分级筛选只应用于普通结果。
 
 要在无网时查阅，可在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。参考文献链接需要联网。
 
@@ -47,7 +49,7 @@
 - **B**　用于较小的试验、观察研究或需要外推的结论。
 - **C**　用于主要依据专业共识、临床指南或官方计划的执行建议。
 
-字母是本项目的编辑分级，标在它所支持的具体结论上。指南的推荐强度和证据等级使用指南自己的标法，原始研究的结果按研究条件读。官方标准、食物成分和示例算式，可按出处核对。 [分级与重点核查](docs/evidence.md#priority-review)
+字母是本项目的编辑分级，标在它所支持的具体结论上。检索页会进一步标明急救指南、临床指南和课表示例。指南的推荐强度和证据等级使用指南自己的标法，原始研究的结果按研究条件读。官方标准、食物成分和示例算式，可按出处核对。 [分级与重点核查](docs/evidence.md#priority-review)
 
 ## 版本与核查记录
 

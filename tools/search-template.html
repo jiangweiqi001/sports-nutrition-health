@@ -25,6 +25,9 @@ input, select { width: 100%; margin-top: 0.25rem; }
 .filter-note { color: var(--quiet); font-size: 0.9rem; }
 button { cursor: pointer; color: var(--accent); }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.urgent-links { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.9rem; padding: 0.15rem 0.8rem; margin-bottom: 1rem; border: 1px solid var(--line); border-radius: 0.65rem; background: var(--surface); }
+.urgent-links a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+#urgent-result details { border-inline-start: 0.25rem solid var(--accent); }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
 .shortcuts button { font-size: 0.9rem; }
 .starting-point-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
@@ -75,7 +78,13 @@ dd { margin: 0.2rem 0 0; }
       <a href="{{REPOSITORY}}/blob/main/docs/first-half-marathon.md">首半马行动清单</a> ·
       <a href="{{REPOSITORY}}/blob/main/docs/glossary.md">常用术语</a></p>
   </header>
-  <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
+  <nav class="urgent-links" aria-label="现场急症指引">
+    <strong>现场急症</strong>
+    <a href="?q=Q353#results">运动中胸痛或快晕倒</a>
+    <a href="?q=Q354#results">倒地且呼吸异常</a>
+    <a href="?q=Q355#results">高温运动后意识混乱</a>
+  </nav>
+  <noscript><p>请开启 JavaScript 使用搜索，或直接打开 <a href="{{REPOSITORY}}/blob/main/book/training-health/06-emergencies-and-weather.md#q353">急症指引</a>和 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
   <div class="controls">
     <label class="search-label">搜索问题、关键词或题号
       <input type="search" id="query" placeholder="例如 跑步时膝盖疼怎么办" autocomplete="off">
@@ -83,9 +92,9 @@ dd { margin: 0.2rem 0 0; }
     <label>章节
       <select id="chapter"><option value="">全部章节</option></select>
     </label>
-    <label>证据等级
+    <label>编辑分级
       <select id="evidence" aria-describedby="evidence-note">
-        <option value="">全部等级</option>
+        <option value="">全部分级</option>
         <option value="A">含 A</option>
         <option value="B">含 B</option>
         <option value="C">含 C</option>
@@ -93,7 +102,7 @@ dd { margin: 0.2rem 0 0; }
       </select>
     </label>
   </div>
-  <p id="evidence-note" class="filter-note">字母对应具体结论，一题可有多个标注。<a href="{{REPOSITORY}}#%E6%80%8E%E4%B9%88%E8%AF%BB">查看分级说明</a></p>
+  <p id="evidence-note" class="filter-note">A/B/C 是本站对具体结论的编辑标注。指南的推荐强度见原文。<a href="{{REPOSITORY}}/blob/main/docs/evidence.md#priority-review">查看分级说明</a></p>
   <section id="starting-points" aria-labelledby="starting-points-title">
     <h2 id="starting-points-title">按场景开始</h2>
     <div class="starting-point-list">
@@ -116,7 +125,6 @@ dd { margin: 0.2rem 0 0; }
         <ul>
           <li><a href="?q=Q329#results">跑步膝盖疼</a></li>
           <li><a href="?q=Q448#results">跑步时岔气</a></li>
-          <li><a href="?q=Q353#results">运动中胸痛或快晕倒</a></li>
         </ul>
       </div>
     </div>
@@ -130,10 +138,16 @@ dd { margin: 0.2rem 0 0; }
     <button type="button" data-query="晚练">晚练怎么吃</button>
     <button type="button" data-query="首半马">首半马</button>
   </div>
-  <p id="status" aria-live="polite"></p>
-  <div id="search-feedback" hidden></div>
-  <section id="results" aria-label="搜索结果"></section>
-  <button type="button" id="more" hidden>显示更多</button>
+  <div id="results">
+    <section id="urgent-result" aria-labelledby="urgent-result-title" hidden>
+      <h2 id="urgent-result-title">急症指引</h2>
+      <div id="urgent-answer"></div>
+    </section>
+    <p id="status" aria-live="polite"></p>
+    <div id="search-feedback" hidden></div>
+    <section id="ordinary-results" aria-label="搜索结果"></section>
+    <button type="button" id="more" hidden>显示更多</button>
+  </div>
 </main>
 <script id="guide-data" type="application/json">{{GUIDE_DATA}}</script>
 <script>
@@ -144,9 +158,11 @@ const entries = JSON.parse(document.getElementById('guide-data').textContent);
 const query = document.getElementById('query');
 const chapter = document.getElementById('chapter');
 const evidence = document.getElementById('evidence');
+const urgentResult = document.getElementById('urgent-result');
+const urgentAnswer = document.getElementById('urgent-answer');
 const status = document.getElementById('status');
 const searchFeedback = document.getElementById('search-feedback');
-const results = document.getElementById('results');
+const results = document.getElementById('ordinary-results');
 const more = document.getElementById('more');
 const startingPoints = document.getElementById('starting-points');
 const pageSize = 30;
@@ -162,6 +178,8 @@ function normalize(value) {
 // Use these equivalents only when the original keyword search has no results.
 const topicGroups = [
   ['膝盖疼', '膝盖痛', '膝疼', '膝痛', '膝盖疼痛'],
+  ['下楼膝痛', '下楼疼', '下楼膝疼', '膝盖下楼疼', '膝盖下楼痛', '下楼膝盖疼', '下楼膝盖痛',
+    '下楼时膝盖疼', '下楼时膝盖痛', '膝前痛'],
   ['膝外侧', '膝盖外侧', '外侧膝'],
   ['膝盖扭伤', '膝盖扭了', '膝盖扭到', '扭到膝盖'],
   ['反复崴脚', '老是崴脚', '总是崴脚'],
@@ -174,6 +192,13 @@ const topicGroups = [
   ['伤肾', '对肾不好', '肾脏受损'],
   ['半马', '半程马拉松'],
   ['全马', '全程马拉松'],
+  ['高血压'],
+  ['糖尿病'],
+  ['糖尿病前期', '糖前期'],
+  ['抗阻', '力量训练', '举铁'],
+  ['深蹲幅度', '深蹲深度', '蹲多深', '蹲到多深', '蹲多低', '蹲到多低'],
+  ['练后酸痛', '练完第二天酸痛', '第二天酸痛', '第二天肌肉酸痛', '隔天酸痛', '训练后酸痛',
+    '延迟性酸痛', '延迟性肌肉酸痛'],
   ['能量胶', '运动胶', '补给胶', '吃胶', '带胶'],
   ['吃胶吃腻', '能量胶吃腻', '补给喝腻', '甜味喝腻'],
   ['睡前拉伸', '睡前还能拉伸', '睡前做拉伸'],
@@ -181,7 +206,8 @@ const topicGroups = [
   ['跑前热身', '跑步前热身', '跑步前用什么方法热身', '跑步前怎么热身'],
   ['跑步小腿疼', '跑步小腿痛', '跑步小腿内侧疼', '跑步时小腿内侧疼'],
   ['每周两次', '一周练两次', '一周只能练两次', '每周只练两次', '一周两次', '每周练两次',
-    '一周两练', '一周练2次', '每周练2次'],
+    '每周只有两次', '一周只有两次', '每周只能练两次', '一周两练', '一周练2次', '每周练2次'],
+  ['跑步入门', '零基础跑步', '开始跑步', '跑步怎么开始'],
   ['经期运动', '月经来了能运动', '经期能运动', '来月经能运动', '生理期能运动', '生理期跑步'],
   ['经期', '来月经', '月经', '生理期', '大姨妈'],
   ['围绝经期', '更年期'],
@@ -221,13 +247,19 @@ const searchable = entries.map(entry => {
 
 function findRelatedEntries(value, candidates) {
   const topics = [...findTopics(value)];
+  const condition = topics.find(topic => ['糖尿病', '糖尿病前期', '高血压'].includes(topic));
+  const isRace = topic => topic === '半马' || topic === '全马';
+  // A general race article should not answer a question about a named condition.
+  const conditionAndRace = condition && topics.some(isRace);
+  const requiredTopics = conditionAndRace ? topics.filter(topic => !isRace(topic)) : topics;
   const remaining = value.replace(topicPattern, ' ');
   const words = segmenter ? Array.from(segmenter.segment(remaining), part => normalize(part.segment)) : [];
   const clues = [...new Set(words.filter(word => word.length >= 2 && !commonWords.has(word)))];
   const scores = [];
   for (const item of candidates) {
     const {entry, title, titleTopics, bodyTopics} = item;
-    if (!topics.every(topic => titleTopics.has(topic) || bodyTopics.has(topic))) continue;
+    if (conditionAndRace && (entry.chapter !== '常见慢病与运动' || !titleTopics.has(condition))) continue;
+    if (!requiredTopics.every(topic => titleTopics.has(topic) || bodyTopics.has(topic))) continue;
     const topicHits = topics.filter(topic => titleTopics.has(topic)).length;
     const titleClues = clues.filter(word => title.includes(word));
     if (!topics.length && (titleClues.length < 2 || !titleClues.some(word => word.length >= 3))) continue;
@@ -247,10 +279,10 @@ function hasSymptom(value, pattern) {
 }
 
 function priorityQuestion(value) {
-  const fainted = hasSymptom(value, /晕倒|晕过去|昏倒|昏过去|晕厥/g);
+  const fainted = hasSymptom(value, /晕倒|晕过去|昏倒|昏过去|晕厥|[晕昏]了(?:就|一直)?不醒/g);
   const collapsed = fainted || hasSymptom(value, /倒地|倒下/g);
-  const unresponsive = hasSymptom(value, /叫不醒|叫不应|失去意识|没(?:有)?反应(?!过来)|昏迷/g);
-  const abnormalBreathing = hasSymptom(value, /没(?:有)?正常呼吸|没(?:有)?呼吸(?!困难|异常|问题|不畅|不正常)|呼吸不正常|不呼吸|呼吸停止|只偶尔喘/g);
+  const unresponsive = hasSymptom(value, /(?:叫|喊)不醒|叫不应|[晕昏]了(?:就|一直)?不醒|醒不过来|失去意识|没(?:有)?反应(?!过来)|昏迷/g);
+  const abnormalBreathing = hasSymptom(value, /没(?:有)?正常呼吸|没(?:有)?呼吸(?!困难|异常|问题|不畅|不正常)|呼吸(?:不正常|异常|停止)|不呼吸|只偶尔喘/g);
   if ((collapsed || unresponsive) && abnormalBreathing) return 354;
 
   const heat = /高温|大热天|热天|炎热|酷暑|暴晒|闷热/.test(value);
@@ -262,10 +294,14 @@ function priorityQuestion(value) {
   const exercise = /运动|锻炼|跑步|跑着跑着|跑到|跑完|跑后|长跑|慢跑|夜跑|晨跑|马拉松|半马|全马|健身|训练|举重|骑车|游泳|爬楼/.test(value);
   const chestSymptoms = hasSymptom(value, /胸(?:口|部|前)?(?:疼|痛|发闷|闷|压迫|发紧)/g);
   const nearFainting = hasSymptom(value, /快(?:要)?晕|差点晕|眼前发黑|险些晕倒/g);
+  const suddenBreathlessness = hasSymptom(value, /(?:突然|突发|异常|明显)(?:出现)?(?:呼吸困难|气短)/g);
   const recentIllness = /退烧|退热|发烧后|发热后|感染后|感染恢复|感冒后|感冒刚好|阳康|新冠恢复/.test(value);
-  if (exercise && (nearFainting || fainted)) return 353;
+  if (exercise && (nearFainting || fainted || suddenBreathlessness)) return 353;
   if (chestSymptoms && recentIllness) return 319;
   if (exercise && chestSymptoms) return 353;
+
+  if (hasSymptom(value, /热射病/g)) return 355;
+  if (hasSymptom(value, /心肺复苏|心脏骤停|心搏骤停|自动体外除颤器|\b(?:cpr|aed)\b/g)) return 354;
 
   const outerKneePain = hasSymptom(value, /膝(?:盖|关节)?(?:有点|很)?(?:疼痛|疼|痛)(?:是在|的是|在|的|靠)?外(?:侧|边|面)|(?:膝(?:盖|关节)?的?外(?:侧|边|面)|外侧膝(?:盖|关节)?)(?:有点|很|开始|突然)?(?:疼|痛)/g);
   if (outerKneePain) {
@@ -275,10 +311,14 @@ function priorityQuestion(value) {
   return null;
 }
 
+const urgentQuestions = new Set([353, 354, 355]);
+
 function findEntries(value, selectedChapter, selectedEvidence) {
   const raw = value.normalize('NFKC').trim();
   const idMatch = /^q?0*(\d+)$/i.exec(raw);
   const terms = raw.split(/\s+/).map(normalize).filter(Boolean);
+  const priorityId = idMatch ? Number(idMatch[1]) : priorityQuestion(normalize(raw));
+  const urgent = urgentQuestions.has(priorityId) ? entries.find(entry => entry.id === priorityId) : undefined;
   const candidates = searchable
     .filter(({ entry }) => !selectedChapter || entry.chapter === selectedChapter)
     .filter(({ entry }) => {
@@ -286,7 +326,9 @@ function findEntries(value, selectedChapter, selectedEvidence) {
       if (selectedEvidence === 'unmarked') return entry.grades.length === 0;
       return entry.grades.includes(selectedEvidence);
     });
-  if (idMatch) return {entries: candidates.filter(({entry}) => entry.id === Number(idMatch[1])).map(({entry}) => entry)};
+  if (idMatch) {
+    return {entries: urgent ? [] : candidates.filter(({entry}) => entry.id === priorityId).map(({entry}) => entry), urgent};
+  }
   const exact = candidates
     .map(({ entry, question, heading, body }) => {
       if (!terms.every(term => question.includes(term) || heading.includes(term) || body.includes(term))) return [entry, -1];
@@ -298,9 +340,9 @@ function findEntries(value, selectedChapter, selectedEvidence) {
     .sort((a, b) => b[1] - a[1] || a[0].id - b[0].id)
     .map(([entry]) => entry);
   if (!terms.length) return {entries: exact};
-  const priorityId = priorityQuestion(normalize(raw));
-  const priority = candidates.find(({entry}) => entry.id === priorityId)?.entry;
   const matches = exact.length ? exact : findRelatedEntries(raw.toLowerCase(), candidates);
+  if (urgent) return {entries: matches.filter(entry => entry.id !== priorityId), related: !exact.length, urgent};
+  const priority = candidates.find(({entry}) => entry.id === priorityId)?.entry;
   if (!priority) return {entries: matches, related: !exact.length};
   return {
     entries: [priority, ...matches.filter(entry => entry.id !== priorityId)],
@@ -407,8 +449,8 @@ function appendAnswerText(container, markdown, entry) {
 function answerCard(entry) {
   const card = element('details');
   const summary = element('summary');
-  const grades = entry.grades.length ? entry.grades.join('/') : '无字母标注';
-  summary.append(element('span', [entry.qid, entry.chapter, grades].join(' · '), 'meta'));
+  const basis = entry.basis ?? (entry.grades.length ? '编辑分级 ' + entry.grades.join('/') : '无字母标注');
+  summary.append(element('span', [entry.qid, entry.chapter, basis].join(' · '), 'meta'));
   summary.append(element('span', entry.question, 'question'));
   card.append(summary);
   card.addEventListener('toggle', () => {
@@ -419,7 +461,7 @@ function answerCard(entry) {
     for (const [label, text] of entry.fields) {
       const paragraph = element('dd');
       appendAnswerText(paragraph, text, entry);
-      list.append(element('dt', label), paragraph);
+      list.append(element('dt', label === '证据等级' ? '编辑分级与依据' : label), paragraph);
     }
     answer.append(list);
     const links = element('p', '', 'answer-links');
@@ -449,7 +491,9 @@ function showMore() {
     ? related
       ? '按关键词找到 ' + matched.length + ' 个相关问题。'
       : '找到 ' + matched.length + ' 题，显示 ' + shown + ' 题。'
-    : '没有匹配题目。可以试试更短的词，或放宽章节和证据等级筛选。';
+    : urgentResult.hidden
+      ? '没有匹配题目。可以试试更短的词，或放宽章节和编辑分级筛选。'
+      : '对应的急症指引已在上方显示。';
 }
 
 function refresh() {
@@ -458,10 +502,17 @@ function refresh() {
   related = Boolean(result.related);
   startingPoints.hidden = Boolean(query.value.trim() || chapter.value || evidence.value);
   shown = 0;
+  urgentAnswer.replaceChildren();
+  urgentResult.hidden = !result.urgent;
+  if (result.urgent) {
+    const card = answerCard(result.urgent);
+    urgentAnswer.append(card);
+    card.open = true;
+  }
   results.replaceChildren();
   showMore();
   searchFeedback.replaceChildren();
-  searchFeedback.hidden = matched.length > 0;
+  searchFeedback.hidden = matched.length > 0 || Boolean(result.urgent);
   if (!searchFeedback.hidden) {
     const search = query.value.trim();
     const summary = search ? '我在《运动营养健康指南》里搜「' + search + '」，没有找到结果。'
@@ -504,7 +555,7 @@ const requestedEvidence = parameters.get('evidence');
 evidence.value = Array.from(evidence.options).some(option => option.value === requestedEvidence)
   ? requestedEvidence : '';
 refresh();
-const sharedAnswer = results.firstElementChild;
+const sharedAnswer = urgentAnswer.firstElementChild ?? results.firstElementChild;
 if (/^q\d+$/i.test(query.value.normalize('NFKC').trim()) && sharedAnswer?.open) {
   // The card builds its answer on the toggle event. Scroll once the text is in the page.
   sharedAnswer.addEventListener('toggle', () => {

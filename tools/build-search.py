@@ -15,6 +15,15 @@ QUESTION = re.compile(r'^- \[(Q\d+)\]\(([^)]+)\) (.+)$', re.M)
 FIELD = re.compile(r'^- \*\*([^*]+)\*\*\s+(.+)$', re.M)
 # The guide labels individual conclusions; cited grades such as 1A are separate.
 EVIDENCE_MARKER = re.compile(r'(?:^|[。；])\s*([ABC])(?=[（。])')
+# Make the basis explicit where the same editorial letter covers very different uses.
+SOURCE_LABELS = {
+    23: "课表示例",
+    33: "课表示例",
+    39: "临床指南",
+    353: "急救指南",
+    354: "急救指南",
+    355: "急救指南",
+}
 SECTIONS = {
     "抗阻训练": "运动",
     "拉伸与活动度": "运动",
@@ -32,18 +41,21 @@ ALIASES = {
     23: "首半马怎么准备 第一次半马 选课表 备赛起点",
     42: "在家练全身 没有器械",
     48: "时间少 没空练 每周只有两次空档 半小时",
+    73: "深蹲幅度 深蹲深度",
     78: "加一档太重 哑铃档位太大 哑铃加重 5公斤到7.5公斤",
     110: "跑前热身 跑步前热身",
     234: "减肥饿肚子 肚子咕咕叫 减脂很饿",
     242: "晚上健身 晚上练 晚练 练完还吃吗 晚饭睡觉",
     274: "越野固体补给 吃胶吃腻了 能量胶吃腻了 甜味",
-    336: "脚踝扭伤 崴脚",
+    327: "力量训练后酸痛 酸痛继续练 酸痛还能练",
     329: "跑步膝盖疼 膝盖疼 跑步膝疼 下楼疼 膝前痛",
     332: "跑步小腿疼 跑步小腿内侧疼",
+    336: "脚踝扭伤 崴脚",
     353: "跑步胸口疼 运动时胸痛 胸口疼头晕",
     354: "心肺复苏 心脏骤停 CPR AED 叫不醒 倒地",
     355: "中暑 热射病 高温意识模糊 热天倒地",
-    401: "零基础 步行 开始运动 怎么开始 刚开始跑步 跑不动",
+    388: "糖尿病用药 长时间运动监测",
+    401: "跑步入门 零基础 步行 开始运动 怎么开始 刚开始跑步 跑不动",
     402: "一跑就喘 跑步很喘",
     403: "跑跑走走 跑走结合 走跑交替",
     422: "时间少 没空练 碎片时间 快走",
@@ -109,6 +121,8 @@ def build_index():
             "path": path.relative_to(ROOT).as_posix(), "aliases": ALIASES.get(number, ""),
             "grades": sorted(set(EVIDENCE_MARKER.findall(evidence))),
         })
+        if number in SOURCE_LABELS:
+            entries[-1]["basis"] = SOURCE_LABELS[number]
     catalog_answers = {(ROOT / item["path"], item["qid"].lower()) for item in entries}
     for chapter_path in (ROOT / "book").rglob("*.md"):
         answers = cached_answers.get(chapter_path)
