@@ -10,7 +10,7 @@
 - **收益**　世界卫生组织建议久坐者从少量活动开始。没有运动禁忌的人，从不超过快走或日常生活强度的活动起步，通常无需先取得医疗许可。
 - **证据等级**　C（先从少量活动开始、通常无需运动前许可，是世界卫生组织和美国运动医学会的执行建议）。
 - **适用与备注**　适合准备从轻度到中等强度活动起步的成年人。有已知心血管病、糖尿病或肾病，或者走路、上楼时有胸部不适、异常气短、头晕或晕厥，先找医生评估。症状正在发生且明显时，停止活动并按当地急救指引求助。
-- **来源**　世界卫生组织 2020 年指南成人部分及表 3，美国运动医学会运动前筛查流程。 [WHO 指南全文](https://www.ncbi.nlm.nih.gov/books/NBK566046/) · [ACSM 筛查流程](https://www.exerciseismedicine.org/assets/page_documents/ACSM%20Preparticipation%20Screening%20Guidelines.pdf)
+- **来源**　世界卫生组织 2020 年指南成人部分及表 3，美国运动医学会运动前筛查流程。 [WHO 指南全文](https://www.ncbi.nlm.nih.gov/books/NBK566046/) · [ACSM 筛查流程图（图 1）](https://stacks.cdc.gov/view/cdc/85628/cdc_85628_DS1.pdf)
 
 <a name="q286"></a>
 
@@ -22,7 +22,7 @@
 - **收益**　美国运动医学会把当前活动水平、有无症状及已知疾病、目标强度一起考虑，帮助把医疗评估留给更需要的人。规律运动、没有相关疾病和症状的人，一般可逐步提高强度。
 - **证据等级**　C（运动前筛查和逐步加量依据美国运动医学会流程）。
 - **适用与备注**　开始加量时出现胸部压迫感、明显不合强度的气短、头晕或晕厥，应停止训练并求医。出现持续胸痛、昏倒或严重呼吸困难时，呼叫当地急救。原有药物按医嘱使用。
-- **来源**　美国运动医学会运动前筛查立场与流程，美国心脏协会和美国红十字会急救指南的胸痛及呼吸困难章节。 [筛查立场](https://pubmed.ncbi.nlm.nih.gov/26473759/) · [筛查流程](https://www.exerciseismedicine.org/assets/page_documents/ACSM%20Preparticipation%20Screening%20Guidelines.pdf) · [急救指南](https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines)
+- **来源**　美国运动医学会运动前筛查立场与流程，美国心脏协会和美国红十字会急救指南的胸痛及呼吸困难章节。 [筛查立场](https://pubmed.ncbi.nlm.nih.gov/26473759/) · [筛查流程图（图 1）](https://stacks.cdc.gov/view/cdc/85628/cdc_85628_DS1.pdf) · [急救指南](https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines)
 
 <a name="q287"></a>
 
@@ -34,7 +34,7 @@
 - **收益**　赛事规程能确定材料要求。运动史、症状和家族史则能帮助医生判断有没有需要进一步评估的问题。上面的一页摘要是整理资料的办法，跑量数字本身不决定医疗许可。
 - **证据等级**　C（材料以赛事规程为准，医生评估所需信息依据运动医学筛查流程和体育心脏病学声明）。
 - **适用与备注**　用于确实要求体检材料的比赛。拿到报告后若新出现胸部不适、异常气短或晕厥，先评估再决定参赛。赛事审核通过和医生对参赛风险的判断分别确认。
-- **来源**　盐城市体育局公布的 2026 盐城马拉松部分跑者体检要求、美国运动医学会筛查流程、美国心脏协会与美国心脏病学会 2025 年声明的运动前心脏筛查章节。 [赛事要求示例](https://ycsports.yancheng.gov.cn/art/2026/3/19/art_3663_4412250.html) · [ACSM 筛查流程](https://www.exerciseismedicine.org/assets/page_documents/ACSM%20Preparticipation%20Screening%20Guidelines.pdf) · [AHA/ACC 声明](https://pmc.ncbi.nlm.nih.gov/articles/PMC12145891/)
+- **来源**　盐城市体育局公布的 2026 盐城马拉松部分跑者体检要求、美国运动医学会筛查流程、美国心脏协会与美国心脏病学会 2025 年声明的运动前心脏筛查章节。 [赛事要求示例](https://ycsports.yancheng.gov.cn/art/2026/3/19/art_3663_4412250.html) · [ACSM 筛查流程图（图 1）](https://stacks.cdc.gov/view/cdc/85628/cdc_85628_DS1.pdf) · [AHA/ACC 声明](https://pmc.ncbi.nlm.nih.gov/articles/PMC12145891/)
 
 
 <a name="q288"></a>

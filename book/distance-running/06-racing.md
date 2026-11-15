@@ -82,4 +82,4 @@
 - **收益**　减少追逐瞬时配速的冲动，也能用更长时段估计比赛进度。
 - **证据等级**　B（位置记录验证研究表明运动手表距离有环境与设备误差。规则规定公路赛道的测量路线，配速核对是算术应用）。
 - **适用与备注**　赛道认证按允许路线中可跑的最短路径测量，实际跑线可能弯得更多。以主办方最终净用时与正式分段为比赛记录。
-- **来源**　世界田联公路赛规则 TR55.3，Gilgen-Ammann 等运动手表验证研究的城市、树林与跑道测量结果。 [世界田联技术规则](https://worldathletics.org/download/download?filename=0ed43077-8e08-492b-a4b3-267f27c18d0b.pdf&urlslug=C1.1+%26+C2.1+-+Competition+Rules+%26+Technical+Rules) · [运动手表距离验证研究](https://mhealth.jmir.org/2020/6/e17118)
+- **来源**　世界田联公路赛规则 TR55.3，Gilgen-Ammann 等运动手表验证研究的城市、树林与跑道测量结果。 [世界田联技术规则](https://worldathletics.org/download/download?filename=803d6cb5-38df-4438-a917-c371cb46a837.pdf&urlslug=C1.1+%26+C2.1+-+Competition+Rules+%26+Technical+Rules) · [运动手表距离验证研究](https://mhealth.jmir.org/2020/6/e17118)

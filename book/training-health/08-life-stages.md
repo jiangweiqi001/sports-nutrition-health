@@ -6,13 +6,13 @@
 
 ### 怀孕前就在跑或练力量，把原计划带去产检
 
-- **怎么做**　产检时说明自己平时跑多久、练哪些动作、每周练几次和大概强度，问医生当前孕期是否有运动禁忌，能继续哪些动作，跑量、用力程度和训练体位要怎么改。训练中出现阴道出血、持续阴道流液、规律且疼痛的宫缩，或胸痛、休息后仍不缓解的气短或头晕时，立即停练并及时联系产科或急诊。
+- **怎么做**　产检时说明自己平时跑多久、练哪些动作、每周练几次和大概强度，问医生当前孕期是否有运动禁忌，能继续哪些动作，跑量、用力程度和训练体位要怎么改。训练中出现阴道出血、持续阴道流液、规律且疼痛的宫缩，或休息后仍不缓解的气短或头晕时，立即停练并联系产科就医。出现胸痛、明显呼吸困难、昏厥或大量出血时，立即呼叫急救。
 - **成本**　把常练内容和近期症状存在手机，常规产检时带上。
 - **说人话**　把自己练什么说具体，再跟产科约好哪些变化需要停下来。
 - **收益**　无禁忌的孕妇通常可以继续适合自己的活动。把原有训练、孕期变化和停练信号一起核对，有助于在可活动的范围内继续训练。
 - **证据等级**　C（临床和公共卫生指南。按孕期和个人病史调整）。
 - **适用与备注**　想延续长距离、高强度或高负重训练时，尤其需要逐项讨论。产检后出现新症状或医嘱变化，要重新核对。
-- **来源**　美国妇产科医师学会第 804 号意见书的建议及停止运动警示；澳大利亚卫生部门孕期活动指南「Warning signs to stop physical activity」。 [美国妇产科医师学会指南](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2020/04/physical-activity-and-exercise-during-pregnancy-and-the-postpartum-period) · [澳大利亚孕期活动指南](https://www.health.gov.au/sites/default/files/2023-11/physical-activity-during-pregnancy-guidelines-brochure.pdf)
+- **来源**　美国妇产科医师学会第 804 号意见书的建议及停止运动警示、澳大利亚卫生部门孕期活动指南「Warning signs to stop physical activity」与美国 CDC 孕产期警示信号。 [美国妇产科医师学会指南](https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2020/04/physical-activity-and-exercise-during-pregnancy-and-the-postpartum-period) · [澳大利亚孕期活动指南](https://www.health.gov.au/sites/default/files/2023-11/physical-activity-during-pregnancy-guidelines-brochure.pdf) · [CDC 孕产期警示信号](https://www.cdc.gov/hearher/maternal-warning-signs/index.html)
 
 <a name="q374"></a>
 
@@ -47,7 +47,7 @@
 - **说人话**　一跑就漏尿或有坠胀感，先把跑段撤掉。带着记录去看，方便找下一步怎么恢复。
 - **收益**　少做会反复引发症状的冲击动作，可给评估和康复留出时间。对于确诊的压力性尿失禁或混合性尿失禁，临床指南支持在指导下做盆底肌训练。
 - **证据等级**　C（降低冲击参考产后返跑专家共识。盆底训练来自特定诊断的临床指南）。
-- **适用与备注**　漏尿与坠胀可能需要不同评估。若有突然大量阴道出血、严重疼痛、发热或呼吸困难，应及时求医。
+- **适用与备注**　漏尿与坠胀可能需要不同评估。若有突然大量阴道出血、严重疼痛、发热或呼吸困难，应立即就医。
 - **来源**　国际产后返跑方案共识表 6；英国 NICE NG210「Managing pelvic floor dysfunction」中的盆底肌训练，及产后护理指南 NG194 产妇应获告知的就医症状。 [返跑时的盆底症状](https://bjsm.bmj.com/content/58/4/183) · [盆底功能障碍指南](https://www.nice.org.uk/guidance/ng210/chapter/Recommendations) · [产后护理指南](https://www.nice.org.uk/guidance/ng194/chapter/Recommendations)
 
 <a name="q377"></a>
