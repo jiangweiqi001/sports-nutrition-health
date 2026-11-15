@@ -25,9 +25,6 @@ input, select { width: 100%; margin-top: 0.25rem; }
 .filter-note { color: var(--quiet); font-size: 0.9rem; }
 button { cursor: pointer; color: var(--accent); }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.urgent-links { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.9rem; padding: 0.15rem 0.8rem; margin-bottom: 1rem; border: 1px solid var(--line); border-radius: 0.65rem; background: var(--surface); }
-.urgent-links a { display: inline-flex; align-items: center; min-height: 2.75rem; }
-#urgent-result details { border-inline-start: 0.25rem solid var(--accent); }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
 .shortcuts button { font-size: 0.9rem; }
 .starting-point-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
@@ -78,13 +75,7 @@ dd { margin: 0.2rem 0 0; }
       <a href="{{REPOSITORY}}/blob/main/docs/first-half-marathon.md">首半马行动清单</a> ·
       <a href="{{REPOSITORY}}/blob/main/docs/glossary.md">常用术语</a></p>
   </header>
-  <nav class="urgent-links" aria-label="现场急症指引">
-    <strong>现场急症</strong>
-    <a href="?q=Q353#results">运动中胸痛或快晕倒</a>
-    <a href="?q=Q354#results">倒地且呼吸异常</a>
-    <a href="?q=Q355#results">高温运动后意识混乱</a>
-  </nav>
-  <noscript><p>请开启 JavaScript 使用搜索，或直接打开 <a href="{{REPOSITORY}}/blob/main/book/training-health/06-emergencies-and-weather.md#q353">急症指引</a>和 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
+  <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
   <div class="controls">
     <label class="search-label">搜索问题、关键词或题号
       <input type="search" id="query" placeholder="例如 跑步时膝盖疼怎么办" autocomplete="off">
@@ -138,16 +129,10 @@ dd { margin: 0.2rem 0 0; }
     <button type="button" data-query="晚练">晚练怎么吃</button>
     <button type="button" data-query="首半马">首半马</button>
   </div>
-  <div id="results">
-    <section id="urgent-result" aria-labelledby="urgent-result-title" hidden>
-      <h2 id="urgent-result-title">急症指引</h2>
-      <div id="urgent-answer"></div>
-    </section>
-    <p id="status" aria-live="polite"></p>
-    <div id="search-feedback" hidden></div>
-    <section id="ordinary-results" aria-label="搜索结果"></section>
-    <button type="button" id="more" hidden>显示更多</button>
-  </div>
+  <p id="status" aria-live="polite"></p>
+  <div id="search-feedback" hidden></div>
+  <section id="results" aria-label="搜索结果"></section>
+  <button type="button" id="more" hidden>显示更多</button>
 </main>
 <script id="guide-data" type="application/json">{{GUIDE_DATA}}</script>
 <script>
@@ -158,11 +143,9 @@ const entries = JSON.parse(document.getElementById('guide-data').textContent);
 const query = document.getElementById('query');
 const chapter = document.getElementById('chapter');
 const evidence = document.getElementById('evidence');
-const urgentResult = document.getElementById('urgent-result');
-const urgentAnswer = document.getElementById('urgent-answer');
 const status = document.getElementById('status');
 const searchFeedback = document.getElementById('search-feedback');
-const results = document.getElementById('ordinary-results');
+const results = document.getElementById('results');
 const more = document.getElementById('more');
 const startingPoints = document.getElementById('starting-points');
 const pageSize = 30;
@@ -311,14 +294,10 @@ function priorityQuestion(value) {
   return null;
 }
 
-const urgentQuestions = new Set([353, 354, 355]);
-
 function findEntries(value, selectedChapter, selectedEvidence) {
   const raw = value.normalize('NFKC').trim();
   const idMatch = /^q?0*(\d+)$/i.exec(raw);
   const terms = raw.split(/\s+/).map(normalize).filter(Boolean);
-  const priorityId = idMatch ? Number(idMatch[1]) : priorityQuestion(normalize(raw));
-  const urgent = urgentQuestions.has(priorityId) ? entries.find(entry => entry.id === priorityId) : undefined;
   const candidates = searchable
     .filter(({ entry }) => !selectedChapter || entry.chapter === selectedChapter)
     .filter(({ entry }) => {
@@ -327,7 +306,7 @@ function findEntries(value, selectedChapter, selectedEvidence) {
       return entry.grades.includes(selectedEvidence);
     });
   if (idMatch) {
-    return {entries: urgent ? [] : candidates.filter(({entry}) => entry.id === priorityId).map(({entry}) => entry), urgent};
+    return {entries: candidates.filter(({entry}) => entry.id === Number(idMatch[1])).map(({entry}) => entry)};
   }
   const exact = candidates
     .map(({ entry, question, heading, body }) => {
@@ -340,8 +319,8 @@ function findEntries(value, selectedChapter, selectedEvidence) {
     .sort((a, b) => b[1] - a[1] || a[0].id - b[0].id)
     .map(([entry]) => entry);
   if (!terms.length) return {entries: exact};
+  const priorityId = priorityQuestion(normalize(raw));
   const matches = exact.length ? exact : findRelatedEntries(raw.toLowerCase(), candidates);
-  if (urgent) return {entries: matches.filter(entry => entry.id !== priorityId), related: !exact.length, urgent};
   const priority = candidates.find(({entry}) => entry.id === priorityId)?.entry;
   if (!priority) return {entries: matches, related: !exact.length};
   return {
@@ -491,9 +470,7 @@ function showMore() {
     ? related
       ? '按关键词找到 ' + matched.length + ' 个相关问题。'
       : '找到 ' + matched.length + ' 题，显示 ' + shown + ' 题。'
-    : urgentResult.hidden
-      ? '没有匹配题目。可以试试更短的词，或放宽章节和编辑分级筛选。'
-      : '对应的急症指引已在上方显示。';
+    : '没有匹配题目。可以试试更短的词，或放宽章节和编辑分级筛选。';
 }
 
 function refresh() {
@@ -502,17 +479,10 @@ function refresh() {
   related = Boolean(result.related);
   startingPoints.hidden = Boolean(query.value.trim() || chapter.value || evidence.value);
   shown = 0;
-  urgentAnswer.replaceChildren();
-  urgentResult.hidden = !result.urgent;
-  if (result.urgent) {
-    const card = answerCard(result.urgent);
-    urgentAnswer.append(card);
-    card.open = true;
-  }
   results.replaceChildren();
   showMore();
   searchFeedback.replaceChildren();
-  searchFeedback.hidden = matched.length > 0 || Boolean(result.urgent);
+  searchFeedback.hidden = matched.length > 0;
   if (!searchFeedback.hidden) {
     const search = query.value.trim();
     const summary = search ? '我在《运动营养健康指南》里搜「' + search + '」，没有找到结果。'
@@ -555,7 +525,7 @@ const requestedEvidence = parameters.get('evidence');
 evidence.value = Array.from(evidence.options).some(option => option.value === requestedEvidence)
   ? requestedEvidence : '';
 refresh();
-const sharedAnswer = urgentAnswer.firstElementChild ?? results.firstElementChild;
+const sharedAnswer = results.firstElementChild;
 if (/^q\d+$/i.test(query.value.normalize('NFKC').trim()) && sharedAnswer?.open) {
   // The card builds its answer on the toggle event. Scroll once the text is in the page.
   sharedAnswer.addEventListener('toggle', () => {

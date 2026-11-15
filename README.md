@@ -13,17 +13,13 @@
 | 下班后练力量 | [练前来不及吃](book/04-training-nutrition.md#q06) · [练完回家怎么吃](book/04-training-nutrition.md#q13) · [晚练喝咖啡](book/04-training-nutrition.md#q20) |
 | 准备首半马或首全马 | [首半马行动清单](docs/first-half-marathon.md) · [首半马课表的起点](book/02-distance-running.md#q23) · [首全马课表的起点](book/02-distance-running.md#q33) · [半马途中补给](book/05-distance-running-nutrition.md#q21) · [全马补给演练](book/05-distance-running-nutrition.md#q24) |
 | 换一种有氧 | [骑车坐垫磨痛](book/aerobic-training/04-common-questions.md#q427) · [成年人怕水](book/aerobic-training/04-common-questions.md#q430) · [划船机怎么划](book/aerobic-training/04-common-questions.md#q433) · [第一场越野选多远](book/aerobic-training/03-trail-running.md#q417) |
-| 运动中或运动后不舒服 | [跑步时岔气](book/training-health/09-reader-questions.md#q448) · [跑步或下楼膝盖疼](book/training-health/04-running-injuries.md#q329) · [训练恢复和返训](docs/topics-400.md#health-recovery) · [现场急症](docs/topics-400.md#health-emergencies) |
-
-现场急症可直接查看[运动中胸痛或快晕倒](book/training-health/06-emergencies-and-weather.md#q353)、[成人倒地且呼吸异常](book/training-health/06-emergencies-and-weather.md#q354)、[高温运动后意识混乱](book/training-health/06-emergencies-and-weather.md#q355)。
+| 运动中或运动后不舒服 | [跑步时岔气](book/training-health/09-reader-questions.md#q448) · [跑步或下楼膝盖疼](book/training-health/04-running-injuries.md#q329) · [训练恢复和返训](docs/topics-400.md#health-recovery) |
 
 [补剂和装备，哪些可以先省下](docs/supplement-buying-checklist.md) · [训练、营养与健康常用词](docs/glossary.md)
 
 ## 搜问题、关键词或题号
 
-[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文问句、常见近义词、关键词和题号。普通结果可以叠加章节和编辑分级筛选。试试[跑步时膝盖疼怎么办](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑步时膝盖疼怎么办)或[跑半马要带几个能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑半马要带几个能量胶)。首页也可以按场景直接打开常见问题。
-
-现场急症入口始终可见。搜索词匹配到对应急症时，页面会单独显示指引，章节和编辑分级筛选只应用于普通结果。
+[在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)支持中文问句、常见近义词、关键词和题号，可以叠加章节和编辑分级筛选。试试[跑步时膝盖疼怎么办](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑步时膝盖疼怎么办)或[跑半马要带几个能量胶](https://jiangweiqi001.github.io/sports-nutrition-health/search.html?q=跑半马要带几个能量胶)。首页也可以按场景直接打开常见问题。
 
 要在无网时查阅，可在 GitHub 打开[离线搜索页](docs/search.html)，点 Download raw file 保存 HTML，再用浏览器打开。参考文献链接需要联网。
 
