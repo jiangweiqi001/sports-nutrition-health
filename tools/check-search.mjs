@@ -109,6 +109,10 @@ assert.equal(findEntries('Q354').entries[0]?.basis, '急救指南');
 const questionIds = new Set(index.map(entry => entry.qid));
 const homeUrl = new URL('../docs/index.html', import.meta.url);
 const home = readFileSync(homeUrl, 'utf8');
+const about = readFileSync(new URL('about.html', homeUrl), 'utf8');
+assert.match(about, /href="https:\/\/html5up\.net\/editorial"/);
+assert.match(about, /href="https:\/\/creativecommons\.org\/licenses\/by\/3\.0\/"/);
+assert.ok(home.includes('href="about.html"') && page.includes('href="about.html"'));
 const chapterLinks = new Set();
 for (const [, target] of home.matchAll(/href="(search\.html[^"]*)"/g)) {
   const url = new URL(target, homeUrl);
@@ -130,6 +134,7 @@ for (const [, asset] of home.matchAll(/(?:href|src)="(assets\/[^"]+)"/g)) {
 for (const [file, example] of [['start-with-two-sessions.html', 'Q48'], ['first-half-marathon.html', 'Q131']]) {
   assert.ok(page.includes(`/${file}"`), `The search home must link to ${file}`);
   const guide = readFileSync(new URL(`../docs/${file}`, import.meta.url), 'utf8');
+  assert.ok(guide.includes('href="about.html"'), `${file} must link to the site information`);
   assert.ok(guide.includes('href="search.html"'), `${file} must link back to search`);
   const links = Array.from(guide.matchAll(/href="search\.html\?q=(Q\d+)#results"/g), ([, qid]) => qid);
   assert.ok(links.includes(example), `${file} must link to ${example}`);

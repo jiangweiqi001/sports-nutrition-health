@@ -24,7 +24,7 @@
 - **收益**　核对批号和项目，可减少拿别款、别批次或范围不同的报告来判断当前产品的可能。认证能降低其覆盖范围内的部分污染风险。
 - **证据等级**　C（认证机构说明及反兴奋剂机构的核验指南。认证项目和范围随项目而异）。
 - **适用与备注**　对需接受兴奋剂检测的人尤其重要。即使批次核验通过，实际是否值得买仍要看相应成分、剂量和试验结果。
-- **来源**　美国反兴奋剂机构核验第三方标志公告；NSF Certified for Sport 产品查询；Informed Sport 认证流程第 4 阶段。 [核验包装标志](https://www.usada.org/dietary-supplements/verify-third-party-logos-supplements/) · [NSF 批号查询](https://www.nsfsport.com/certified-products/index.php) · [Informed Sport 认证流程](https://sport.wetestyoutrust.com/about/certification-process)
+- **来源**　美国反兴奋剂机构的购买前批次核验指引；NSF Certified for Sport 产品查询；Informed Sport 认证流程第 4 阶段。 [核验认证标志和批次](https://www.usada.org/substances/supplement-connect/reduce-risk-testing-positive-experiencing-adverse-health-effects/) · [NSF 批号查询](https://www.nsfsport.com/certified-products/index.php) · [Informed Sport 认证流程](https://sport.wetestyoutrust.com/about/certification-process)
 
 <a name="q253"></a>
 

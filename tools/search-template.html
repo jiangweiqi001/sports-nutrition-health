@@ -139,9 +139,13 @@
       <a href="{{REPOSITORY}}">GitHub 仓库</a>
       <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">提问</a>
       <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">勘误</a>
+      <a id="about-link" href="about.html">关于本站</a>
     </nav>
-    <p>友情链接 · <a href="https://ifanqiang.com/">ifanqiang.com</a></p>
-    <p>设计改编自 <a href="https://html5up.net/editorial">HTML5 UP · Editorial</a>（<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>）</p>
+    <p>友情链接 <a href="https://ifanqiang.com/">ifanqiang.com</a></p>
+    <details id="offline-about" hidden>
+      <summary>关于本站</summary>
+      <p>本离线阅读页改编自 AJ（HTML5 UP）设计的 <a href="https://html5up.net/editorial">Editorial</a>，采用 <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> 许可。</p>
+    </details>
   </footer>
 </div></main></div>
 <script id="guide-data" type="application/json">{{GUIDE_DATA}}</script>
@@ -552,6 +556,8 @@ for (const button of document.querySelectorAll('[data-query]')) {
 
 if (location.protocol === 'file:') {
   document.getElementById('guide-home').href = '?';
+  document.getElementById('about-link').hidden = true;
+  document.getElementById('offline-about').hidden = false;
 }
 const parameters = new URLSearchParams(location.search);
 query.value = parameters.get('q') || '';

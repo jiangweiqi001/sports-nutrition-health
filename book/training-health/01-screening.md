@@ -134,7 +134,7 @@
 - **收益**　剧烈运动会影响部分尿检结果。显微镜下血尿需要按规范留样并以镜检等方法核实，某些尿蛋白异常需要定量和复查。结合训练经过可以帮助解释结果，持续异常还需要评估原因。
 - **证据等级**　C（依据泌尿及肾脏指南的采样和复查建议）。
 - **适用与备注**　肉眼看到血尿应尽快就医。剧烈运动后出现茶色或可乐色尿，尤其伴明显肌痛、无力或尿量减少，停止训练并立即就医。别等常规复查，也不用靠大量喝水改变样本。
-- **来源**　美国泌尿外科学会与女性泌尿及尿动力学会 2025 年血尿指南采样章节、KDIGO 2024 年慢性肾脏病指南有关尿蛋白与采样的实践要点、美国 CDC 横纹肌溶解资料。 [血尿指南](https://www.auanet.org/documents/Guidelines/PDF/2025%20Guidelines/MH%20Unabridged%2002.2025FINAL4.pdf) · [KDIGO 指南](https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf) · [CDC 就医线索](https://www.cdc.gov/niosh/rhabdo/signs-symptoms/)
+- **来源**　美国泌尿外科学会与女性泌尿及尿动力学会 2025 年血尿指南采样章节、KDIGO 2024 年慢性肾脏病指南有关尿蛋白与采样的实践要点、美国 CDC 横纹肌溶解资料。 [血尿指南](https://www.auanet.org/documents/Guidelines/PDF/2025%20Guidelines/MH%20Unabridged%20FINAL.pdf) · [KDIGO 指南](https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf) · [CDC 就医线索](https://www.cdc.gov/niosh/rhabdo/signs-symptoms/)
 
 <a name="q296"></a>
 
