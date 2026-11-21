@@ -46,7 +46,7 @@
 
 [阅读正文 Q483](../book/aerobic-training/06-practical-skills.md#q483)
 
-- **网友原帖**　[V2EX，自由泳打腿该如何练习](https://www.v2ex.com/t/1062033)。作者用浮板练打腿，用力到快抽筋仍不前进，发帖询问如何找到发力感。[另一位泳者的独立提问](https://www.reddit.com/r/Swimming/comments/1rlrdgj/legs_not_moving_me_through_water_during_freestyle/) 也描述了抱浮板越使劲越难前进。
+- **网友原帖**　[V2EX，自由泳打腿该如何练习](https://www.v2ex.com/t/1062033)（[同一原帖的备用入口](https://hk.v2ex.com/t/1062033)）。作者用浮板练打腿，用力到快抽筋仍不前进，发帖询问如何找到发力感。[另一位泳者的独立提问](https://www.reddit.com/r/Swimming/comments/1rlrdgj/legs_not_moving_me_through_water_during_freestyle/) 也描述了抱浮板越使劲越难前进。
 - **与旧题的区别**　Q425 问怎样用短趟和休息累积有氧，Q482 看完整泳姿时的身体平衡。本题问抱板单靠腿为什么推不动。
 - **回答来源与核对**　核对 Flutter Kick 的动作顺序和 Common Mistakes。踢腿从髋部开始，膝踝跟随，过度屈膝或踢出水面会影响推进。未规定统一幅度或打腿频率。 [美国成人游泳协会，自由泳打腿教学](https://www.usms.org/fitness-and-training/guides/freestyle/kick)
 

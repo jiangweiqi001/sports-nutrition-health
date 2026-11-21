@@ -1,5 +1,7 @@
 # 团课、户外运动与术后恢复
 
+[全书目录](../../docs/topics-400.md#plan-training-health) · [本章原问题出处](../../docs/question-sources-health-515.md)
+
 <a name="q506"></a>
 
 ### 把位置移开音箱，再试听教练口令
@@ -45,8 +47,8 @@
 - **说人话**　上午出门时涂过一次，不能替你撑过一整趟大汗淋漓的长跑。
 - **收益**　正确覆盖和及时补涂有助于保护皮肤免受紫外线伤害。
 - **证据等级**　C（美国皮肤病学会的涂抹建议及美国 FDA 的耐水标签说明）。
-- **适用与备注**　耐水不等于永久防水。棒、喷雾、乳液都要按说明充分覆盖，本题不比较品牌或宣称某种剂型一定无效。
-- **来源**　[美国皮肤病学会防晒使用指南](https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen) · [美国 FDA 耐水标签说明](https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun)
+- **适用与备注**　耐水不等于永久防水。用防晒棒时，每块皮肤来回涂四遍再抹匀。用喷雾时，近距离喷到皮肤微微发亮再抹匀；涂脸先喷在手上，避开口鼻，大风时换用其他剂型。
+- **来源**　[美国皮肤病学会防晒使用指南](https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen) · [美国 FDA 耐水标签说明](https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun) · [美国皮肤病学会的棒状与喷雾涂法](https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-use-stick-spray-sunscreens)
 
 <a name="q510"></a>
 
@@ -93,5 +95,5 @@
 - **说人话**　站着试合身，还要试试跑起来舒不舒服。
 - **收益**　合适的支撑有助于减少跑跳时的乳房移动和相关不适。
 - **证据等级**　C（澳大利亚运动医学机构的运动乳房支撑指导；就诊边界参照 NHS）。
-- **适用与备注**　不随支撑改变、持续或加重的疼痛应评估。发现新肿块、乳头或皮肤改变，或乳房红热并发热，要及时就医。这里讲的是乳房组织不适；运动中胸口压迫、异常气短按 [Q353](../training-health/06-emergencies-and-weather.md#q353) 处理。
-- **来源**　[Sports Medicine Australia 运动与乳房支撑](https://sma.org.au/resources/injury-fact-sheets/exercise-and-breast-support/) · [NHS 乳房疼痛就医建议](https://www.nhs.uk/conditions/breast-pain/)
+- **适用与备注**　新出现、持续或加重的乳房痛，或摸到新肿块、发现乳头或皮肤改变，应预约就医。乳房局部发烫、肿胀或肤色明显改变，即使没发烧，也应当天就医；乳房疼痛同时伴高热或寒战，也应当天就医。这里讲的是乳房组织不适；运动中胸口压迫、异常气短按 [Q353](../training-health/06-emergencies-and-weather.md#q353) 处理。
+- **来源**　[Sports Medicine Australia 运动与乳房支撑](https://sma.org.au/resources/injury-fact-sheets/exercise-and-breast-support/) · [NHS 乳房疼痛就医建议](https://www.nhs.uk/symptoms/breast-pain/)

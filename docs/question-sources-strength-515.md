@@ -55,7 +55,7 @@
 
 - **原问**　帖主听说上斜练上胸、平板练下胸，问不同卧推角度是否真的会影响肌肉增长的位置和形状。 [Do Different Bench Press Variants Build Muscle Differently?](https://fitness.stackexchange.com/questions/9995/do-different-bench-press-variants-build-muscle-differently)
 - **取舍**　Q60 是从俯卧撑过渡到卧推，Q90 讨论目标肌群的组数和顺序。本题比较两个卧推角度与胸大肌的区域性增长。
-- **回答核查**　47 名未训练年轻男性随机分到三组，等训练组数、每周一次、共 8 周。三个肌厚测点仅第二肋间处上斜组增幅更大，两项等长推力均无明确组间差异。 [Chaves 等的平板、上斜及组合卧推试验](https://pubmed.ncbi.nlm.nih.gov/32922646/)
+- **回答核查**　47 名初练年轻男性完成了 8 周训练，每组每周练一次、组数相同。有前后肌厚数据的共 30 人，每组 10 人。三个肌厚测点仅第二肋间处上斜组增幅更大，两项等长推力均无明确组间差异。 [Chaves 等的平板、上斜及组合卧推试验](https://pubmed.ncbi.nlm.nih.gov/32922646/) · [期刊全文，分析人数见第 4 页](https://intjexersci.com/files/ijes/vol13/iss6/12.pdf#page=4)
 - **正文**　[Q473](../book/resistance-training/10-equipment-programming-and-goals.md#q473)。
 
 ## Q474 想把俯卧撑练强，一天的几组能在不同空档做，还是要一次连着做完？

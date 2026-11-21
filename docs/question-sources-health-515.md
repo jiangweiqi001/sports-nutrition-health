@@ -32,7 +32,7 @@
 
 - **原始提问**　跑者想知道长跑途中怎么补防晒，对棒状和喷雾产品的效果拿不准。 [查看社区原帖](https://www.reddit.com/r/XXRunning/comments/1y04h38/reapplying_sunscreen/)
 - **去重关系**　Q179 因炎热调整比赛节奏，这里讨论紫外线防护和补涂时机。
-- **回答依据与边界**　核对广谱、SPF 30、15 分钟、两小时与出汗后补涂；FDA 的耐水测试不能当作全天有效。 [美国皮肤病学会防晒使用指南](https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen) · [美国 FDA 耐水标签说明](https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun)
+- **回答依据与边界**　核对广谱、SPF 30、15 分钟、两小时与出汗后补涂；另核对防晒棒的涂抹遍数、喷雾覆盖与避免吸入的说明。FDA 的耐水测试不能当作全天有效。 [美国皮肤病学会防晒使用指南](https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen) · [美国 FDA 耐水标签说明](https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun) · [美国皮肤病学会的棒状与喷雾涂法](https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-use-stick-spray-sunscreens)
 
 ## Q510 骑车摔倒时头盔撞了地，外壳没裂，还能继续用吗？
 
@@ -64,7 +64,7 @@
 
 - **原始提问**　跑者描述围绝经期乳房痛反复出现，有时拥抱也痛，询问还能怎样运动。 [查看社区原帖](https://www.reddit.com/r/XXRunning/comments/1rbys5b/breast_pain_and_running/)
 - **去重关系**　Q377 讲潮热睡眠与课表，Q453 讲皮肤摩擦。这里处理跑跳时乳房支撑及非机械性疼痛的评估。
-- **回答依据与边界**　核对高冲击项目、穿着时模拟项目动作试支撑；NHS 标明持续疼痛或乳房外观变化的就诊条件。 [Sports Medicine Australia 运动与乳房支撑](https://sma.org.au/resources/injury-fact-sheets/exercise-and-breast-support/) · [NHS 乳房疼痛就医建议](https://www.nhs.uk/conditions/breast-pain/)
+- **回答依据与边界**　核对高冲击项目、穿着时模拟项目动作试支撑；按 NHS 区分预约评估和紧急评估：局部热、肿或颜色改变，以及乳痛伴高热或寒战，均可单独触发当日就医。 [Sports Medicine Australia 运动与乳房支撑](https://sma.org.au/resources/injury-fact-sheets/exercise-and-breast-support/) · [NHS 乳房疼痛就医建议](https://www.nhs.uk/symptoms/breast-pain/)
 
 ## Q514 有雷诺现象，冬天跑步摘手套取补给时手指就僵，怎么安排？
 
@@ -80,4 +80,4 @@
 
 - **原始提问**　提问者确诊癫痫后很想回去游泳，向其他患者问他们怎样安排。 [查看社区原帖](https://www.reddit.com/r/Epilepsy/comments/1fxi9pm)
 - **去重关系**　Q430 是怕水者入门，Q394 是运动过敏的应急准备；本题在于发作风险与水中同伴。
-- **回答依据与边界**　核对持续发作和完全控制的区别、同伴在水中、有能力实际协助并知道水中发作的应对办法、告知救生员，以及开放水域的额外风险。 [Epilepsy Action 运动与休闲，见 Swimming](https://www.epilepsy.org.uk/living/sports-and-leisure)
+- **回答依据与边界**　核对持续发作和完全控制的区别、同伴在水中、有能力实际协助并知道水中发作的应对办法、告知救生员，以及开放水域的额外风险。另核对水中抽搐时保持面部露出水面、呼叫救生员，以及疑似吞水或吸水后呼叫急救的条件。 [Epilepsy Action 运动与休闲，见 Swimming](https://www.epilepsy.org.uk/living/sports-and-leisure)

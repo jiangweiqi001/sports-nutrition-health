@@ -8,7 +8,7 @@
 
 - **原始提问**　[Seasoned Advice 网友问烹调前是否必须冲洗生肉](https://cooking.stackexchange.com/questions/14570/does-meat-need-to-be-washed-before-preparation)。发帖人习惯先冲洗再腌或烹调，想知道冲洗有没有必要、有没有弊端。正文以普通家庭常备的鸡肉为例。
 - **去重关系**　Q212 讨论怎么分装储存，Q213 讨论剩饭复热。本题决定生肉下锅前要不要冲洗及怎样控制溅出的肉汁。
-- **回答依据与边界**　CDC 的 Key points 与 Preventing food poisoning 涵盖生禽肉无需冲洗、分板、洗手和 165°F。折合约 74°C，测的是肉的内部。 [美国 CDC 生鸡肉处理、分板与熟制温度](https://www.cdc.gov/food-safety/foods/chicken.html)
+- **回答依据与边界**　CDC 的 Key points 与 Preventing food poisoning 涵盖生禽肉无需冲洗、分板、洗手和 165°F。另核对 FoodSafety.gov 的整禽测温表，鸡胸最厚处、腿根内侧和翅根内侧都应至少达到 74°C。 [美国 CDC 生鸡肉处理、分板与熟制温度](https://www.cdc.gov/food-safety/foods/chicken.html) · [整禽测温位置与最低温度](https://www.foodsafety.gov/food-safety-charts/meat-poultry-charts)
 
 ## Q493 土豆放软了还长出很长的芽，挖掉芽再煮还能吃吗？
 
@@ -66,7 +66,7 @@
 
 - **原始提问**　[r/ScientificNutrition 网友问训练后吃水果会不会削弱训练适应](https://www.reddit.com/r/ScientificNutrition/comments/1b9z5jz/eating_fruitantioxidants_postworkout_diminishes/)。发帖人把饮食中的抗氧化成分和运动适应联系起来，担心运动后的水果。
 - **去重关系**　Q447 问空腹吃水果是否更易吸收，Q245 问为缓解酸痛是否值得买酸樱桃汁。本题决定要不要因担心训练适应而回避正常水果。
-- **回答依据与边界**　核对 Clifford 等摘要的材料为维生素 C/E 补充剂、分析分别包含 9 项有氧及 9 项抗阻研究，功能指标与瘦体重无明确总体差异。核对 NIH ODS 对高剂量补剂的审慎态度。 [Clifford 等维生素 C/E 与训练适应综述](https://pubmed.ncbi.nlm.nih.gov/31851538/) · [美国 NIH ODS 运动补剂说明，抗氧化剂部分](https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-Consumer/)
+- **回答依据与边界**　核对 Clifford 等摘要的材料为维生素 C/E 补充剂、分析分别包含 9 项有氧及 9 项抗阻研究，功能指标与瘦体重无明确总体差异。核对 NIH ODS 对高剂量补剂的审慎态度。水果建议按外推标 B，补充剂综述的结果单列 A。 [Clifford 等维生素 C/E 与训练适应综述](https://pubmed.ncbi.nlm.nih.gov/31851538/) · [美国 NIH ODS 运动补剂说明，抗氧化剂部分](https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-Consumer/)
 
 ## Q500 健身需要像电影里那样喝生鸡蛋吗，煮熟会影响利用蛋白质吗？
 
