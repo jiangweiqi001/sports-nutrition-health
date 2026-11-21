@@ -2,7 +2,7 @@
 
 给准备开始运动、已规律运动或准备参赛的普通成年人。按手头的问题查。每条先写怎么做、花什么，再写预期收益、适用范围和原始出处。
 
-**[打开在线检索](https://jiangweiqi001.github.io/sports-nutrition-health/search.html)** · [提一个真实问题](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=1-question.yml) · [报告某题错误或失效来源](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=2-correction.yml)
+**[打开指南首页](https://jiangweiqi001.github.io/sports-nutrition-health/)** · [直接搜问题](https://jiangweiqi001.github.io/sports-nutrition-health/search.html) · [提一个真实问题](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=1-question.yml) · [报告某题错误或失效来源](https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=2-correction.yml)
 
 ## 按眼前的场景查
 

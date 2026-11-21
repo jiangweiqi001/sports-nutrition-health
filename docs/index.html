@@ -3,10 +3,136 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=search.html">
+  <meta name="color-scheme" content="light dark">
   <title>运动营养健康指南</title>
+  <meta name="description" content="给普通成年人的运动营养健康指南。查询训练、饮食和恢复问题，查看具体做法、适用条件和参考文献。">
+  <script>
+    // Older links can point to the site root with a reader query or question anchor.
+    const searchParams = new URLSearchParams(location.search);
+    const questionAnchor = location.hash.match(/^#(Q\d+)$/i);
+    if (questionAnchor || ['q', 'chapter', 'evidence'].some(key => searchParams.has(key)) || location.hash === '#results') {
+      const reader = new URL('search.html', location.href);
+      reader.search = location.search;
+      if (questionAnchor && !reader.searchParams.has('q')) reader.searchParams.set('q', questionAnchor[1].toUpperCase());
+      reader.hash = questionAnchor ? 'results' : location.hash;
+      location.replace(reader.href);
+    }
+  </script>
+  <link rel="stylesheet" href="assets/editorial.css">
+  <script src="assets/editorial.js" defer></script>
 </head>
-<body>
-  <p><a href="search.html">打开运动营养健康指南的在线搜索</a></p>
+<body class="home">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div id="wrapper">
+    <main id="main">
+      <div class="inner">
+        <header id="header">
+          <a href="./" class="logo"><strong>运动营养健康指南</strong></a>
+          <nav class="header-nav" aria-label="站内导航">
+            <a href="search.html">问答检索</a>
+            <a href="#guides">专题</a>
+          </nav>
+        </header>
+
+        <section id="banner" aria-labelledby="cover-title">
+          <div class="content">
+            <h1 id="cover-title">怎么练，怎么吃，<br>怎么恢复？</h1>
+            <p>给普通成年人的运动、营养与健康问答。每题都可以查到具体做法、适用条件和参考文献。</p>
+            <form action="search.html" method="get" role="search" class="home-search">
+              <label for="home-query" class="sr-only">搜索问题、关键词或题号</label>
+              <input type="search" id="home-query" name="q" placeholder="搜问题、关键词或题号">
+              <button type="submit" class="button primary">搜索</button>
+            </form>
+            <nav class="search-examples" aria-label="常用搜索">
+              <a href="search.html?q=跑步膝盖疼">跑步膝盖疼</a>
+              <a href="search.html?q=蛋白质">蛋白质</a>
+              <a href="search.html?q=能量胶">能量胶</a>
+            </nav>
+          </div>
+          <a href="first-half-marathon.html" class="image object">
+            <img src="assets/running-cover.webp" width="1125" height="750" alt="三位跑者沿体育场的红色跑道迎面跑来" fetchpriority="high">
+            <span class="cover-caption">首半马行动清单</span>
+          </a>
+        </section>
+
+        <section id="guides" aria-labelledby="guides-heading">
+          <header class="major"><h2 id="guides-heading">训练专题</h2></header>
+          <div class="posts">
+            <article>
+              <a class="image" href="start-with-two-sessions.html" tabindex="-1" aria-hidden="true">
+                <img src="assets/strength-feature.webp" width="840" height="560" loading="lazy" alt="">
+              </a>
+              <h3><a href="start-with-two-sessions.html">每周只有两次时间，怎么开始练？</a></h3>
+              <p>把两段半小时排进日历，从一张全身训练表开始。</p>
+            </article>
+            <article>
+              <a class="image" href="first-half-marathon.html" tabindex="-1" aria-hidden="true">
+                <img src="assets/race-feature.webp" width="840" height="473" loading="lazy" alt="">
+              </a>
+              <h3><a href="first-half-marathon.html">首半马行动清单</a></h3>
+              <p>从选课表到站上起跑线，逐项核对配速、早餐和途中补给。</p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="start-heading">
+          <header class="major"><h2 id="start-heading">从一个问题开始</h2></header>
+          <div class="topic-groups">
+            <div><h3>开始运动</h3><ul>
+              <li><a href="search.html?q=Q401#results">走路都觉得吃力，第一步怎么开始？</a></li>
+              <li><a href="search.html?q=Q41#results">第一次去健身房，怎么用固定器械？</a></li>
+            </ul></div>
+            <div><h3>训练怎么吃</h3><ul>
+              <li><a href="search.html?q=Q06#results">练前来不及吃饭怎么办？</a></li>
+              <li><a href="search.html?q=Q13#results">练完等到回家吃正餐来得及吗？</a></li>
+            </ul></div>
+            <div><h3>跑步不舒服</h3><ul>
+              <li><a href="search.html?q=Q329#results">跑步或下楼时膝盖疼怎么办？</a></li>
+              <li><a href="search.html?q=Q448#results">跑步时岔气了怎么办？</a></li>
+            </ul></div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <nav aria-label="项目与反馈">
+            <a href="https://github.com/jiangweiqi001/sports-nutrition-health">GitHub 仓库</a> ·
+            <a href="https://github.com/jiangweiqi001/sports-nutrition-health/blob/main/docs/evidence.md">证据与分级</a> ·
+            <a href="https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=1-question.yml">提问</a> ·
+            <a href="https://github.com/jiangweiqi001/sports-nutrition-health/issues/new?template=2-correction.yml">勘误</a>
+          </nav>
+          <p>页面设计改编自 <a href="https://html5up.net/editorial">HTML5 UP · Editorial</a>（<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>） · <a href="https://github.com/jiangweiqi001/sports-nutrition-health/blob/main/docs/assets/photo-credits.md">摄影署名</a> · 友情链接 <a href="https://ifanqiang.com/">ifanqiang.com</a></p>
+        </footer>
+      </div>
+    </main>
+
+    <aside id="sidebar">
+      <details class="chapter-menu">
+        <summary>章节目录</summary>
+        <nav id="menu" class="menu-inner" aria-label="指南章节">
+          <div class="menu-group"><h3>运动</h3>
+            <ul>
+              <li><a href="search.html?chapter=抗阻训练">抗阻训练</a></li>
+              <li><a href="search.html?chapter=拉伸与活动度">拉伸与活动度</a></li>
+              <li><a href="search.html?chapter=有氧训练">有氧训练</a></li>
+            </ul>
+          </div>
+          <div class="menu-group"><h3>营养</h3>
+            <ul>
+              <li><a href="search.html?chapter=日常饮食">日常饮食</a></li>
+              <li><a href="search.html?chapter=训练饮食与补剂">训练饮食与补剂</a></li>
+              <li><a href="search.html?chapter=长跑营养">长跑营养</a></li>
+            </ul>
+          </div>
+          <div class="menu-group"><h3>健康</h3>
+            <ul>
+              <li><a href="search.html?chapter=训练相关健康">训练相关健康</a></li>
+              <li><a href="search.html?chapter=常见慢病与运动">常见慢病与运动</a></li>
+            </ul>
+          </div>
+          <a href="search.html" class="all-questions">浏览全部问答</a>
+        </nav>
+      </details>
+    </aside>
+  </div>
 </body>
 </html>

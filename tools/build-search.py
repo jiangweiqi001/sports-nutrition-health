@@ -160,6 +160,7 @@ def render(entries):
     # Prevent Markdown copied into the index from ending the JSON script element.
     data = json.dumps(entries, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     return (template.replace("{{GUIDE_DATA}}", data)
+            .replace("{{EDITORIAL_CSS}}", read(ROOT / "docs/assets/editorial.css"))
             .replace("{{QUESTION_COUNT}}", str(len(entries)))
             .replace("{{REPOSITORY}}", REPOSITORY)
             .replace("{{PUBLIC_SITE}}", PUBLIC_SITE))

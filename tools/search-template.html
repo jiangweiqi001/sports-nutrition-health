@@ -4,139 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>运动营养健康指南 · 条目搜索</title>
+<title>问题检索 · 运动营养健康指南</title>
 <style>
-:root { color-scheme: light; --page: #f5f6ef; --surface: #fff; --text: #182b24; --quiet: #495d51; --accent: #155e44; --line: #b9c8bd; }
-@media (prefers-color-scheme: dark) {
-  :root { color-scheme: dark; --page: #121d18; --surface: #1a2921; --text: #e7f1e9; --quiet: #bfcec2; --accent: #8ee1b7; --line: #51695a; }
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--page); color: var(--text); font: 1rem/1.6 "Inter", system-ui, "Microsoft YaHei", sans-serif; }
-main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
-header { margin-bottom: 1.5rem; }
-h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.3; margin: 0.35rem 0 0.75rem; }
-h1 a { color: inherit; }
-a { color: var(--accent); text-underline-offset: 0.16em; }
-p { margin: 0.5rem 0; }
-.controls { display: grid; grid-template-columns: minmax(0, 3fr) repeat(2, minmax(9rem, 1fr)); gap: 0.8rem; align-items: end; }
-label { display: block; font-weight: 650; }
-input, select, button { font: inherit; min-height: 2.75rem; border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.48rem 0.7rem; color: var(--text); background: var(--surface); }
-input, select { width: 100%; margin-top: 0.25rem; }
-.filter-note { color: var(--quiet); font-size: 0.9rem; }
-button { cursor: pointer; color: var(--accent); }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.shortcuts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
-.shortcuts button { font-size: 0.9rem; }
-.starting-point-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
-.starting-point { padding: 0.6rem 0.8rem 0.15rem; background: var(--surface); border: 1px solid var(--line); border-radius: 0.65rem; }
-.starting-point h3 { margin: 0; font-size: 1rem; }
-.starting-point ul { display: flex; flex-wrap: wrap; column-gap: 0.85rem; margin: 0; padding: 0; list-style: none; }
-.starting-point a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: 0.9rem; }
-#status { margin: 1.25rem 0 0.55rem; color: var(--quiet); }
-details { background: var(--surface); border: 1px solid var(--line); border-radius: 0.65rem; margin-bottom: 0.65rem; }
-summary { padding: 0.75rem 1rem; cursor: pointer; }
-.question { font-weight: 650; }
-.meta { color: var(--quiet); font-size: 0.9rem; padding-right: 0.5rem; }
-.answer { padding: 0 1rem 1rem; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
-.answer-links { margin: 0.8rem 0; }
-.feedback { margin-bottom: 0.8rem; }
-.answer .feedback { margin-bottom: 0; }
-.feedback-status { color: var(--quiet); font-size: 0.9rem; }
-.feedback-status:empty { margin: 0; }
-.feedback textarea { display: block; width: 100%; margin-top: 0.5rem; padding: 0.5rem; border: 1px solid var(--line); border-radius: 0.5rem; background: var(--surface); color: var(--text); font: inherit; resize: vertical; }
-h2 { font-size: 1.14rem; line-height: 1.45; margin: 1rem 0; }
-dl { margin: 0; }
-dt { font-weight: 700; margin-top: 0.8rem; }
-dd { margin: 0.2rem 0 0; }
+{{EDITORIAL_CSS}}
+
+/* Editorial's type, accent rule and divided lists continue into the reader. */
+#main > .inner.reader-inner { max-width: 64rem; margin-inline: auto; }
+.reader-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem 1.1rem; margin: clamp(1.8rem, 5vw, 3.6rem) 0 1.35rem; }
+.reader-heading h1 { margin: 0; font-size: clamp(2.05rem, 5vw, 3.5rem); }
+.reader-heading p { margin: 0; color: var(--quiet); font-size: 1rem; }
+.reader-tools .controls { display: grid; grid-template-columns: minmax(0, 2.8fr) minmax(8.3rem, 1fr) minmax(7.3rem, .85fr); gap: .8rem; align-items: end; }
+.reader-tools label { display: block; color: var(--ink); font-size: .9rem; font-weight: 650; }
+.reader-tools input, .reader-tools select { width: 100%; min-width: 0; min-height: 2.85rem; margin: .32rem 0 0; border: 1px solid var(--quiet); border-radius: .2rem; font: 1rem var(--sans); color: var(--ink); background-color: var(--paper); }
+.reader-tools input { padding-inline: .8rem; }
+.reader-tools select { padding-inline-start: .65rem; }
+.reader-tools .filter-note, .filter-note, .feedback-status { color: var(--quiet); font-size: .86rem; line-height: 1.6; }
+.reader-tools .filter-note { margin: .65rem 0 0; }
+.shortcuts { display: flex; align-items: center; flex-wrap: wrap; gap: .1rem .85rem; margin: .75rem 0 0; }
+.shortcuts button { padding: .35rem 0; min-height: 2.4rem; font: .94rem var(--sans); color: var(--accent); background: none; border: 0; border-radius: 0; cursor: pointer; }
+.shortcuts button:hover { text-decoration: underline; text-underline-offset: .22em; }
+#starting-points { margin: 1.45rem 0 1.65rem; }
+#starting-points h2 { margin: 0 0 .85rem; font-size: 1.25rem; }
+.starting-point-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--line); padding: .8rem 0; }
+.starting-point { padding-inline: 1.2rem; border-inline-start: 1px solid var(--line); }
+.starting-point:first-child { border: 0; padding-inline-start: 0; }
+.starting-point h3 { font: 700 1rem/1.55 var(--serif); color: var(--ink); margin: 0; }
+.starting-point ul { display: flex; flex-wrap: wrap; gap: .1rem .85rem; list-style: none; padding: 0; margin: .25rem 0 0; }
+.starting-point a { display: inline-flex; align-items: center; min-height: 2rem; font-size: .93rem; }
+#status { margin: 1.65rem 0 .65rem; color: var(--quiet); font-size: .91rem; }
+#results > details { border-top: 1px solid var(--line); scroll-margin-block-start: 1rem; }
+#results > details:last-child { border-bottom: 1px solid var(--line); }
+#results summary { position: relative; list-style: none; display: block; padding: 1.05rem 2rem 1rem 0; cursor: pointer; }
+#results summary::-webkit-details-marker { display: none; }
+#results summary::after { content: ""; position: absolute; top: 1.7rem; right: .4rem; width: .55rem; height: .55rem; border: solid var(--accent); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+#results details[open] > summary::after { transform: rotate(225deg); top: 1.95rem; }
+#results summary:hover .question { color: var(--accent); }
+.question { display: block; font: 700 clamp(1.1rem, 2.7vw, 1.48rem)/1.55 var(--serif); color: var(--ink); overflow-wrap: anywhere; }
+.meta { display: block; margin-top: .3rem; font-size: .85rem; color: var(--quiet); }
+.answer { max-width: 47rem; padding: .35rem 0 1.6rem; overflow-wrap: anywhere; }
+.answer h2 { font: 700 clamp(1.15rem, 2.3vw, 1.55rem)/1.6 var(--serif); margin: .15rem 0 1rem; color: var(--ink); }
+.answer dl { margin: 0; }
+.answer-field { margin: 0 0 1rem; }
+.answer-field dt { color: var(--ink); font-weight: 700; font-size: .9rem; line-height: 1.6; }
+.answer-field dd { margin: .22rem 0 0; line-height: 1.85; }
+.answer-field.action { padding: .8rem 1rem; border-inline-start: 3px solid var(--rule); background: var(--surface); }
+.answer .evidence-fields { border-block-start: 1px solid var(--line); padding-top: 1rem; }
+.evidence-fields dd { font-size: .96rem; }
+.answer-links { margin: 1rem 0 .7rem; font-size: .92rem; }
+.feedback button, #more { min-height: 2.75rem; padding: .45rem 1rem; border: 1px solid var(--accent); border-radius: .25rem; background: var(--paper); color: var(--accent); font: 650 .9rem var(--sans); cursor: pointer; }
+.feedback button:hover, #more:hover { background: var(--surface); }
+#more { margin-top: 1rem; }
+.feedback textarea { display: block; width: 100%; margin: .45rem 0; padding: .65rem; font: 1rem var(--sans); color: var(--ink); background: var(--paper); resize: vertical; }
+.feedback-status:empty { display: none; }
+.reader-footer nav { display: flex; flex-wrap: wrap; gap: .4rem 1.15rem; }
+.reader-footer p { margin: .6rem 0 0; }
 [hidden] { display: none !important; }
-@media (max-width: 34rem) {
-  main { padding-top: 1.5rem; }
-  .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 43rem) {
+  .reader-tools .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
   .search-label { grid-column: 1 / -1; }
-  .starting-point-list { grid-template-columns: minmax(0, 1fr); }
-  summary { padding-inline: 0.75rem; }
-}
-@media (max-width: 23rem) {
-  .controls { grid-template-columns: minmax(0, 1fr); }
+  .starting-point-list { display: block; padding-block: .25rem; }
+  .starting-point, .starting-point:first-child { display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem 1rem; padding: .3rem 0; border: 0; }
+  .starting-point h3 { min-width: 5em; }
+  .starting-point ul { margin: 0; }
 }
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <nav aria-label="仓库与反馈">
-      <a href="{{REPOSITORY}}">GitHub 仓库</a> ·
-      <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">在 GitHub 提问</a> ·
-      <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">在 GitHub 勘误</a>
+<a class="skip-link" href="#results">跳到搜索结果</a>
+<div id="wrapper"><main id="main"><div class="inner reader-inner">
+  <header id="header">
+    <a class="logo" id="guide-home" href="./">运动营养健康指南</a>
+    <nav class="header-nav" aria-label="指南导航">
+      <a href="#query">搜问题</a>
+      <a href="{{REPOSITORY}}/blob/main/docs/evidence.md">证据说明</a>
     </nav>
-    <h1><a href="?">运动营养健康指南</a></h1>
-    <p>搜索 {{QUESTION_COUNT}} 题。展开问题即可阅读做法、适用范围和参考文献。</p>
-    <p><a href="{{PUBLIC_SITE}}/start-with-two-sessions.html">每周两次怎么练</a> ·
-      <a href="{{PUBLIC_SITE}}/first-half-marathon.html">首半马行动清单</a> ·
-      <a href="{{REPOSITORY}}/blob/main/docs/glossary.md">常用术语</a></p>
   </header>
+  <div class="reader-heading"><h1>问题检索</h1><p>运动、营养与健康，共 {{QUESTION_COUNT}} 题</p></div>
   <noscript><p>请开启 JavaScript 使用搜索，或直接浏览 <a href="{{REPOSITORY}}/blob/main/docs/topics-400.md">GitHub 总目录</a>。</p></noscript>
-  <div class="controls">
-    <label class="search-label">搜索问题、关键词或题号
-      <input type="search" id="query" placeholder="例如 跑步时膝盖疼怎么办" autocomplete="off">
-    </label>
-    <label>章节
-      <select id="chapter"><option value="">全部章节</option></select>
-    </label>
-    <label>编辑分级
-      <select id="evidence" aria-describedby="evidence-note">
-        <option value="">全部分级</option>
-        <option value="A">含 A</option>
-        <option value="B">含 B</option>
-        <option value="C">含 C</option>
-        <option value="unmarked">无字母标注</option>
-      </select>
-    </label>
+  <div class="reader-tools" role="search" aria-label="查找指南中的问题">
+    <div class="controls">
+      <label class="search-label">问题、关键词或题号
+        <input type="search" id="query" placeholder="例如：半马带几个胶" autocomplete="off">
+      </label>
+      <label>章节
+        <select id="chapter"><option value="">全部章节</option></select>
+      </label>
+      <label>编辑分级
+        <select id="evidence" aria-describedby="evidence-note">
+          <option value="">全部分级</option>
+          <option value="A">含 A</option>
+          <option value="B">含 B</option>
+          <option value="C">含 C</option>
+          <option value="unmarked">无字母标注</option>
+        </select>
+      </label>
+    </div>
+    <p id="evidence-note" class="filter-note">A/B/C 标注具体结论的依据。指南的推荐强度见原文。<a href="{{REPOSITORY}}/blob/main/docs/evidence.md#priority-review">分级说明</a></p>
+    <div class="shortcuts" role="group" aria-label="常用搜索">
+      <button type="button" data-query="膝盖疼">膝盖疼</button>
+      <button type="button" data-query="蛋白质">蛋白质</button>
+      <button type="button" data-query="能量胶">能量胶</button>
+      <button type="button" data-query="零基础">零基础</button>
+      <button type="button" data-query="时间少">时间少</button>
+      <button type="button" data-query="晚练">晚练怎么吃</button>
+      <button type="button" data-query="首半马">首半马</button>
+    </div>
   </div>
-  <p id="evidence-note" class="filter-note">A/B/C 是本站对具体结论的编辑标注。指南的推荐强度见原文。<a href="{{REPOSITORY}}/blob/main/docs/evidence.md#priority-review">查看分级说明</a></p>
   <section id="starting-points" aria-labelledby="starting-points-title">
     <h2 id="starting-points-title">按场景开始</h2>
     <div class="starting-point-list">
       <div class="starting-point">
         <h3>刚开始运动</h3>
-        <ul>
-          <li><a href="?q=Q401#results">从走路开始</a></li>
-          <li><a href="?q=Q09#results">第一次练力量</a></li>
-        </ul>
+        <ul><li><a href="?q=Q401#results">从走路开始</a></li><li><a href="?q=Q09#results">第一次练力量</a></li></ul>
       </div>
       <div class="starting-point">
         <h3>训练怎么吃</h3>
-        <ul>
-          <li><a href="?q=Q06#results">训练前怎么吃</a></li>
-          <li><a href="?q=Q13#results">训练后怎么吃</a></li>
-        </ul>
+        <ul><li><a href="?q=Q06#results">训练前怎么吃</a></li><li><a href="?q=Q13#results">训练后怎么吃</a></li></ul>
       </div>
       <div class="starting-point">
         <h3>跑步不舒服</h3>
-        <ul>
-          <li><a href="?q=Q329#results">跑步膝盖疼</a></li>
-          <li><a href="?q=Q448#results">跑步时岔气</a></li>
-        </ul>
+        <ul><li><a href="?q=Q329#results">跑步膝盖疼</a></li><li><a href="?q=Q448#results">跑步时岔气</a></li></ul>
       </div>
     </div>
   </section>
-  <div class="shortcuts" aria-label="常用搜索">
-    <button type="button" data-query="膝盖疼">膝盖疼</button>
-    <button type="button" data-query="蛋白质">蛋白质</button>
-    <button type="button" data-query="能量胶">能量胶</button>
-    <button type="button" data-query="零基础">零基础</button>
-    <button type="button" data-query="时间少">时间少</button>
-    <button type="button" data-query="晚练">晚练怎么吃</button>
-    <button type="button" data-query="首半马">首半马</button>
-  </div>
   <p id="status" aria-live="polite"></p>
   <div id="search-feedback" hidden></div>
   <section id="results" aria-label="搜索结果"></section>
   <button type="button" id="more" hidden>显示更多</button>
-  <footer id="friend-links">
+  <footer class="site-footer reader-footer" id="friend-links">
+    <nav aria-label="专题与反馈">
+      <a href="{{PUBLIC_SITE}}/start-with-two-sessions.html">每周两次怎么练</a>
+      <a href="{{PUBLIC_SITE}}/first-half-marathon.html">首半马行动清单</a>
+      <a href="{{REPOSITORY}}/blob/main/docs/glossary.md">常用术语</a>
+      <a href="{{REPOSITORY}}">GitHub 仓库</a>
+      <a href="{{REPOSITORY}}/issues/new?template=1-question.yml">提问</a>
+      <a href="{{REPOSITORY}}/issues/new?template=2-correction.yml">勘误</a>
+    </nav>
     <p>友情链接 · <a href="https://ifanqiang.com/">ifanqiang.com</a></p>
+    <p>设计改编自 <a href="https://html5up.net/editorial">HTML5 UP · Editorial</a>（<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>）</p>
   </footer>
-</main>
+</div></main></div>
 <script id="guide-data" type="application/json">{{GUIDE_DATA}}</script>
 <script>
 'use strict';
@@ -450,20 +457,24 @@ function answerCard(entry) {
   const card = element('details');
   const summary = element('summary');
   const basis = entry.basis ?? (entry.grades.length ? '编辑分级 ' + entry.grades.join('/') : '无字母标注');
-  summary.append(element('span', [entry.qid, entry.chapter, basis].join(' · '), 'meta'));
   summary.append(element('span', entry.question, 'question'));
+  summary.append(element('span', [entry.qid, entry.chapter, basis].join(' · '), 'meta'));
   card.append(summary);
   card.addEventListener('toggle', () => {
     if (!card.open || card.children.length > 1) return;
     const answer = element('div', '', 'answer');
     answer.append(element('h2', entry.title));
-    const list = element('dl');
+    const guidance = element('dl');
+    const references = element('dl', '', 'evidence-fields');
     for (const [label, text] of entry.fields) {
-      const paragraph = element('dd');
-      appendAnswerText(paragraph, text, entry);
-      list.append(element('dt', label === '证据等级' ? '编辑分级与依据' : label), paragraph);
+      const field = element('div', '', label === '怎么做' ? 'answer-field action' : 'answer-field');
+      const description = element('dd');
+      appendAnswerText(description, text, entry);
+      field.append(element('dt', label === '证据等级' ? '编辑分级与依据' : label), description);
+      const group = label === '证据等级' || label === '来源' ? references : guidance;
+      group.append(field);
     }
-    answer.append(list);
+    answer.append(guidance, references);
     const links = element('p', '', 'answer-links');
     const original = element('a', '在 GitHub 查看原文');
     original.href = articleUrl(entry.path, '#' + entry.qid.toLowerCase());
@@ -539,6 +550,9 @@ for (const button of document.querySelectorAll('[data-query]')) {
   });
 }
 
+if (location.protocol === 'file:') {
+  document.getElementById('guide-home').href = '?';
+}
 const parameters = new URLSearchParams(location.search);
 query.value = parameters.get('q') || '';
 chapter.value = chapters.includes(parameters.get('chapter')) ? parameters.get('chapter') : '';

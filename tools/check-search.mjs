@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {existsSync, readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 
 const page = readFileSync(process.argv[2] ?? new URL('../docs/search.html', import.meta.url), 'utf8');
@@ -107,6 +107,26 @@ assert.equal(findEntries('Q39').entries[0]?.basis, '临床指南');
 assert.equal(findEntries('Q354').entries[0]?.basis, '急救指南');
 
 const questionIds = new Set(index.map(entry => entry.qid));
+const homeUrl = new URL('../docs/index.html', import.meta.url);
+const home = readFileSync(homeUrl, 'utf8');
+const chapterLinks = new Set();
+for (const [, target] of home.matchAll(/href="(search\.html[^"]*)"/g)) {
+  const url = new URL(target, homeUrl);
+  const selectedChapter = url.searchParams.get('chapter');
+  const query = url.searchParams.get('q');
+  if (selectedChapter) chapterLinks.add(selectedChapter);
+  if (query) {
+    const first = findEntries(query).entries[0];
+    assert.ok(first, `The homepage query has no results: ${query}`);
+    if (/^Q\d+$/.test(query)) assert.equal(first.qid, query);
+  }
+}
+assert.deepEqual(chapterLinks, new Set(index.map(entry => entry.chapter)), 'Homepage chapters must match the reader');
+assert.match(home, /<form[^>]*action="search\.html"[^>]*>/);
+assert.match(home, /<input[^>]*name="q"[^>]*>/);
+for (const [, asset] of home.matchAll(/(?:href|src)="(assets\/[^"]+)"/g)) {
+  assert.ok(existsSync(new URL(asset, homeUrl)), `Missing homepage asset: ${asset}`);
+}
 for (const [file, example] of [['start-with-two-sessions.html', 'Q48'], ['first-half-marathon.html', 'Q131']]) {
   assert.ok(page.includes(`/${file}"`), `The search home must link to ${file}`);
   const guide = readFileSync(new URL(`../docs/${file}`, import.meta.url), 'utf8');
@@ -116,4 +136,4 @@ for (const [file, example] of [['start-with-two-sessions.html', 'Q48'], ['first-
   assert.ok(links.every(qid => questionIds.has(qid)), `${file} links to a missing question`);
 }
 
-console.log(`Verified ${cases.length + topThreeCases.length + diabetesCases.length} search queries and filters, plus source labels and guide links.`);
+console.log(`Verified ${cases.length + topThreeCases.length + diabetesCases.length} search queries and filters, plus source labels, homepage navigation, assets and guide links.`);

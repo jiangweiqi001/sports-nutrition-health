@@ -1,37 +1,36 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<title>首半马行动清单 · 运动营养健康指南</title>
-<style>
-:root { color-scheme: light; --page: #f5f6ef; --text: #182b24; --accent: #155e44; --line: #b9c8bd; }
-@media (prefers-color-scheme: dark) {
-  :root { color-scheme: dark; --page: #121d18; --text: #e7f1e9; --accent: #8ee1b7; --line: #51695a; }
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--page); color: var(--text); font: 1rem/1.65 "Inter", system-ui, "Microsoft YaHei", sans-serif; }
-main { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 3rem; }
-h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.3; margin: 1rem 0 0.75rem; }
-h2 { font-size: 1.25rem; line-height: 1.45; margin: 1.5rem 0 0.5rem; }
-p { margin: 0.5rem 0; }
-a { color: var(--accent); text-underline-offset: 0.16em; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; }
-ul { padding-inline-start: 1.2rem; }
-li { margin-bottom: 0.4rem; }
-footer { margin-top: 1.75rem; border-top: 1px solid var(--line); padding-top: 0.5rem; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>首半马行动清单 · 运动营养健康指南</title>
+  <link rel="stylesheet" href="assets/editorial.css">
 </head>
 <body>
-<main>
-  <header>
-    <nav aria-label="指南导航"><a href="search.html">返回指南检索</a></nav>
-    <h1>首半马行动清单</h1>
-    <p>给已经能跑五公里、想准备第一次半马的成年人。先确认课表接得上，再把训练里试过的节奏、早餐和补给带到比赛。</p>
-  </header>
-
+<a class="skip-link" href="#guide-body">跳到专题正文</a>
+<div id="wrapper">
+  <main id="main"><div class="inner article-inner">
+    <header id="header">
+      <a class="logo" href="./">运动营养健康指南</a>
+      <nav class="header-nav" aria-label="指南导航"><a href="./">首页</a><a href="search.html">返回指南检索</a></nav>
+    </header>
+    <header class="guide-intro">
+      <div>
+        <h1>首半马行动清单</h1>
+        <p>给已经能跑五公里、想准备第一次半马的成年人。先确认课表接得上，再把训练里试过的节奏、早餐和补给带到比赛。</p>
+      </div>
+      <img src="assets/race-feature.webp" width="800" height="450" alt="公路跑赛事中的跑者">
+    </header>
+    <div class="guide-content">
+      <nav aria-label="本篇目录">
+        <h2>本篇目录</h2>
+          <a href="#plan">选计划时，对照这三项</a>
+          <a href="#fuel">在长跑里试一次早餐和补给</a>
+          <a href="#taper">临赛回看训练记录</a>
+          <a href="#race">比赛当天，按实际情况调整</a>
+      </nav>
+      <div class="guide-body" id="guide-body">
   <section aria-labelledby="plan">
     <h2 id="plan">选计划时，对照这三项</h2>
     <p>翻开最近几周的记录，写下一周跑几次、总跑量、最长一次跑多远。拿这三项对照课表第一周，再看离比赛还有多少周。平时只是偶尔跑一次五公里，可以先建立能重复的跑步安排。选比赛时，把分区起跑和分段关门时间也算进去。</p>
@@ -58,10 +57,13 @@ footer { margin-top: 1.75rem; border-top: 1px solid var(--line); padding-top: 0.
       <li>饮水按口渴或训练中估出的个人需求调整。出现胸口压迫、快晕倒或异常气短，立即停下并求助。<a href="search.html?q=Q39#results">饮水与长跑安全</a></li>
     </ul>
   </section>
-
-  <footer>
-    <p><a href="https://github.com/jiangweiqi001/sports-nutrition-health/blob/main/docs/first-half-marathon.md">在 GitHub 查看专题原文</a></p>
-  </footer>
-</main>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p><a href="https://github.com/jiangweiqi001/sports-nutrition-health/blob/main/docs/first-half-marathon.md">在 GitHub 查看专题原文</a></p>
+      <p>网页设计基于 <a href="https://html5up.net/editorial" lang="en">Editorial by HTML5 UP</a> · <a href="assets/editorial-license.txt">设计许可</a> · <a href="https://github.com/jiangweiqi001/sports-nutrition-health/blob/main/docs/assets/photo-credits.md">摄影署名</a></p>
+    </footer>
+  </div></main>
+</div>
 </body>
 </html>
