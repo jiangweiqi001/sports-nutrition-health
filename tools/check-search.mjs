@@ -132,6 +132,7 @@ for (const [, asset] of home.matchAll(/(?:href|src)="(assets\/[^"]+)"/g)) {
   assert.ok(existsSync(new URL(asset, homeUrl)), `Missing homepage asset: ${asset}`);
 }
 for (const [file, example] of [['start-with-two-sessions.html', 'Q48'], ['first-half-marathon.html', 'Q131']]) {
+  assert.equal(home.split(`href="${file}"`).length - 1, 1, `The homepage should link to ${file} once`);
   assert.ok(page.includes(`/${file}"`), `The search home must link to ${file}`);
   const guide = readFileSync(new URL(`../docs/${file}`, import.meta.url), 'utf8');
   assert.ok(guide.includes('href="about.html"'), `${file} must link to the site information`);
