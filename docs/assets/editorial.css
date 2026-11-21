@@ -156,10 +156,6 @@ header.major > :last-child {
 .home #banner .content > p { color: var(--quiet); max-width: 30em; }
 .home #banner .image.object { position: relative; min-height: 19rem; background: var(--surface); }
 .home #banner .image.object img { position: absolute; inset: 0; min-height: 0; max-height: none; object-position: center 25%; }
-.cover-caption {
-  position: absolute; bottom: .85rem; left: .85rem; background: #202729; color: white;
-  padding: .32rem .68rem; font: 650 .88rem/1.5 var(--sans); border-left: 3px solid #f56a6a;
-}
 .home #main > .inner > section + section { padding: clamp(1.65rem, 3vw, 3.5rem) 0; border-top: 1px solid var(--line); }
 .home #main > .inner > section:last-of-type { padding-bottom: .5rem; }
 .home .posts p { color: var(--quiet); margin: 0; }
