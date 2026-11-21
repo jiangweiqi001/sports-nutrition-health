@@ -23,6 +23,17 @@ Q401–Q465 的 65 条从公开提问和机构答疑中选取。Q1–Q400 的回
 
 回答所依据的指南、共识和研究列在各条正文的「来源」，其中的具体数字要结合研究对象与适用情境阅读。
 
+<a name="reader-515"></a>
+
+### 2026 年 11 月 22 日新增的 50 个网友问题
+
+每条记录都能回到发问者的帖子，另列相近旧题和回答所据的专业资料。目录里的中文问句为转述；帖子中的做法和投票数不作为回答依据。
+
+- [抗阻训练 Q466–Q477](question-sources-strength-515.md)
+- [有氧训练 Q478–Q491](question-sources-aerobic-515.md)
+- [日常饮食、训练饮食与长跑营养 Q492–Q505](question-sources-nutrition-515.md)
+- [训练相关健康与常见慢病 Q506–Q515](question-sources-health-515.md)
+
 <a name="priority-review"></a>
 
 ## 重点条目复核

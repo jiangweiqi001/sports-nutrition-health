@@ -1,4 +1,4 @@
-# 运动营养健康指南 · 465 题总目录
+# 运动营养健康指南 · 515 题总目录
 
 面向准备开始运动和已经规律运动的普通成年人。运动篇涵盖抗阻训练、拉伸与活动度、有氧训练。有氧覆盖快走、走跑交替、跑步入门、骑行、游泳和室内器械，并延伸到公路半马、全马和越野跑。健康以训练中的恢复、伤病、运动安全和返训为主，另设常见慢病与运动。孕产、中老年等人群在运动安排或就医条件有实质差异时单列。
 
@@ -8,15 +8,15 @@
 
 | 部分 | 章节 | 总题数 | 首版 | 新增 |
 | --- | --- | ---: | ---: | ---: |
-| 运动 | [抗阻训练](#plan-resistance) | 67 | 2 | 65 |
+| 运动 | [抗阻训练](#plan-resistance) | 79 | 2 | 77 |
 | 运动 | [拉伸与活动度](#plan-mobility) | 21 | 0 | 21 |
-| 运动 | [有氧训练](#plan-running) | 102 | 2 | 100 |
-| 营养 | [日常饮食](#plan-everyday-nutrition) | 52 | 6 | 46 |
-| 营养 | [训练饮食与补剂](#plan-training-nutrition) | 48 | 12 | 36 |
-| 营养 | [长跑营养](#plan-running-nutrition) | 42 | 14 | 28 |
-| 健康 | [训练相关健康](#plan-training-health) | 112 | 4 | 108 |
-| 健康 | [常见慢病与运动](#plan-chronic-health) | 21 | 0 | 21 |
-| **合计** | | **465** | **40** | **425** |
+| 运动 | [有氧训练](#plan-running) | 116 | 2 | 114 |
+| 营养 | [日常饮食](#plan-everyday-nutrition) | 58 | 6 | 52 |
+| 营养 | [训练饮食与补剂](#plan-training-nutrition) | 52 | 12 | 40 |
+| 营养 | [长跑营养](#plan-running-nutrition) | 46 | 14 | 32 |
+| 健康 | [训练相关健康](#plan-training-health) | 120 | 4 | 116 |
+| 健康 | [常见慢病与运动](#plan-chronic-health) | 23 | 0 | 23 |
+| **合计** | | **515** | **40** | **475** |
 
 ## 选题归属与证据核查
 
@@ -34,7 +34,7 @@
 
 <a name="plan-resistance"></a>
 
-#### 抗阻训练（67 题）
+#### 抗阻训练（79 题）
 
 ##### 开始训练与选择器材（8 题）
 
@@ -132,6 +132,24 @@
 - [Q461](../book/resistance-training/09-reader-questions.md#q461) 想在家练引体向上，又不想打孔，怎么判断门框单杠适不适合？
 - [Q462](../book/resistance-training/09-reader-questions.md#q462) 引体向上或拉背时手先握不住，该换动作、练握力还是用助力带？
 
+##### 器材读数、深蹲与壶铃动作（4 题）
+
+- [Q466](../book/resistance-training/10-equipment-programming-and-goals.md#q466) 史密斯机上每边加了片，训练笔记里还要把空杆重量算进去吗？
+- [Q467](../book/resistance-training/10-equipment-programming-and-goals.md#q467) 深蹲到大腿接近平行时膝盖就超过脚尖，需要刻意往后收吗？
+- [Q468](../book/resistance-training/10-equipment-programming-and-goals.md#q468) 双手摆壶铃是不是像纵跳一样向上蹬？脚和髋该怎么动？
+- [Q469](../book/resistance-training/10-equipment-programming-and-goals.md#q469) 深蹲、硬拉开始加不动重量了，是不是到该用举重腰带的时候了？
+
+##### 训练时段、动作选择与增肌（8 题）
+
+- [Q470](../book/resistance-training/10-equipment-programming-and-goals.md#q470) 为了长肌肉和力量，需要按激素变化特意选在早晨或傍晚举铁吗？
+- [Q471](../book/resistance-training/10-equipment-programming-and-goals.md#q471) 同一套动作还在进步，也要每隔几个月全部换掉才能继续增肌吗？
+- [Q472](../book/resistance-training/10-equipment-programming-and-goals.md#q472) 增肌时值得做递减组吗？做完立刻减重接着练，比正常休息再做强在哪？
+- [Q473](../book/resistance-training/10-equipment-programming-and-goals.md#q473) 更想练上胸，平板卧推要换成上斜卧推吗？两种都要练吗？
+- [Q474](../book/resistance-training/10-equipment-programming-and-goals.md#q474) 想把俯卧撑练强，一天的几组能在不同空档做，还是要一次连着做完？
+- [Q475](../book/resistance-training/10-equipment-programming-and-goals.md#q475) 只想减肚子上的脂肪，卷腹又比快走难，还值得天天做吗？
+- [Q476](../book/resistance-training/10-equipment-programming-and-goals.md#q476) 想让上臂后侧的肱三头肌长头更发达，绳索下压和过顶臂屈伸选哪个？
+- [Q477](../book/resistance-training/10-equipment-programming-and-goals.md#q477) 不喜欢杠铃臀推，想把臀大肌练大，可以用深蹲替它吗？
+
 <a name="plan-mobility"></a>
 
 #### 拉伸与活动度（21 题）
@@ -176,7 +194,7 @@
 
 <a name="plan-running"></a>
 
-#### 有氧训练（102 题）
+#### 有氧训练（116 题）
 
 本章从日常有氧和零基础走跑起步，覆盖公路跑步进阶及越野跑。有氧新增条目的公开提问和机构答疑见选题记录。
 
@@ -337,11 +355,34 @@
 - [Q464](../book/aerobic-training/05-steps-and-sitting.md#q464) 每天必须走够一万步吗，怎样定自己的步数目标？
 - [Q465](../book/aerobic-training/05-steps-and-sitting.md#q465) 上班一坐就是几小时，应该多久起来活动一次？
 
+##### 骑行入门与结伴骑行（4 题）
+
+- [Q478](../book/aerobic-training/06-practical-skills.md#q478) 成年人刚学骑车，双脚一离地就晃，什么时候开始踩踏？
+- [Q479](../book/aerobic-training/06-practical-skills.md#q479) 自行车有前后两把刹车，平时停车该用哪一把？
+- [Q480](../book/aerobic-training/06-practical-skills.md#q480) 骑车拐急弯，哪边脚踏要抬起来，什么时候减速？
+- [Q481](../book/aerobic-training/06-practical-skills.md#q481) 第一次跟车队骑行，和前车怎么排位置、怎么提醒后车？
+
+##### 游泳动作与泳课（5 题）
+
+- [Q482](../book/aerobic-training/06-practical-skills.md#q482) 自由泳夹浮漂就轻松，拿掉腿就沉，该先调哪里？
+- [Q483](../book/aerobic-training/06-practical-skills.md#q483) 抱浮板打腿几乎不往前走，该怎样改动作？
+- [Q484](../book/aerobic-training/06-practical-skills.md#q484) 游自由泳健身，每次到池边都得翻滚转身吗？
+- [Q485](../book/aerobic-training/06-practical-skills.md#q485) 泳课写着每 100 米「2 分钟包干」，到底能休息多久？
+- [Q486](../book/aerobic-training/06-practical-skills.md#q486) 离开泳池黑线就游成之字形，怎样在开放水域认方向？
+
+##### 划船机、田径场与其他有氧器材（5 题）
+
+- [Q487](../book/aerobic-training/06-practical-skills.md#q487) 划船机的脚托该放第几孔，能按身高来选吗？
+- [Q488](../book/aerobic-training/06-practical-skills.md#q488) 划船机上的每 500 米配速怎么看，数字变小代表什么？
+- [Q489](../book/aerobic-training/06-practical-skills.md#q489) 跑道内道有人，换到外道怎样准确跑一组 400 米？
+- [Q490](../book/aerobic-training/06-practical-skills.md#q490) 在人行道练北欧健走，普通登山杖和健走杖怎么选？
+- [Q491](../book/aerobic-training/06-practical-skills.md#q491) 初学跳绳，手柄拉到腋下就算合适吗，怎样试长度？
+
 ### 营养
 
 <a name="plan-everyday-nutrition"></a>
 
-#### 日常饮食（52 题）
+#### 日常饮食（58 题）
 
 ##### 三餐与主食（7 题）
 
@@ -418,9 +459,18 @@
 - [Q441](../book/everyday-nutrition/06-reader-questions.md#q441) 用微波炉热饭会让营养严重流失吗，还能继续用吗？
 - [Q447](../book/everyday-nutrition/06-reader-questions.md#q447) 水果一定要空腹或饭前吃，营养才更容易吸收吗？
 
+##### 食材处理与营养搭配（6 题）
+
+- [Q492](../book/everyday-nutrition/07-reader-questions.md#q492) 备餐前要把生鸡肉放在水龙头下冲洗吗？
+- [Q493](../book/everyday-nutrition/07-reader-questions.md#q493) 土豆放软了还长出很长的芽，挖掉芽再煮还能吃吗？
+- [Q494](../book/everyday-nutrition/07-reader-questions.md#q494) 奶酪边上长了霉，能把发霉的一角切掉继续吃吗？
+- [Q495](../book/everyday-nutrition/07-reader-questions.md#q495) 练力量后几乎天天吃罐头金枪鱼，担心汞摄入，接下来怎么选？
+- [Q496](../book/everyday-nutrition/07-reader-questions.md#q496) 茶和正餐一起喝会影响铁吸收吗，担心缺铁要把茶挪到什么时候？
+- [Q497](../book/everyday-nutrition/07-reader-questions.md#q497) 想从亚麻籽摄取植物性欧米伽-3，买整粒还是磨碎的？
+
 <a name="plan-training-nutrition"></a>
 
-#### 训练饮食与补剂（48 题）
+#### 训练饮食与补剂（52 题）
 
 ##### 按训练时间和负荷安排供能（8 题）
 
@@ -493,9 +543,16 @@
 - [Q443](../book/training-nutrition/06-reader-questions.md#q443) 蛋白粉或高蛋白饮食会伤肾吗，开始前该看什么？
 - [Q444](../book/training-nutrition/06-reader-questions.md#q444) 吃蛋白棒后总胀气或腹泻，是蛋白质太多吗，怎么换？
 
+##### 训练饮食与补剂的用法（4 题）
+
+- [Q498](../book/training-nutrition/07-reader-questions.md#q498) 训练前的粉剂能不能直接干吞，再喝水送下去？
+- [Q499](../book/training-nutrition/07-reader-questions.md#q499) 练完吃水果，会因为抗氧化成分而削弱增肌或耐力训练效果吗？
+- [Q500](../book/training-nutrition/07-reader-questions.md#q500) 健身需要像电影里那样喝生鸡蛋吗，煮熟会影响利用蛋白质吗？
+- [Q501](../book/training-nutrition/07-reader-questions.md#q501) 听说小苏打能让高强度跑坚持得更久，这类补剂适合什么项目？
+
 <a name="plan-running-nutrition"></a>
 
-#### 长跑营养（42 题）
+#### 长跑营养（46 题）
 
 ##### 备赛训练期怎么吃（8 题）
 
@@ -559,11 +616,18 @@
 - [Q445](../book/distance-running-nutrition/06-reader-questions.md#q445) 经常长跑吃胶、喝运动饮料，怎样兼顾补给和牙齿健康？
 - [Q446](../book/distance-running-nutrition/06-reader-questions.md#q446) 碳水漱口真的有用吗，能代替长跑时吃胶喝饮料吗？
 
+##### 越野饮水、比赛补给与禁食期训练（4 题）
+
+- [Q502](../book/distance-running-nutrition/07-reader-questions.md#q502) 越野长跑经过清澈的溪水或融雪水，可以直接接来喝吗？
+- [Q503](../book/distance-running-nutrition/07-reader-questions.md#q503) 马拉松用价格更高的水凝胶能量胶，会比普通胶跑得更快吗？
+- [Q504](../book/distance-running-nutrition/07-reader-questions.md#q504) 热天跑比赛前吃冰沙，真能让人跑得更久，能据此加快配速吗？
+- [Q505](../book/distance-running-nutrition/07-reader-questions.md#q505) 斋月白天不进食也不饮水，备战半马的长跑应放到开斋前还是开斋后？
+
 ### 健康
 
 <a name="plan-training-health"></a>
 
-#### 训练相关健康（112 题）
+#### 训练相关健康（120 题）
 
 [训练前评估](#health-screening) · [睡眠](#health-sleep) · [恢复与返训](#health-recovery) · [疼痛与伤病](#health-injuries) · [现场急症](#health-emergencies) · [能量不足](#health-energy) · [不同生理阶段](#health-life-stages) · [运动中的常见症状与生活场景](#reader-training-health) · [慢病与运动](#plan-chronic-health)
 
@@ -719,9 +783,20 @@
 - [Q458](../book/training-health/11-more-reader-questions.md#q458) 正常经期需要停跑，或按月经周期统一调整训练吗？
 - [Q459](../book/training-health/11-more-reader-questions.md#q459) 跑步时流鼻血该怎样止血，多久能继续训练，反复发生要就医吗？
 
+##### 运动环境、装备与日常照护（8 题）
+
+- [Q506](../book/training-health/12-sport-and-personal-health.md#q506) 动感单车课音乐太响，下课后耳鸣，又怕戴耳塞听不清教练，怎么办？
+- [Q507](../book/training-health/12-sport-and-personal-health.md#q507) 游泳后反复得外耳道炎，用过耳塞，还应该怎么弄干耳朵？
+- [Q508](../book/training-health/12-sport-and-personal-health.md#q508) 徒步被蜱虫叮住，一定要买专用取蜱器吗？
+- [Q509](../book/training-health/12-sport-and-personal-health.md#q509) 户外长跑出了很多汗，防晒霜什么时候补、哪些地方容易漏？
+- [Q510](../book/training-health/12-sport-and-personal-health.md#q510) 骑车摔倒时头盔撞了地，外壳没裂，还能继续用吗？
+- [Q511](../book/training-health/12-sport-and-personal-health.md#q511) 刚做完大面积纹身，游泳训练要等多久才能恢复？
+- [Q512](../book/training-health/12-sport-and-personal-health.md#q512) 拔了智齿几天已经不太痛，能按原跑表复训了吗？
+- [Q513](../book/training-health/12-sport-and-personal-health.md#q513) 乳房疼得跑起来不舒服，怎样试运动内衣，什么情况要找医生？
+
 <a name="plan-chronic-health"></a>
 
-#### 常见慢病与运动（21 题）
+#### 常见慢病与运动（23 题）
 
 ##### 血压、血脂和心血管病（5 题）
 
@@ -760,3 +835,8 @@
 ##### 视力与运动限制（1 题）
 
 - [Q460](../book/chronic-health/05-reader-questions.md#q460) 高度近视被医生提醒别举太重，怎样确认自己能做哪些力量训练？
+
+##### 雷诺现象与癫痫的运动安排（2 题）
+
+- [Q514](../book/chronic-health/06-cold-and-pool.md#q514) 有雷诺现象，冬天跑步摘手套取补给时手指就僵，怎么安排？
+- [Q515](../book/chronic-health/06-cold-and-pool.md#q515) 确诊癫痫后想回泳池，还会发作时应和谁一起游、提前说好什么？

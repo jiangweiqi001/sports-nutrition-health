@@ -27,15 +27,15 @@
 
 直接在 GitHub 阅读时，可打开下方总目录，用浏览器的页面查找搜索题号或问题中的词。
 
-## 465 题目录
+## 515 题目录
 
-[465 题总目录](docs/topics-400.md)收录首版 40 条和后续新增 425 条。按篇章浏览，点题号直达正文。
+[515 题总目录](docs/topics-400.md)收录首版 40 条和后续新增 475 条。按篇章浏览，点题号直达正文。
 
-- **运动（190 条）**　[抗阻训练](docs/topics-400.md#plan-resistance) · [拉伸与活动度](docs/topics-400.md#plan-mobility) · [有氧训练](docs/topics-400.md#plan-running)
-- **营养（142 条）**　[日常饮食](docs/topics-400.md#plan-everyday-nutrition) · [训练饮食与补剂](docs/topics-400.md#plan-training-nutrition) · [长跑营养](docs/topics-400.md#plan-running-nutrition)
-- **健康（133 条）**　[训练相关健康](docs/topics-400.md#plan-training-health) · [常见慢病与运动](docs/topics-400.md#plan-chronic-health)
+- **运动（216 条）**　[抗阻训练](docs/topics-400.md#plan-resistance) · [拉伸与活动度](docs/topics-400.md#plan-mobility) · [有氧训练](docs/topics-400.md#plan-running)
+- **营养（156 条）**　[日常饮食](docs/topics-400.md#plan-everyday-nutrition) · [训练饮食与补剂](docs/topics-400.md#plan-training-nutrition) · [长跑营养](docs/topics-400.md#plan-running-nutrition)
+- **健康（143 条）**　[训练相关健康](docs/topics-400.md#plan-training-health) · [常见慢病与运动](docs/topics-400.md#plan-chronic-health)
 
-这版新增[步数与久坐两题](docs/topics-400.md#steps-and-sitting)。Q401–Q465 的公开提问出处见[选题记录](docs/evidence.md#question-sources)。
+本次新增 50 道来自公开社区的读者问题（Q466–Q515）。[按类别查看网友原帖和选题记录](docs/evidence.md#reader-515)；[查看前 65 道新增题的选题来源](docs/evidence.md#question-sources)。
 
 ## 怎么读
 

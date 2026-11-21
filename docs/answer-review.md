@@ -2,7 +2,11 @@
 
 这里记录本轮逐题对照过的原始出处、关键数字和适用条件。条目中的参考链接列在「来源」。仅核对摘要、只核对部分依据或遇到原文访问限制时，表中注明范围。课表、换算和实践示例按其用途记录。
 
-临床判断项集中在 [运动前症状与家族史](../book/training-health/01-screening.md#q289)、[脑震荡后返训](../book/training-health/05-injuries-and-return.md#q348)、[孕期运动警示](../book/training-health/08-life-stages.md#q373)、[产后异常症状](../book/training-health/08-life-stages.md#q376) 和 [使用易致低血糖药物时的长课预案](../book/chronic-health/02-metabolic.md#q388)。这些条目核对了可追溯的指南依据，运动许可、返训条件和用药预案仍由相关专业人员结合个人情况确认。
+11 月 16 日复核的临床判断项包括 [运动前症状与家族史](../book/training-health/01-screening.md#q289)、[脑震荡后返训](../book/training-health/05-injuries-and-return.md#q348)、[孕期运动警示](../book/training-health/08-life-stages.md#q373)、[产后异常症状](../book/training-health/08-life-stages.md#q376) 和 [使用易致低血糖药物时的长课预案](../book/chronic-health/02-metabolic.md#q388)。这些条目核对了可追溯的指南依据，运动许可、返训条件和用药预案仍由相关专业人员结合个人情况确认。
+
+## 2026 年 11 月 22 日
+
+Q466–Q515 的 50 条核查记录与原帖放在一起，便于对照提问场景、证据适用范围和相近旧题。[抗阻训练](question-sources-strength-515.md) · [有氧训练](question-sources-aerobic-515.md) · [营养](question-sources-nutrition-515.md) · [健康](question-sources-health-515.md)
 
 ## 2026 年 11 月 16 日
 
